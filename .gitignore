@@ -1,4 +1,5 @@
 */node_modules
 .DS_store
 */.DS_store
-*/yarn-error.log
+yarn-error.log
+node_modules
