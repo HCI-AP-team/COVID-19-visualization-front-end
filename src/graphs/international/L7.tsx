@@ -146,7 +146,7 @@ const World = React.memo(function Map() {
               },
             }}
             color={{
-              values: 'pink',
+              values: '#bbb',
             }}
             shape={{
               values: 'fill',
@@ -164,7 +164,7 @@ const World = React.memo(function Map() {
               values: 0.6,
             }}
             color={{
-              values: 'skyblue',
+              values: '#89f',
             }}
             shape={{
               values: 'line',

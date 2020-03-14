@@ -53,11 +53,11 @@ const Homepage = () => {
     }
   ]
   const card: JSX.Element[] = peopleData.map((item: any) =>
-    <Card className={classes.root1}>
+    <Card className={classes.root1} key={item.name}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/gs.jpg"
+          image={process.env.PUBLIC_URL+"/gs.jpg"}
           title="Contemplative Reptile"
         />
         <CardContent>
