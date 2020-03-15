@@ -8,6 +8,7 @@ import {
   Popup,
 } from '@antv/l7-react';
 import * as React from 'react';
+import areaData from '../../tempData/areaData'
 import ReactDOM from 'react-dom';
 function joinData(geodata: any, ncovData: any) {
   const ncovDataObj: any = {};
@@ -73,14 +74,22 @@ const World = React.memo(function Map() {
   }>();
   React.useEffect(() => {
     const fetchData = async () => {
-      const [geoData, ncovData] = await Promise.all([
-        fetch(
-          'https://gw.alipayobjects.com/os/bmw-prod/e62a2f3b-ea99-4c98-9314-01d7c886263d.json',
-        ).then((d) => d.json()),
-        fetch('https://lab.isaaclin.cn/nCoV/api/area?latest=1').then((d) =>
-          d.json(),
-        ),
-      ]);
+      // const [geoData, ncovData] = await Promise.all([
+      //   fetch(
+      //     'https://gw.alipayobjects.com/os/bmw-prod/e62a2f3b-ea99-4c98-9314-01d7c886263d.json',
+      //   ).then((d) => d.json()),
+      //   fetch('https://lab.isaaclin.cn/nCoV/api/area?latest=1').then((d) =>
+      //     d.json(),
+      //   ),
+      // ]);
+
+      const geoData = await fetch(
+        'https://gw.alipayobjects.com/os/bmw-prod/e62a2f3b-ea99-4c98-9314-01d7c886263d.json',
+      ).then((d) => d.json())
+      const ncovData = areaData;
+
+
+      
       const worldData = joinData(geoData, ncovData.results);
       const pointdata = worldData.features.map((feature: any) => {
         return feature.properties;
