@@ -49,7 +49,7 @@ const Homepage = () => {
     },
     {
       name: 'pzz',
-      des: 'live emperor'
+      des: 'liver emperor'
     }
   ]
   const card: JSX.Element[] = peopleData.map((item: any) =>
