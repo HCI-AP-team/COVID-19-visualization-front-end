@@ -72,6 +72,7 @@ function Province() {
     })
     return (
         <div id='province' style={{ height: '100vh', width: '100vw' }}>
+            
         </div>
     )
 }
