@@ -1,60 +1,38 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { useEffect } from 'react'
-import { Scene, GaodeMap, LineLayer, PolygonLayer } from '@antv/l7'
-import data from '../../tempData/ChinaMap';
 import red from '@material-ui/core/colors/red';
-import { translate } from '@antv/g2/lib/util/transform';
-const useStyles = makeStyles({
+import raphael from 'raphael';
+import chinaMap from '../../tempData/chinamapData'
 
+const useStyles = makeStyles({
 })
 function China() {
-  // useEffect(() => {
-  //   const chinaLayer = new PolygonLayer({
-  //     autoFit: true
-  //   })
-  //     .source(data)
-  //     .shape("fill")
-  //     .color("confirm", (d) => {
-  //       return d > 1000 ? red[900] :
-  //         d > 499 ? red[700] :
-  //           d > 100 ? red[500] :
-  //             d > 10 ? red[300] :
-  //               d > 0 ? red[100] :
-  //                 red[50];
-  //     })
-  //     .style({
-  //       opacity: 1
-  //     });
-  //   const chinaLine = new LineLayer({})
-  //     .source(data)
-  //     .size(0.5)
-  //     .shape("line")
-  //     .color("#222")
-  //     .style({
-  //       opacity: 1
-  //     });
-  //   const scene = new Scene({
-  //     id: "map",
-  //     map: new GaodeMap({
-  //       center: [112.3956, 34.9392],
-  //       doubleClickZoom: false,
-  //       pitch: 0,
-  //       zoom: 4,
-  //       rotation: 0,
-  //       style: "dark"
-  //     })
-  //   });
-  //   scene.addLayer(chinaLayer);
-  //   scene.addLayer(chinaLine);
-  //   scene.render();
-  // })
-  return (
-    <div style={{ height: '100vh', width: '100vw' }}>
-      这个页面用来写全国概览
-      <div id="map" style={{height:'80%',width:'80%',transform:'translateY(100vh)'}}>
+  useEffect(() => {
+    //绘制中国地图
+    //TODO 根据病情填充颜色
+    const map = raphael("map",chinaMap.dimension.width,chinaMap.dimension.height);
+    chinaMap.paths.forEach((value) => {
 
-      </div>
+      //根据不同的路径分别画出一个个省份
+      let tempPath = map.path(value.cmd.map((val)=>{
+        return val.method+' '+val.param.join(',');
+      }).join(' '))
+
+      //得到当前绘制的省份的包围框
+      let box = tempPath.getBBox();
+      
+      //写省份名称,有的有偏移,有的没有偏移
+      map.text(
+        (box.x + (box.width / 2) +  (value.offset?value.offset.x:0)),
+        (box.y + (box.height / 2) + (value.offset?value.offset.y:0)),
+        value.name
+      );
+      
+    })
+  }, )
+  return (
+    <div id="map" style={{ height: '100vh', width: '100vw',display:'flex',justifyContent:'center',alignItems:'center' }}>
     </div>
   )
 }
