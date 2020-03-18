@@ -2,9 +2,11 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { useState, useEffect } from 'react'
 import red from '@material-ui/core/colors/red';
+import Slide from '@material-ui/core/Slide';
 import raphael from 'raphael';
 import chinaMap from '../../tempData/chinamapData'
 import areaData from '../../tempData/areaData'
+import { Paper } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
@@ -12,34 +14,49 @@ const useStyles = makeStyles({
     width: '100vw',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor:'#b3e5fc'
   },
   labels: {
-    width: '10vw',
     marginTop: '20vh',
     marginRight: '5vw',
     border: 'solid 2px black',
     borderRadius: '5px',
-    padding: '2px'
+    padding: '2px',
+    backgroundColor:'#e1f5fe'
   },
   detail: {
     width: "30vw",
     height: '80vh',
-    backgroundColor: 'white',
-    border: "ridge 2px red",
-    borderRadius: '5px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
     padding: '4px',
     transition: 'all 1s linear',
-  },
+    '& span': {
+      display: 'flex',
+      padding: '2px',
+      justifyContent: 'space-between',
+      height: '5vh',
+      alignItems: 'center'
+    }
+  }
 })
 
-interface dataForm {
-  省份: string;
-  value: string;
-}
+const useLabelStyle = makeStyles({
+  root: {
+    display: "flex",
+    justifyContent: 'flex-start',
+    alignItems: 'center'
+  },
+  label: {
+    height: '15px',
+    width: '30px',
+    marginRight: '5px',
+    fontSize: '5px'
+  }
+})
+
 const getColor = (value: number): string => {
   if (value < 50) {
     return red[50]
@@ -72,10 +89,11 @@ const getColor = (value: number): string => {
 
 
 function Label(props: any) {
+  const classes = useLabelStyle();
   const { color, value } = props;
   return (
-    <div style={{ display: "flex", justifyContent: 'flex-start', alignItems: 'center' }}>
-      <div style={{ backgroundColor: color, height: '15px', width: '30px', marginRight: '5px', fontSize: '5px' }}></div>
+    <div className={classes.root}>
+      <div className={classes.label} style={{ backgroundColor: color }}></div>
       <span>{value}</span>
     </div>
   )
@@ -103,15 +121,15 @@ const DisplayDetail = (props: any) => {
   const provinceName = props.currentChoose;
 
   //将时间戳转化成当前时间
-  function getTime(time:any){
+  function getTime(time: any) {
     let date = new Date(time);
     let Y = date.getFullYear() + '-';
-    let M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+    let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
     let D = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate()) + ' ';
     let h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
-    let m = (date.getMinutes() <10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
-    let s = (date.getSeconds() <10 ? '0' + date.getSeconds() : date.getSeconds());
-    return Y+M+D+h+m+s;
+    let m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+    let s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+    return Y + M + D + h + m + s;
   }
 
   //过滤出来某个省的数据
@@ -120,68 +138,45 @@ const DisplayDetail = (props: any) => {
     setTemp(areaData.results.filter((value) => value.countryEnglishName === "China" && value.provinceShortName === provinceName) as DataStructure[]);
   }, [provinceName])
   useEffect(() => {
-    console.log(temp)
   }, [temp])
+
   return (
-    <div>
+    <div style={{ padding: '5px', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', fontSize: '20px' }}>
       {temp ?
         temp[0] ? Object.keys(temp[0]).map((key) => {
-          if (key !== 'cities' && key !== "locationId"&&key!=='comment'&&key!=="updateTime") {
-            return <span key={key} style={{ display: 'flex', padding: '2px', justifyContent: 'space-between',height:'6vh'}}>
+          if (key !== 'cities' && key !== "locationId" && key !== 'comment' && key !== "updateTime") {
+            return <span key={key}>
               <p>{key + ' : '}</p>
               <p>{temp ? (temp[0] as any)[key] : ''}</p>
             </span>
           }
-          else{
-            if(key==="updateTime")
-              return <span key={key} style={{ display: 'flex', padding: '2px', justifyContent: 'space-between',height:'6vh'}}>
-                      <p>{key + ' : '}</p>
-                      <p>{temp ? getTime((temp[0] as any)[key]) : ''}</p>
-                    </span>
-            ;
+          else {
+            if (key === "updateTime")
+              return <span key={key}>
+                <p>{key + ' : '}</p>
+                <p>{temp ? getTime((temp[0] as any)[key]) : ''}</p>
+              </span>
+                ;
             else
               return undefined
           }
-          
+
         }
         )
           :
-          <p style={{textAlign:'center',fontSize:'30px'}}>点击各省可以查看该省的详细情况</p>
+          <p style={{ textAlign: 'center', fontSize: '30px' }}>点击各省可以查看该省的详细情况</p>
         :
         <p>点击各省可以查看该省的详细情况</p>
       }
     </div>
   )
 }
-
-function China() {
-  const [currentChoose, setCurrentChoose] = useState('');
-  const labels: object[] = [
-    {
-      color: red[50],
-      value: '0-49'
-    },
-    {
-      color: red[100],
-      value: '50-99'
-    },
-    {
-      color: red[200],
-      value: '100-499'
-    },
-    {
-      color: red[400],
-      value: '500-999'
-    },
-    {
-      color: red[600],
-      value: '1000-2000'
-    },
-    {
-      color: red[900],
-      value: '2000+'
-    }
-  ]
+const CreateChinaMap = (props: any) => {
+  const { handleChange, setCurrentChoose } = props;
+  interface dataForm {
+    省份: string;
+    value: string;
+  }
   const createChinaMap = () => {
 
     //中国地图容器
@@ -221,14 +216,18 @@ function China() {
       //每个省份图形的点击事件
       tempPath.click(
         () => {
-          setCurrentChoose(value.name);
+          handleChange();
+          setTimeout(() => {
+            setCurrentChoose(value.name);
+            handleChange();
+          }, 200)
         }
       )
 
       //每个省份都添加事件来确认鼠标位置
       tempPath.mouseover(
         () => {
-          tempPath.attr("fill", "#00e5ff")
+          tempPath.attr("fill", "#ffff00")
         }
       )
 
@@ -253,7 +252,7 @@ function China() {
       //每个省份都添加事件来确认鼠标位置
       text.mouseover(
         () => {
-          tempPath.attr("fill", "#00e5ff")
+          tempPath.attr("fill", "#ffff00")
         }
       )
 
@@ -267,24 +266,68 @@ function China() {
       //每个省份图形的点击事件
       text.click(
         () => {
-          setCurrentChoose(value.name);
+          handleChange();
+          setTimeout(() => {
+            setCurrentChoose(value.name);
+            handleChange();
+          }, 200)
         }
       )
     })
   }
-  const classes = useStyles()
   useEffect(() => {
     createChinaMap();
   }, [])
   return (
+    <div id="map">
+    </div>
+  )
+
+}
+function China() {
+  const [currentChoose, setCurrentChoose] = useState('');
+  const labels: object[] = [
+    {
+      color: red[50],
+      value: '0-49'
+    },
+    {
+      color: red[100],
+      value: '50-99'
+    },
+    {
+      color: red[200],
+      value: '100-499'
+    },
+    {
+      color: red[400],
+      value: '500-999'
+    },
+    {
+      color: red[600],
+      value: '1000-2000'
+    },
+    {
+      color: red[900],
+      value: '2000+'
+    }
+  ]
+  const classes = useStyles()
+  const [checked, setChecked] = useState(true);
+
+  return (
     <div className={classes.root}>
-      <div id="map" ></div>
+      <CreateChinaMap handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
       <div className={classes.labels}>
         <strong>确诊人数</strong>
         {labels.map((el: any, index: number) => <Label key={index} color={el.color} value={el.value} />)}
       </div>
       <div id="detail" className={classes.detail}>
-        <DisplayDetail currentChoose={currentChoose} />
+        <Slide direction="left" in={checked} mountOnEnter unmountOnExit>
+          <Paper elevation={5}>
+            <DisplayDetail currentChoose={currentChoose} />
+          </Paper>
+        </Slide>
       </div>
     </div>
   )
