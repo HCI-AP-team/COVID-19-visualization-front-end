@@ -2,14 +2,12 @@ import {
   LayerEvent,
   LineLayer,
   MapboxScene,
-  Marker,
   PointLayer,
   PolygonLayer,
   Popup,
 } from '@antv/l7-react';
 import * as React from 'react';
 import areaData from '../../tempData/areaData'
-import ReactDOM from 'react-dom';
 function joinData(geodata: any, ncovData: any) {
   const ncovDataObj: any = {};
   ncovData.forEach((item: any) => {

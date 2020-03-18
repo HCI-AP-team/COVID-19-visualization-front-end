@@ -74,12 +74,12 @@ function Province() {
             省份: any;
             value: any;
         }
-        let data:dataForm[] = areaData.results.map((el: any) => {
-            if (el.countryName == '中国') {
+        let data:dataForm[] = areaData.results.map((el: any):{}|undefined => {
+            if (el.countryName === '中国') {
                 return { 省份: el.provinceShortName, value: el.curedCount }
             }
             else
-                return;
+                return undefined;
         }) as dataForm[];
         data = data.filter((el: any) => el !== undefined)
         data = data.sort((a: any, b: any) => - b.value + a.value)
