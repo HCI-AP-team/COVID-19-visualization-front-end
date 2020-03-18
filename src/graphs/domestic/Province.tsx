@@ -130,7 +130,7 @@ function Province() {
             });
         chart.interaction('element-active');
         chart.render();
-    })
+    },[])
     return (
         <div id='province' style={{ height: '100vh', width: '100vw' }}>
 
