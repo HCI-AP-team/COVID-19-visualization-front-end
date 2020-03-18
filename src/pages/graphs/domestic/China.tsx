@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react'
 import red from '@material-ui/core/colors/red';
 import Slide from '@material-ui/core/Slide';
 import raphael from 'raphael';
-import chinaMap from '../../tempData/chinamapData'
-import areaData from '../../tempData/areaData'
+import chinaMap from '../../../assets/chinamapData'
+import areaData from '../../../assets/areaData'
 import { Paper } from '@material-ui/core';
 
 const useStyles = makeStyles({

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { Chart } from '@antv/g2'
-import areaData from '../../tempData/areaData'
+import areaData from '../../../assets/areaData'
 function Province() {
     useEffect(() => {
         // let url = 'https://lab.isaaclin.cn/nCoV/api/area';

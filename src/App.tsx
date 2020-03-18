@@ -3,13 +3,13 @@ import { useState } from 'react'
 import { Button, Backdrop } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import GitHubButton from 'react-github-btn'
-import L7 from './graphs/international/L7'
-import Memberpage from './homepage/Memberpage'
-import Homepage from './homepage/Homepage'
-import China from './graphs/domestic/China'
-import Province from './graphs/domestic/Province'
-import City from './graphs/domestic/City'
-import DirectionButton from './directionButton/DirectionButton'
+import L7 from './pages/graphs/international/L7'
+import Memberpage from './pages/homepage/Memberpage'
+import Homepage from './pages/homepage/Homepage'
+import China from './pages/graphs/domestic/China'
+import Province from './pages/graphs/domestic/Province'
+import City from './pages/graphs/domestic/City'
+import DirectionButton from './pages/directionButton/DirectionButton'
 
 const useStyles = makeStyles(theme => ({
   backdrop: {
@@ -55,7 +55,7 @@ function App() {
       <Province />
       <City />
       <Button variant="outlined" color="primary" onClick={handleToggle} className={classes.bdButton}>
-        learn more
+        about us
       </Button>
       <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
         <Memberpage />
