@@ -127,14 +127,14 @@ const DisplayDetail = (props: any) => {
       {temp ?
         temp[0] ? Object.keys(temp[0]).map((key) => {
           if (key !== 'cities' && key !== "locationId"&&key!=='comment'&&key!=="updateTime") {
-            return <span key={key} style={{ display: 'flex', padding: '2px', justifyContent: 'space-between'}}>
+            return <span key={key} style={{ display: 'flex', padding: '2px', justifyContent: 'space-between',height:'6vh'}}>
               <p>{key + ' : '}</p>
               <p>{temp ? (temp[0] as any)[key] : ''}</p>
             </span>
           }
           else{
             if(key==="updateTime")
-              return <span key={key} style={{ display: 'flex', padding: '2px', justifyContent: 'space-between'}}>
+              return <span key={key} style={{ display: 'flex', padding: '2px', justifyContent: 'space-between',height:'6vh'}}>
                       <p>{key + ' : '}</p>
                       <p>{temp ? getTime((temp[0] as any)[key]) : ''}</p>
                     </span>
