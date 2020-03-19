@@ -79,7 +79,6 @@ const Memberpage = () => {
     <div style={{width:'100vw',height:'100vh'}}>
       <p className={classes.title}>Welcome to Our Coursework</p>
       <div className={classes.cards}>{card}</div>
-
     </div>
   )
 }

@@ -7,7 +7,7 @@ import {
   Popup,
 } from '@antv/l7-react';
 import * as React from 'react';
-import areaData from '../../../assets/areaData'
+import areaData from '../assets/areaData'
 function joinData(geodata: any, ncovData: any) {
   const ncovDataObj: any = {};
   ncovData.forEach((item: any) => {
