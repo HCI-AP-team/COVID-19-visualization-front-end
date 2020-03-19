@@ -1,3 +1,4 @@
+English | [简体中文](./README.zh-CN.md)
 # The visualization of the NCP 
 It's the front-end of the coursework about the course advanced program
 
@@ -22,9 +23,10 @@ npm i yarn -g
 yarn 
 yarn start
 ```
-4: the project will run in 3000 port, you can visit it in  __localhost:3000__
+4. the project will run in 3000 port, you can visit it in  __localhost:3000__
 > :bangbang: if something is running in 3000 port, the project will choose another port to run.
-# Technology stack
+
+# Features
 - :wrench: react
 - :warning: typescript
 - :eyes: jss
@@ -35,6 +37,6 @@ yarn start
 # Tasklist
 - [ ] Homepage display
 - [ ] International status
-- [ ] General situation of China
+- [x] General situation of China
 - [ ] Provinces comparison
 - [ ] Cities detail
