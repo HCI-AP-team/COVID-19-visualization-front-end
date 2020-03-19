@@ -1,15 +1,21 @@
 import React from 'react';
-import { useState } from 'react'
+import { useState, useEffect, useRef, Suspense } from 'react'
 import { Button, Backdrop } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import GitHubButton from 'react-github-btn'
-import L7 from './pages/International'
 import Memberpage from './pages/Memberpage'
 import Homepage from './pages/Homepage'
+import DirectionButton from './components/DirectionButton'
+import International from './pages/International'
 import China from './pages/China/pages/China'
 import Province from './pages/Province'
-import City from './pages/City'
-import DirectionButton from './components/DirectionButton'
+// import City from './pages/city/pages/City'
+import Loading from './components/Loading'
+// //异步加载
+// const International = React.lazy(() => import('./pages/International'));
+// const China = React.lazy(() => import('./pages/China/pages/China'));
+// const Province = React.lazy(() => import('./pages/Province'));
+const City = React.lazy(() => import('./pages/city/pages/City'));
 
 const useStyles = makeStyles(theme => ({
   backdrop: {
@@ -32,10 +38,15 @@ function App() {
   const handleToggle = () => {
     setOpen(!open);
   };
+  const wholePageRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    window.addEventListener('wheel', (e) => {
+      //TODO 重写滚动事件
+      // e.preventDefault();
+    }, { passive: false })
+  }, [])
   return (
-    <>
-
-
+    <div style={{ transition: 'all 1s linear' }} ref={wholePageRef}>
       <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
         <GitHubButton
           href="https://github.com/HCI-AP-team/AP-coursework-front-end"
@@ -46,21 +57,26 @@ function App() {
           Star
         </GitHubButton>
       </div>
-
-      <DirectionButton/>
-
+      <DirectionButton />
       <Homepage />
-      <L7 />
+
+
+      <International />
       <China />
       <Province />
-      <City />
+      <Suspense fallback={<Loading />}>
+        <City />
+      </Suspense>
+
+
+
       <Button variant="outlined" color="primary" onClick={handleToggle} className={classes.bdButton}>
         about us
       </Button>
       <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
         <Memberpage />
       </Backdrop>
-    </>
+    </div>
   );
 }
 
