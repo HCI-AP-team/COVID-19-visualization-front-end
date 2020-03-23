@@ -84,7 +84,7 @@ function China() {
       </div>
       <div id="detail" className={classes.detail}>
         <Slide direction="left" in={checked} mountOnEnter unmountOnExit>
-          <Paper elevation={5}>
+          <Paper elevation={10}>
             <DisplayDetail currentChoose={currentChoose} />
           </Paper>
         </Slide>

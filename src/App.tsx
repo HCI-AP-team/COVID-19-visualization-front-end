@@ -8,7 +8,7 @@ import Homepage from './pages/Homepage'
 import DirectionButton from './components/DirectionButton'
 import International from './pages/International'
 import China from './pages/China/pages/China'
-import Province from './pages/Province'
+import Province from './pages/province/pages/Province'
 // import City from './pages/city/pages/City'
 import Loading from './components/Loading'
 // //异步加载
@@ -19,7 +19,7 @@ const City = React.lazy(() => import('./pages/city/pages/City'));
 
 const useStyles = makeStyles(theme => ({
   backdrop: {
-    zIndex: theme.zIndex.drawer + 1,
+    zIndex: theme.zIndex.drawer + 2,
     color: '#fff',
   },
   bdButton: {
