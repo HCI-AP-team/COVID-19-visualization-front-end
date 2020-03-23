@@ -27,7 +27,7 @@ yarn start
 > :bangbang: 如果3000端口被占用，这个项目将会在别的端口运行。
 
 # 技术栈
-- :wrench: react
+- ⚛️ react
 - :warning: typescript
 - :eyes: jss
 - :gem: material-ui
@@ -35,8 +35,8 @@ yarn start
 - :ant: antv
 
 # 任务列表
-- [ ] 主页展示
-- [ ] 全球情况
+- [x] 主页展示
+- [x] 全球情况
 - [x] 中国情况概览
-- [ ] 国内各省份对比
+- [x] 国内各省份对比
 - [ ] 城市详情

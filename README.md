@@ -27,7 +27,7 @@ yarn start
 > :bangbang: if something is running in 3000 port, the project will choose another port to run.
 
 # Features
-- :wrench: react
+- ⚛️ react
 - :warning: typescript
 - :eyes: jss
 - :gem: material-ui
@@ -35,8 +35,8 @@ yarn start
 - :ant: antv
  
 # Tasklist
-- [ ] Homepage display
-- [ ] International status
+- [x] Homepage display
+- [x] International status
 - [x] General situation of China
-- [ ] Provinces comparison
+- [x] Provinces comparison
 - [ ] Cities detail
