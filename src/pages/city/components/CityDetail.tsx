@@ -5,12 +5,13 @@ function CityDetail() {
     const [cityData,setCityData] = useState();
     useEffect(() => {
         setCityData(areaData.results.filter((value) => value.countryEnglishName === "China").map(el=>el.cities))
-        
-        console.log(cityData)
     }, [])
+    useEffect(() => {
+        console.log(cityData)
+    }, [cityData])
     return (
         <div>
-
+            {/* {cityData?.map((el:any)=>{console.log(el);return '1'})} */}
         </div>
     )
 }
