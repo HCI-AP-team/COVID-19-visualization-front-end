@@ -1,20 +1,22 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import areaData from '../../../assets/areaData'
-import CityDetail from '../components/CityDetail'
+import ChooseCity from '../components/ChooseCity'
 import CityCard from '../components/CityCard'
 function City() {
     const [cityData, setCityData] = useState();
+    const [chooseCity, setChooseCity] = useState('')
+    //加载城市数据
     useEffect(() => {
         setCityData(areaData.results.filter((value) => value.countryEnglishName === "China").map(el => el.cities))
     }, [])
     useEffect(() => {
-        cityData?.forEach((value: any) => { console.log(value) })
+        //重新渲染页面保证ChooseCity组件能够获得数据
     }, [cityData])
     return (
         <div style={{ width: '100vw', height: '100vh', position: 'relative', backgroundColor: '#fff9c4' }}>
 
-            <CityDetail />
+            <ChooseCity cityData={cityData}/>
             {
                 cityData?.map((value: any, id: number) =>
                     // 避免渲染过多导致页面卡顿
