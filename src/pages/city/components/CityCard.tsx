@@ -23,28 +23,28 @@ const useStyles = makeStyles({
         marginBottom: 12,
     },
 });
-function CityCard() {
+function CityCard(props:any) {
     const classes = useStyles();
     return (
-        <Card className={classes.root}>
+        <Card className={classes.root} elevation={5}>
             <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
-                cityName|cityEnglishName
+                cityName|cityEnglishName:{props.value.cityName}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    今日确诊|currentConfirmedCount
+                    今日确诊|currentConfirmedCount:{props.value.currentConfirmedCount}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    累计确诊|confirmedCount
+                    累计确诊|confirmedCount:{props.value.confirmedCount}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    疑似人数|suspectedCount
+                    疑似人数|suspectedCount:{props.value.suspectedCount}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    治愈人数|curedCount
+                    治愈人数|curedCount:{props.value.curedCount}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    死亡人数|deadCount
+                    死亡人数|deadCount:{props.value.deadCount}
                 </Typography>
             </CardContent>
             <CardActions>
