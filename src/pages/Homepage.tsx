@@ -34,13 +34,16 @@ function Homepage() {
     const classes = useStyles();
     useEffect(() => {
         let i = 1;
-        let st = setInterval(() => {
+        let disStr = () => {
             setStr(displayString.substr(0, i++))//逐步显示文字
-            if (i === displayString.length + 1) {
-                clearInterval(st);//清除间歇调用
+            if (i !== displayString.length + 1) {
+                requestAnimationFrame(disStr);
+            }
+            else{
                 setShowHint(true);//显示提示框
             }
-        }, 50);
+        };
+        disStr();
     }, [])
     return (
         <div className={classes.root}>

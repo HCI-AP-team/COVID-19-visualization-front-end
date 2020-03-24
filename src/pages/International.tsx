@@ -92,8 +92,8 @@ const World = React.memo(function Map() {
       const pointdata = worldData.features.map((feature: any) => {
         return feature.properties;
       });
-      setfillData(worldData);
-      setData(pointdata);
+      setTimeout(()=>setfillData(worldData),1000);
+      setTimeout(()=>setData(pointdata),1000);
     };
     fetchData();
   }, []);
