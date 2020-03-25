@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import ScrollReveal from 'scrollreveal'
 import red from '@material-ui/core/colors/red';
 import Slide from '@material-ui/core/Slide';
 import { Paper } from '@material-ui/core';
@@ -14,7 +15,7 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#b3e5fc'
+    backgroundColor: '#b3e5fc'
   },
   labels: {
     marginTop: '20vh',
@@ -22,7 +23,7 @@ const useStyles = makeStyles({
     border: 'solid 2px black',
     borderRadius: '5px',
     padding: '2px',
-    backgroundColor:'#e1f5fe'
+    backgroundColor: '#e1f5fe'
   },
   detail: {
     width: "30vw",
@@ -75,8 +76,20 @@ function China() {
   const classes = useStyles()
   const [checked, setChecked] = useState(true);
 
+  useEffect(() => {
+    ScrollReveal().reveal("#ChinaMap", {
+      duration: 500,
+      distance: '0px',
+      reset:true,
+      rotate: {
+        x: 20,
+        z: 20
+      }
+    })//入场动画
+  }, [])
+
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="ChinaMap">
       <CreateChinaMap handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
       <div className={classes.labels}>
         <strong>确诊人数</strong>

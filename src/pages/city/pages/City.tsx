@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import ScrollReveal from 'scrollreveal'
 import areaData from '../../../assets/areaData'
 import ChooseCity from '../components/ChooseCity'
 import CityCard from '../components/CityCard'
@@ -9,12 +10,13 @@ function City() {
     //加载城市数据
     useEffect(() => {
         setCityData(areaData.results.filter((value) => value.countryEnglishName === "China").map(el => el.cities))
+        ScrollReveal().reveal("#CityMap",{ duration: 500,distance: '0px',opacity:0 ,reset: true})//入场动画
     }, [])
     useEffect(() => {
         //重新渲染页面保证ChooseCity组件能够获得数据
     }, [cityData])
     return (
-        <div style={{ width: '100vw', height: '100vh', position: 'relative', backgroundColor: '#fff9c4' }}>
+        <div id="CityMap" style={{ width: '100vw', height: '100vh', position: 'relative', backgroundColor: '#fff9c4' }}>
 
             <ChooseCity cityData={cityData}/>
             {

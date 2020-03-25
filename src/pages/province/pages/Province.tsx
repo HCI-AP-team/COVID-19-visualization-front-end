@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Chart } from '@antv/g2'
+import ScrollReveal from 'scrollreveal'
 import areaData from '../../../assets/areaData'
 import SelectBox from '../components/SelectBox'
 import { makeStyles } from '@material-ui/core/styles';
@@ -158,12 +159,19 @@ function Province() {
             });
         chart.interaction('element-active');
         chart.render();
+        ScrollReveal().reveal("#ProvinceMap",{ 
+            duration: 500,
+            rotate: {
+              x: 50,
+              z: 20
+            },
+            reset:true})//入场动画
         return () => {
-            chart.destroy();//摧毁图表
+            chart.destroy();//摧毁图表,防止多次渲染
         }
     }, [displayLabel])
     return (
-        <div className={classes.root}>
+        <div id="ProvinceMap" className={classes.root}>
             <SelectBox displayLabel={displayLabel} setDisplayLabel={setDisplayLabel} />
             <div id='province' className={classes.chart}>
             </div>
