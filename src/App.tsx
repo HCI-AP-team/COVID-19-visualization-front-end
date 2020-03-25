@@ -40,10 +40,7 @@ function App() {
   };
   const wholePageRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    window.addEventListener('wheel', (e) => {
-      //TODO 重写滚动事件
-      // e.preventDefault();
-    }, { passive: false })
+
   }, [])
   return (
     <div style={{ transition: 'all 1s linear' }} ref={wholePageRef}>
