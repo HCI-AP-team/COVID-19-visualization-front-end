@@ -44,11 +44,11 @@ function SelectBox(props:any) {
             value={displayLabel}
             onChange={handleChange}
         >
-            <MenuItem value={'currentConfirmedCount'}>currentConfirmedCount</MenuItem>
-            <MenuItem value={'confirmedCount'}>confirmedCount</MenuItem>
-            <MenuItem value={'suspectedCount'}>suspectedCount</MenuItem>
-            <MenuItem value={'curedCount'}>curedCount</MenuItem>
-            <MenuItem value={'deadCount'}>deadCount</MenuItem>
+            <MenuItem value={'currentConfirmedCount'}>今日确诊数</MenuItem>
+            <MenuItem value={'confirmedCount'}>累计确诊数</MenuItem>
+            <MenuItem value={'suspectedCount'}>疑似病例数</MenuItem>
+            <MenuItem value={'curedCount'}>治愈数</MenuItem>
+            <MenuItem value={'deadCount'}>死亡数</MenuItem>
         </Select>
     </FormControl>
     )

@@ -172,7 +172,10 @@ function Province() {
     }, [displayLabel])
     return (
         <div id="ProvinceMap" className={classes.root}>
-            <SelectBox displayLabel={displayLabel} setDisplayLabel={setDisplayLabel} />
+            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+                <strong>可以对比不同的值</strong>
+                <SelectBox displayLabel={displayLabel} setDisplayLabel={setDisplayLabel} />
+            </div>
             <div id='province' className={classes.chart}>
             </div>
         </div>

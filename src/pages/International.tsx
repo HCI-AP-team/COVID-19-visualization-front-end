@@ -87,13 +87,13 @@ const World = React.memo(function Map() {
       const ncovData = areaData;
 
 
-      
+
       const worldData = joinData(geoData, ncovData.results);
       const pointdata = worldData.features.map((feature: any) => {
         return feature.properties;
       });
-      setTimeout(()=>setfillData(worldData),1000);
-      setTimeout(()=>setData(pointdata),1000);
+      setTimeout(() => setfillData(worldData), 1000);
+      setTimeout(() => setData(pointdata), 1000);
     };
     fetchData();
   }, []);
@@ -105,126 +105,129 @@ const World = React.memo(function Map() {
   }
 
   return (
-    <div style={{height:'90vh',width:'90vw',margin:'5vh auto',position:'relative',backgroundColor:'skyblue'}}>
-      <MapboxScene
-        map={{
-          center: [110.19382669582967, 50.258134],
-          pitch: 0,
-          style: 'blank',
-          zoom: 1,
-        }}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-        }}
-      >
-        {popupInfo && (
-          <Popup lnglat={popupInfo.lnglat}>
-            {popupInfo.feature.name}
-            <ul
+    <div style={{ height: '100vh', width: '100vw',display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+      <strong>世界概况(支持缩放和拖动)</strong>
+      <div style={{ height: '90vh', width: '90vw', position: 'relative', backgroundColor: 'skyblue' }}>
+        <MapboxScene
+          map={{
+            center: [110.19382669582967, 50.258134],
+            pitch: 0,
+            style: 'blank',
+            zoom: 1,
+          }}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+          }}
+        >
+          {popupInfo && (
+            <Popup lnglat={popupInfo.lnglat}>
+              {popupInfo.feature.name}
+              <ul
+                style={{
+                  margin: 0,
+                }}
+              >
+                <li>现有确诊:{popupInfo.feature.currentConfirmedCount}</li>
+                <li>累计确诊:{popupInfo.feature.confirmedCount}</li>
+                <li>治愈:{popupInfo.feature.curedCount}</li>
+                <li>死亡:{popupInfo.feature.deadCount}</li>
+              </ul>
+            </Popup>
+          )}
+          {data && [
+            <PolygonLayer
+              key={'1'}
+              options={{
+                autoFit: false,
+              }}
+              source={{
+                data: filldata,
+              }}
+              scale={{
+                values: {
+                  confirmedCount: {
+                    type: 'quantile',
+                  },
+                },
+              }}
+              color={{
+                values: '#bbb',
+              }}
+              shape={{
+                values: 'fill',
+              }}
               style={{
-                margin: 0,
+                opacity: 1,
+              }}
+            />,
+            <LineLayer
+              key={'3'}
+              source={{
+                data: filldata,
+              }}
+              size={{
+                values: 0.6,
+              }}
+              color={{
+                values: '#89f',
+              }}
+              shape={{
+                values: 'line',
+              }}
+              style={{
+                opacity: 1,
+              }}
+            />,
+            <PointLayer
+              key={'2'}
+              options={{
+                autoFit: true,
+              }}
+              source={{
+                data,
+                parser: {
+                  type: 'json',
+                  coordinates: 'centroid',
+                },
+              }}
+              scale={{
+                values: {
+                  confirmedCount: {
+                    type: 'log',
+                  },
+                },
+              }}
+              color={{
+                values: '#b10026',
+              }}
+              shape={{
+                values: 'circle',
+              }}
+              active={{
+                option: {
+                  color: '#0c2c84',
+                },
+              }}
+              size={{
+                field: 'confirmedCount',
+                values: [5, 60],
+              }}
+              animate={{
+                enable: true,
+              }}
+              style={{
+                opacity: 0.6,
               }}
             >
-              <li>现有确诊:{popupInfo.feature.currentConfirmedCount}</li>
-              <li>累计确诊:{popupInfo.feature.confirmedCount}</li>
-              <li>治愈:{popupInfo.feature.curedCount}</li>
-              <li>死亡:{popupInfo.feature.deadCount}</li>
-            </ul>
-          </Popup>
-        )}
-        {data && [
-          <PolygonLayer
-            key={'1'}
-            options={{
-              autoFit: false,
-            }}
-            source={{
-              data: filldata,
-            }}
-            scale={{
-              values: {
-                confirmedCount: {
-                  type: 'quantile',
-                },
-              },
-            }}
-            color={{
-              values: '#bbb',
-            }}
-            shape={{
-              values: 'fill',
-            }}
-            style={{
-              opacity: 1,
-            }}
-          />,
-          <LineLayer
-            key={'3'}
-            source={{
-              data: filldata,
-            }}
-            size={{
-              values: 0.6,
-            }}
-            color={{
-              values: '#89f',
-            }}
-            shape={{
-              values: 'line',
-            }}
-            style={{
-              opacity: 1,
-            }}
-          />,
-          <PointLayer
-            key={'2'}
-            options={{
-              autoFit: true,
-            }}
-            source={{
-              data,
-              parser: {
-                type: 'json',
-                coordinates: 'centroid',
-              },
-            }}
-            scale={{
-              values: {
-                confirmedCount: {
-                  type: 'log',
-                },
-              },
-            }}
-            color={{
-              values: '#b10026',
-            }}
-            shape={{
-              values: 'circle',
-            }}
-            active={{
-              option: {
-                color: '#0c2c84',
-              },
-            }}
-            size={{
-              field: 'confirmedCount',
-              values: [5, 60],
-            }}
-            animate={{
-              enable: true,
-            }}
-            style={{
-              opacity: 0.6,
-            }}
-          >
-            <LayerEvent type="mousemove" handler={showPopup} />
-          </PointLayer>,
-        ]}
-      </MapboxScene>
+              <LayerEvent type="mousemove" handler={showPopup} />
+            </PointLayer>,
+          ]}
+        </MapboxScene>
+      </div>
     </div>
   );
 });
