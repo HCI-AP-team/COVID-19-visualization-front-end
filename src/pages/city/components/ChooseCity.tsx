@@ -105,7 +105,7 @@ function ChooseCity(props: any) {
                                 groupBy={(option:any) => option.provinceName}
                                 getOptionLabel={(option:any) => option.cityName}
                                 renderInput={params => (
-                                    <TextField {...params} label="City Name" margin="normal" variant="outlined" />
+                                    <TextField {...params} inputRef={inputRef} label="City Name" margin="normal" variant="outlined" />
                                 )}
                             />
                             :
