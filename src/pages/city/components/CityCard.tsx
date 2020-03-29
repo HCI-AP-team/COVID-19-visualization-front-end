@@ -29,7 +29,8 @@ function CityCard(props:any) {
         <Card className={classes.root} elevation={5}>
             <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
-                cityName|cityEnglishName:{props.value.cityName}
+                cityName|cityEnglishName:{props.value.cityName?props.value.cityName:props.value.provinceShortName}
+                {/* 没有城市名称属性就是特殊地区 */}
                 </Typography>
                 <Typography variant="body2" component="p">
                     今日确诊|currentConfirmedCount:{props.value.currentConfirmedCount}
