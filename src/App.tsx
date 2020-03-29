@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect, useRef, Suspense } from 'react'
+import { useState, useRef, Suspense } from 'react'
 import { Button, Backdrop } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import GitHubButton from 'react-github-btn'
@@ -39,9 +39,7 @@ function App() {
     setOpen(!open);
   };
   const wholePageRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-
-  }, [])
+  const [displayText, setDisplayText] = useState(false)//设定文字显示
   return (
     <div style={{ transition: 'all 1s linear' }} ref={wholePageRef}>
       <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
@@ -55,10 +53,10 @@ function App() {
         </GitHubButton>
       </div>
       <DirectionButton />
-      <Homepage />
+      <Homepage displayText={displayText}/>
 
 
-      <International />
+      <International setDisplayText={setDisplayText}/>
       <China />
       <Province />
       <Suspense fallback={<Loading />}>
