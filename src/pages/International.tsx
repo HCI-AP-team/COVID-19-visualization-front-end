@@ -63,7 +63,8 @@ function joinData(geodata: any, ncovData: any) {
   return geodata;
 }
 
-const World = React.memo(function Map() {
+const World = React.memo(function Map(props:any) {
+  const { setDisplayText } = props;
   const [data, setData] = React.useState();
   const [filldata, setfillData] = React.useState();
   const [popupInfo, setPopupInfo] = React.useState<{
@@ -92,8 +93,9 @@ const World = React.memo(function Map() {
       const pointdata = worldData.features.map((feature: any) => {
         return feature.properties;
       });
-      setTimeout(() => setfillData(worldData), 1000);
-      setTimeout(() => setData(pointdata), 1000);
+      setfillData(worldData)
+      setData(pointdata)
+      setTimeout(()=>setDisplayText(true),0)//将文字是否显示放在宏任务队列末尾
     };
     fetchData();
   }, []);
