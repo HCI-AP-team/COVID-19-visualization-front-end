@@ -21,3 +21,8 @@ a{
 .l7-control-logo{
   display: none;
 }
+
+/* 用于调整搜索输入框的样式 */
+.MuiFormControl-marginNormal{
+  margin:0 !important;
+}
