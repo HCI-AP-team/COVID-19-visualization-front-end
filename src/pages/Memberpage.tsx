@@ -32,24 +32,29 @@ const Memberpage = () => {
   const classes = useStyles();
   const peopleData: object[] = [
     {
-      name: 'lkc',
-      des: 'richest'
+      name: '李🚗',
+      des: '计科首富',
+      link:'https://github.com/lkczn'
     },
     {
-      name: 'gs',
-      des: 'the king of diao'
+      name: '郭👩‍🏫',
+      des: '第一蛮王',
+      link:'https://github.com/loveisever'
     },
     {
-      name: 'gsw',
-      des: 'big tiger'
+      name: '高🐯',
+      des: '大老虎',
+      link:'https://github.com/shituweian'
     },
     {
-      name: 'xww',
-      des: 'girl'
+      name: '肖👃',
+      des: '...',
+      link:'https://github.com/xiao-wenwei'
     },
     {
-      name: 'pzz',
-      des: 'liver emperor'
+      name: '彭📈',
+      des: '肝帝',
+      link:'https://github.com/GiorgioPeng'
     }
   ]
   const card: JSX.Element[] = peopleData.map((item: any) =>
@@ -71,13 +76,13 @@ const Memberpage = () => {
       </CardActionArea>
       <CardActions>
         <Button size="large" variant="contained" color="primary">
-          Learn More
+          <a href={item.link}>我的github</a>
       </Button>
       </CardActions>
     </Card>)
   return (
     <div style={{width:'100vw',height:'100vh'}}>
-      <p className={classes.title}>Welcome to Our Coursework</p>
+      <p className={classes.title}>欢迎来到我们的新冠肺炎可视化系统</p>
       <div className={classes.cards}>{card}</div>
     </div>
   )

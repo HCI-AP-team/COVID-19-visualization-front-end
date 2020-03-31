@@ -66,7 +66,7 @@ function App() {
 
 
       <Button variant="outlined" color="primary" onClick={handleToggle} className={classes.bdButton}>
-        about us
+        关于我们
       </Button>
       <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
         <Memberpage />

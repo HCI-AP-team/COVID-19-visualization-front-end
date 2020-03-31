@@ -29,27 +29,30 @@ function CityCard(props:any) {
         <Card className={classes.root} elevation={5}>
             <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
-                cityName|cityEnglishName:{props.value.cityName?props.value.cityName:props.value.provinceShortName}
+                城市名称:{props.value.cityName?props.value.cityName:props.value.provinceShortName}
                 {/* 没有城市名称属性就是特殊地区 */}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    今日确诊|currentConfirmedCount:{props.value.currentConfirmedCount}
+                    今日确诊: {props.value.currentConfirmedCount}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    累计确诊|confirmedCount:{props.value.confirmedCount}
+                    累计确诊: {props.value.confirmedCount}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    疑似人数|suspectedCount:{props.value.suspectedCount}
+                    疑似人数: {props.value.suspectedCount}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    治愈人数|curedCount:{props.value.curedCount}
+                    治愈人数: {props.value.curedCount}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    死亡人数|deadCount:{props.value.deadCount}
+                    死亡人数: {props.value.deadCount}
+                </Typography>
+                <Typography variant="body2" component="p">
+                    所属省份: {props.value.provinceName}
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Learn More</Button>
+                <Button size="small" color="primary" variant="contained">进一步了解这个城市</Button>
             </CardActions>
         </Card>
     )

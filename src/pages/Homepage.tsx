@@ -12,7 +12,7 @@ const useStyles = makeStyles({
         alignItems: 'center',
         backgroundColor: 'black',
         '& p': {
-            fontSize: '50px',
+            fontSize: '45px',
             color: 'white',
             textAlign: 'center',
             width: '70vw'
@@ -30,7 +30,7 @@ const useStyles = makeStyles({
 })
 function Homepage(props: any) {
     const { displayText } = props//用于判断是否开始显示文字动画
-    const displayString = "Novel coronavirus pneumonia is a novel coronavirus pneumonia visualization project. No one can avoid this epidemic. The epidemic in China has been gradually improved, and the epidemic is spreading abroad. We hope that this project will help people understand the epidemic situation more profoundly."
+    const displayString = "这是一场前所未有的’战疫‘,也是一场全人类的挑战,没有任何人可以置身事外."
     const [str, setStr] = useState('')
     const [showHint, setShowHint] = useState(false)
     const classes = useStyles();
@@ -55,7 +55,7 @@ function Homepage(props: any) {
                     <p>{str}</p> :
                     <CircularProgress size={90} thickness={6}/>
             }
-            <div className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>Glide and learn more</div>
+            <div className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>下滑并了解更多⬇️</div>
         </div>
     )
 }

@@ -18,6 +18,11 @@ const useStyles = makeStyles(theme => ({
     chart: {
         height: '80vh',
         width: '80vw'
+    },
+    chooseInput: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     }
 }));
 function Province() {
@@ -119,9 +124,9 @@ function Province() {
         chart.data(data);
         chart.scale({
             value: {
-                max: data[data.length - 1].value * 1.2,// 设定横坐标最大值,因为已经排序了
+                max: data[data.length - 1].value * 1.2,// 设定横坐标最大值,因为已经排序了,所以选取最后一个
                 min: 0,
-                alias: displayLabel,//横坐标显示
+                alias: '单位/人',//横坐标显示
             },
         });
         chart.axis('省份', {
@@ -159,20 +164,21 @@ function Province() {
             });
         chart.interaction('element-active');
         chart.render();
-        ScrollReveal().reveal("#ProvinceMap",{ 
+        ScrollReveal().reveal("#ProvinceMap", {
             duration: 500,
             rotate: {
-              x: 50,
-              z: 20
+                x: 50,
+                z: 20
             },
-            reset:true})//入场动画
+            reset: true
+        })//入场动画
         return () => {
             chart.destroy();//摧毁图表,防止多次渲染
         }
     }, [displayLabel])
     return (
         <div id="ProvinceMap" className={classes.root}>
-            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+            <div className={classes.chooseInput}>
                 <strong>可以对比不同的值</strong>
                 <SelectBox displayLabel={displayLabel} setDisplayLabel={setDisplayLabel} />
             </div>

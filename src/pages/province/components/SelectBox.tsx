@@ -34,7 +34,7 @@ function SelectBox(props:any) {
     };
     return (
     <FormControl className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">display</InputLabel>
+        <InputLabel id="demo-controlled-open-select-label">对比什么</InputLabel>
         <Select
             labelId="demo-controlled-open-select-label"
             id="demo-controlled-open-select"
