@@ -20,6 +20,24 @@ const DisplayDetail = (props: any) => {
       'comment': string
       'updateTime': number
     }
+    const ChineseLabels = [
+      '位置编号',
+      '所属大洲名称',
+      '所属大洲英文名',
+      '国家名称',
+      '国家英文名称',
+      '省份名称',
+      '省份简称',
+      '省份英文名称',
+      '今日确诊人数',
+      '累计确诊人数',
+      '疑似病例数',
+      '治愈人数',
+      '死亡人数',
+      '所包含的城市',
+      '评论',
+      '更新时间'
+    ]
     const provinceName = props.currentChoose;
   
     //将时间戳转化成当前时间
@@ -45,17 +63,17 @@ const DisplayDetail = (props: any) => {
     return (
       <div style={{ padding: '5px', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', fontSize: '20px' }}>
         {temp ?
-          temp[0] ? Object.keys(temp[0]).map((key) => {
+          temp[0] ? Object.keys(temp[0]).map((key:string,index:number) => {
             if (key !== 'cities' && key !== "locationId" && key !== 'comment' && key !== "updateTime") {
               return <span key={key}>
-                <p>{key + ' : '}</p>
+                <p>{ChineseLabels[index] + ' : '}</p>
                 <p>{temp ? (temp[0] as any)[key] : ''}</p>
               </span>
             }
             else {
               if (key === "updateTime")
                 return <span key={key}>
-                  <p>{key + ' : '}</p>
+                  <p>{ChineseLabels[index] + ' : '}</p>
                   <p>{temp ? getTime((temp[0] as any)[key]) : ''}</p>
                 </span>
                   ;
