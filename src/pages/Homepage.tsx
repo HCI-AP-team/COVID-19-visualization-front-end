@@ -19,13 +19,10 @@ const useStyles = makeStyles({
         }
     },
     hint: {
-        border: '2px solid #304ffe',
-        borderRadius: '5px',
-        padding: '15px',
         textAlign: 'center',
         color: 'white',
         transition: '1s linear all',
-        fontWeight: 'bold'
+        marginBottom:'3vh'
     }
 })
 function Homepage(props: any) {
@@ -55,7 +52,8 @@ function Homepage(props: any) {
                     <p>{str}</p> :
                     <CircularProgress size={90} thickness={6}/>
             }
-            <div className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>下滑并了解更多⬇️</div>
+            <ruby className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>下<rt>xia</rt>滑<rt>hua</rt>并<rt>bing</rt>了<rt>liao</rt>解<rt>jie</rt>更<rt>geng</rt>多<rt>duo</rt>⬇️</ruby>
+            <ruby className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>右<rt>you</rt>下<rt>xia</rt>角<rt>jiao</rt>按<rt>an</rt>钮<rt>niu</rt>可<rt>ke</rt>以<rt>yi</rt>快<rt>kuai</rt>速<rt>su</rt>换<rt>huan</rt>页<rt>ye</rt>➡️⬇️</ruby>
         </div>
     )
 }

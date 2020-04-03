@@ -1,10 +1,26 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import ScrollReveal from 'scrollreveal'
+import { makeStyles } from '@material-ui/core/styles';
 import areaData from '../../../assets/areaData'
 import ChooseCity from '../components/ChooseCity'
 import CityCard from '../components/CityCard'
+import classes from '*.module.css';
+const useStyles = makeStyles({
+    root: {
+        width: '100vw',
+        height: '100vh',
+        position: 'relative',
+        backgroundColor: '#fff9c4'
+    },
+    cityCards: {
+        position: 'absolute',
+        right: '10vw',
+        top: '30vh'
+    }
+})
 function City() {
+    const classes = useStyles();
     const [cityData, setCityData] = useState()
     //加载城市数据
     useEffect(() => {
@@ -31,7 +47,13 @@ function City() {
 
         )
 
-        ScrollReveal().reveal("#CityMap", { duration: 500, distance: '0px', opacity: 0, reset: true })//入场动画
+        ScrollReveal().reveal(".CityMap",
+            {
+                duration: 2000,
+                distance: '0px',
+                opacity: 0,
+                reset: true
+            })//入场动画
 
     }, [])
     useEffect(() => {
@@ -39,17 +61,26 @@ function City() {
         // console.log(cityData)
     }, [cityData])
     return (
-        <div id="CityMap" style={{ width: '100vw', height: '100vh', position: 'relative', backgroundColor: '#fff9c4' }}>
+        <div className={classes.root}>
 
-            <ChooseCity cityData={cityData} />
+            <ChooseCity className="CityMap" cityData={cityData} />
             {
                 cityData?.map((value: any, id: any) =>
                     // 避免渲染过多导致页面卡顿
                     id < 1 ?
                         value?.map((value: any, id: any) =>
-                            <div style={{ position: 'absolute', right: '10vw', top: '30vh', transform: 'rotate(' + Math.random() * 360 + 'deg)' }} key={id}>
-                                <CityCard value={value} />
-                            </div>)
+                            id < 10 ?
+                                <div
+                                    className={classes.cityCards}
+                                    style={{
+                                        transform: 'rotate(' + Math.random() * 360 + 'deg)'
+                                    }}
+                                    key={id}>
+                                    <CityCard value={value} />
+                                </div>
+                                :
+                                ''
+                        )
                         :
                         ''
                 )

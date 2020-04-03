@@ -33,7 +33,7 @@ const getColor = (value: number): string => {
     }
   }
 const CreateChinaMap = (props: any) => {
-    const { handleChange, setCurrentChoose } = props;
+    const { className,handleChange, setCurrentChoose } = props;
     interface dataForm {
       省份: string;
       value: string;
@@ -140,7 +140,7 @@ const CreateChinaMap = (props: any) => {
       createChinaMap();
     }, [])
     return (
-      <div id="map">
+      <div id="map" className={className}>
       </div>
     )
   

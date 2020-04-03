@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#b3e5fc'
+    backgroundColor: '#fff9c4'
   },
   labels: {
     marginTop: '20vh',
@@ -77,10 +77,10 @@ function China() {
   const [checked, setChecked] = useState(true);
 
   useEffect(() => {
-    ScrollReveal().reveal("#ChinaMap", {
-      duration: 500,
+    ScrollReveal().reveal(".ChinaMap", {
+      duration: 2000,
       distance: '0px',
-      reset:true,
+      reset: true,
       rotate: {
         x: 20,
         z: 20
@@ -89,13 +89,13 @@ function China() {
   }, [])
 
   return (
-    <div className={classes.root} id="ChinaMap">
-      <CreateChinaMap handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
-      <div className={classes.labels}>
+    <div className={classes.root} >
+      <CreateChinaMap className='ChinaMap' handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
+      <div className={classes.labels + ' ChinaMap'}>
         <strong>确诊人数</strong>
         {labels.map((el: any, index: number) => <Label key={index} color={el.color} value={el.value} />)}
       </div>
-      <div id="detail" className={classes.detail}>
+      <div id="detail" className={classes.detail + ' ChinaMap'}>
         <Slide direction="left" in={checked} mountOnEnter unmountOnExit>
           <Paper elevation={10}>
             <DisplayDetail currentChoose={currentChoose} />

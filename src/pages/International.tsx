@@ -7,7 +7,27 @@ import {
   Popup,
 } from '@antv/l7-react';
 import * as React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import ScrollReveal from 'scrollreveal'
 import areaData from '../assets/areaData'
+
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: '#fff9c4',
+    height: '100vh',
+    width: '100vw',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  mapBg: {
+    height: '90vh',
+    width: '90vw',
+    position: 'relative',
+    backgroundColor: 'skyblue'
+  }
+});
 function joinData(geodata: any, ncovData: any) {
   const ncovDataObj: any = {};
   ncovData.forEach((item: any) => {
@@ -63,7 +83,8 @@ function joinData(geodata: any, ncovData: any) {
   return geodata;
 }
 
-const World = React.memo(function Map(props:any) {
+const World = React.memo(function Map(props: any) {
+  const classes = useStyles();
   const { setDisplayText } = props;
   const [data, setData] = React.useState();
   const [filldata, setfillData] = React.useState();
@@ -95,9 +116,19 @@ const World = React.memo(function Map(props:any) {
       });
       setfillData(worldData)
       setData(pointdata)
-      setTimeout(()=>setDisplayText(true),0)//将文字是否显示放在宏任务队列末尾
+      setTimeout(() => setDisplayText(true), 0)//将文字是否显示放在宏任务队列末尾
     };
     fetchData();
+
+    ScrollReveal().reveal(".internationalMap", {
+      duration: 2000,
+      distance: '0px',
+      reset: true,
+      rotate: {
+        x: -200,
+        z: -50
+      }
+    })//入场动画
   }, []);
   function showPopup(args: any): void {
     setPopupInfo({
@@ -107,9 +138,9 @@ const World = React.memo(function Map(props:any) {
   }
 
   return (
-    <div style={{ height: '100vh', width: '100vw',display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
-      <strong>世界概况(支持缩放和拖动)</strong>
-      <div style={{ height: '90vh', width: '90vw', position: 'relative', backgroundColor: 'skyblue' }}>
+    <div className={classes.root}>
+      <strong className="internationalMap">世界概况(支持缩放和拖动)</strong>
+      <div className={classes.mapBg + " internationalMap"}>
         <MapboxScene
           map={{
             center: [110.19382669582967, 50.258134],

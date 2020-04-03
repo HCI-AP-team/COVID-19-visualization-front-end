@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fce4ec'
+        backgroundColor: '#fff9c4'
     },
     chart: {
         height: '80vh',
@@ -164,11 +164,11 @@ function Province() {
             });
         chart.interaction('element-active');
         chart.render();
-        ScrollReveal().reveal("#ProvinceMap", {
-            duration: 500,
+        ScrollReveal().reveal(".ProvinceMap", {
+            duration: 2000,
             rotate: {
-                x: 50,
-                z: 20
+                x: -50,
+                z: -20
             },
             reset: true
         })//入场动画
@@ -177,12 +177,12 @@ function Province() {
         }
     }, [displayLabel])
     return (
-        <div id="ProvinceMap" className={classes.root}>
-            <div className={classes.chooseInput}>
+        <div className={classes.root}>
+            <div className={classes.chooseInput+' ProvinceMap'}>
                 <strong>可以对比不同的值</strong>
                 <SelectBox displayLabel={displayLabel} setDisplayLabel={setDisplayLabel} />
             </div>
-            <div id='province' className={classes.chart}>
+            <div id='province' className={classes.chart+' ProvinceMap'}>
             </div>
         </div>
     )

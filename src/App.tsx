@@ -18,6 +18,14 @@ import Loading from './components/Loading'
 const City = React.lazy(() => import('./pages/city/pages/City'));
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    transition: 'all 1s linear'
+  },
+  gitBut: {
+    position: 'absolute',
+    top: '10px',
+    left: '10px'
+  },
   backdrop: {
     zIndex: theme.zIndex.drawer + 2,
     color: '#fff',
@@ -41,8 +49,8 @@ function App() {
   const wholePageRef = useRef<HTMLDivElement>(null);
   const [displayText, setDisplayText] = useState(false)//设定文字显示
   return (
-    <div style={{ transition: 'all 1s linear' }} ref={wholePageRef}>
-      <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+    <div className={classes.root} ref={wholePageRef}>
+      <div className={classes.gitBut}>
         <GitHubButton
           href="https://github.com/HCI-AP-team/AP-coursework-front-end"
           data-color-scheme="no-preference: light; light: light; dark: dark;"
@@ -53,10 +61,10 @@ function App() {
         </GitHubButton>
       </div>
       <DirectionButton />
-      <Homepage displayText={displayText}/>
+      <Homepage displayText={displayText} />
 
 
-      <International setDisplayText={setDisplayText}/>
+      <International setDisplayText={setDisplayText} />
       <China />
       <Province />
       <Suspense fallback={<Loading />}>

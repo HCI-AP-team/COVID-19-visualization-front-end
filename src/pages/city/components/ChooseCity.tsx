@@ -10,6 +10,17 @@ const useStyle = makeStyles(theme => ({
         right: '70vw',
         top: '30vh',
     },
+    searchComponents: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'space-around',
+        paddingTop: '20px'
+    },
+    autocomputeInputAndButton: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'space-around'
+    }
 })
 )
 function ChooseCity(props: any) {
@@ -17,7 +28,7 @@ function ChooseCity(props: any) {
     //TODO 将直辖市归位 市 ,同时处理没有情况的市
 
     const classes = useStyle();
-    const { cityData } = props //父组件传过来的城市数据,需要进一步处理放入下面一行的状态中
+    const { className, cityData } = props //父组件传过来的城市数据,需要进一步处理放入下面一行的状态中
     const [allCityArray, setAllCityArray] = useState()//所有城市数据合并的数组
     const [oneCity, setOneCity] = useState()//某一个城市的数据
     const inputRef = useRef<HTMLInputElement>(null)//输入框
@@ -88,22 +99,21 @@ function ChooseCity(props: any) {
         }, 1500)
     }
     return (
-        <div>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'space-around', paddingTop: '20px' }}>
+        <div className={className}>
+            <div className={classes.searchComponents}>
                 <Button onClick={randomDisplay} color="primary" variant="contained" style={{ marginRight: '5vw' }}>随便看一看</Button>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'space-around' }}>
-                    {/* <TextField inputRef={inputRef} id="outlined-basic" label="City Name" variant="outlined" style={{  }} /> */}
+                <div className={classes.autocomputeInputAndButton}>
                     {
                         allCityArray ?
                             <Autocomplete
                                 id="free-solo-demo"
                                 freeSolo
                                 //TODO 选项
-                                style={{ width: 300,marginRight:'10px' }}
+                                style={{ width: 300, marginRight: '10px' }}
                                 size='medium'
                                 options={allCityArray}
-                                groupBy={(option:any) => option.provinceName}
-                                getOptionLabel={(option:any) => option.cityName}
+                                groupBy={(option: any) => option.provinceName}
+                                getOptionLabel={(option: any) => option.cityName}
                                 renderInput={params => (
                                     <TextField {...params} inputRef={inputRef} label="城市名称" margin="normal" variant="outlined" />
                                 )}
