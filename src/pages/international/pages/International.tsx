@@ -9,7 +9,7 @@ import {
 import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ScrollReveal from 'scrollreveal'
-import areaData from '../assets/areaData'
+import areaData from '../../../assets/areaData'
 
 const useStyles = makeStyles({
   root: {

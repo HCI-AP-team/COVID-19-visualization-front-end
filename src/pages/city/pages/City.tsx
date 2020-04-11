@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import areaData from '../../../assets/areaData'
 import ChooseCity from '../components/ChooseCity'
 import CityCard from '../components/CityCard'
-import classes from '*.module.css';
 const useStyles = makeStyles({
     root: {
         width: '100vw',

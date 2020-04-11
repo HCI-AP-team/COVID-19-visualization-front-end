@@ -2,7 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import areaData from '../../../assets/areaData';
-import classes from '*.module.css';
 const useStyle = makeStyles({
   root: {
     padding: '5px',
