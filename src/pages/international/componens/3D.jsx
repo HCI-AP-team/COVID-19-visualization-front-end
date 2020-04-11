@@ -83,7 +83,7 @@ function Earth(props) {
             })
             console.log(country && country.name || '')
             let temp = areaData.results.filter((e) => e.countryEnglishName === (country && country.name || ''))
-            console.log(temp)
+            // console.log(temp)
         }
 
         //鼠标离开
@@ -347,7 +347,7 @@ function Earth(props) {
 
     }, [])
     return (
-        <div style={{ height: '100%', width: '100%' }}>
+        <div style={{ height: '100vh', width: '100vw' }}>
             <h2 id="current" className={classes.current}></h2>
             <canvas id="globe" className={classes.globe}></canvas>
         </div>

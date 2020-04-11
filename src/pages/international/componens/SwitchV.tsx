@@ -4,25 +4,19 @@ import { purple } from '@material-ui/core/colors';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch, { SwitchClassKey, SwitchProps } from '@material-ui/core/Switch';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 
 function SwitchV(props:any) {
-    const [state, setState] = React.useState({
-        checkedA: true,
-        checkedB: true,
-        checkedC: true,
-    });
+    const { display3D, setDisplay3D } = props
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setState({ ...state, [event.target.name]: event.target.checked });
+    const handleChange = () => {
+        setDisplay3D(!display3D);
     };
 
     return (
         <FormGroup>
             <FormControlLabel
-                control={<IOSSwitch checked={state.checkedB} onChange={handleChange} name="checkedB" />}
-                label="iOS style"
+                control={<IOSSwitch checked={display3D} onChange={handleChange} name="display3D" />}
+                label="3D"
             />
         </FormGroup>
     );

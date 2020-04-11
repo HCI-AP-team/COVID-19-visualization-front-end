@@ -6,11 +6,12 @@ import GitHubButton from 'react-github-btn'
 import Memberpage from './pages/Memberpage'
 import Homepage from './pages/Homepage'
 import DirectionButton from './components/DirectionButton'
-import International from './pages/international/pages/Earth'
+import International from './pages/international/pages/International'
 import China from './pages/China/pages/China'
 import Province from './pages/province/pages/Province'
 // import City from './pages/city/pages/City'
 import Loading from './components/Loading'
+import requestAreaData from './api/requestAreaData'
 // //异步加载
 // const International = React.lazy(() => import('./pages/International'));
 // const China = React.lazy(() => import('./pages/China/pages/China'));
@@ -46,6 +47,9 @@ function App() {
   const handleToggle = () => {
     setOpen(!open);
   };
+  // React.useEffect(() => {
+  //   requestAreaData('/Hel')
+  // }, [])
   const wholePageRef = useRef<HTMLDivElement>(null);
   const [displayText, setDisplayText] = useState(false)//设定文字显示
   return (
