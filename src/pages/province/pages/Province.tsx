@@ -25,12 +25,14 @@ const useStyles = makeStyles(theme => ({
         alignItems: 'center'
     }
 }));
-function Province() {
+function Province(props:any) {
     // 用于选择对比展示各省的哪一个属性
+    const { language } = props;
     const [displayLabel, setDisplayLabel] = useState('confirmedCount');
     interface dataForm {
         省份: any;
         value: any;
+        province:any;
     }
     const classes = useStyles();
 
@@ -110,7 +112,7 @@ function Province() {
         // deadCount 死亡数
         let data: dataForm[] = areaData.results.map((el: any): {} | undefined => {
             if (el.countryName === '中国') {
-                return { 省份: el.provinceShortName, value: el[displayLabel] }
+                return { 省份: el.provinceShortName,province:el.provinceEnglishName, value: el[displayLabel] }
             }
             else
                 return undefined;
@@ -126,10 +128,10 @@ function Province() {
             value: {
                 max: data[data.length - 1].value * 1.2,// 设定横坐标最大值,因为已经排序了,所以选取最后一个
                 min: 0,
-                alias: '单位/人',//横坐标显示
+                alias: language?'单位/人':'people',//横坐标显示
             },
         });
-        chart.axis('省份', {
+        chart.axis(language?'省份':'province', {
             title: {
                 offset: 10,
                 style: {
@@ -153,7 +155,7 @@ function Province() {
         chart.coordinate().transpose();//创建坐标系,并进行转置变换
         chart
             .interval()
-            .position('省份*value')
+            .position((language?'省份':'province')+'*value')
             .size(18)
             .label('value', {
                 style: {
@@ -175,12 +177,12 @@ function Province() {
         return () => {
             chart.destroy();//摧毁图表,防止多次渲染
         }
-    }, [displayLabel])
+    }, [displayLabel,language])
     return (
         <div className={classes.root}>
             <div className={classes.chooseInput+' ProvinceMap'}>
-                <strong>可以对比不同的值</strong>
-                <SelectBox displayLabel={displayLabel} setDisplayLabel={setDisplayLabel} />
+                <strong>{language?'可以对比不同的值':'You can compare different values'}</strong>
+                <SelectBox displayLabel={displayLabel} language={language} setDisplayLabel={setDisplayLabel} />
             </div>
             <div id='province' className={classes.chart+' ProvinceMap'}>
             </div>

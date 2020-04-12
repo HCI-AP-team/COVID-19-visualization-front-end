@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useRef, Suspense } from 'react'
+import { useState, useRef, useEffect, Suspense } from 'react'
 import { Button, Backdrop } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import GitHubButton from 'react-github-btn'
@@ -40,20 +40,26 @@ const useStyles = makeStyles(theme => ({
 
 function App() {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);//关于我们  这一部分的开关状态
+  const [language, setLanguage] = useState(true);//设定显示的语言,true为中文,false 为英语
+  const [displayText, setDisplayText] = useState(false)//设定首页的逐个文字显示
+  const [areaData, setAreaData] = useState()//疫情数据
   const handleClose = () => {
     setOpen(false);
   };
   const handleToggle = () => {
     setOpen(!open);
   };
-  // React.useEffect(() => {
-  //   requestAreaData('/Hel')
-  // }, [])
-  const wholePageRef = useRef<HTMLDivElement>(null);
-  const [displayText, setDisplayText] = useState(false)//设定文字显示
+  useEffect(() => {
+    let b = async () => {
+      let data = await requestAreaData('/Hel')
+      setAreaData(data)
+    }
+    b();
+  }, [])
   return (
-    <div className={classes.root} ref={wholePageRef}>
+
+    <div className={classes.root}>
       <div className={classes.gitBut}>
         <GitHubButton
           href="https://github.com/HCI-AP-team/AP-coursework-front-end"
@@ -64,26 +70,26 @@ function App() {
           Star
         </GitHubButton>
       </div>
-      <DirectionButton />
-      <Homepage displayText={displayText} />
+      <DirectionButton language={language} />
+      <Homepage  setLanguage={setLanguage} language={language} displayText={displayText} />
 
 
-      <International setDisplayText={setDisplayText} />
-      <China />
-      <Province />
+      <International language={language} setDisplayText={setDisplayText} />
+      <China language={language} areaData={areaData} /> 
+      <Province language={language} />
       <Suspense fallback={<Loading />}>
-        <City />
+        <City language={language} />
       </Suspense>
 
 
-
       <Button variant="outlined" color="primary" onClick={handleToggle} className={classes.bdButton}>
-        关于我们
-      </Button>
+        {language?'关于我们':'about us'}
+        </Button>
       <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
         <Memberpage />
       </Backdrop>
     </div>
+
   );
 }
 

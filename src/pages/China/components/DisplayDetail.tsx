@@ -17,6 +17,7 @@ const useStyle = makeStyles({
   }
 })
 const DisplayDetail = (props: any) => {
+  const { language } = props;
   const classes = useStyle();
   interface DataStructure {
     'locationId': number
@@ -54,6 +55,26 @@ const DisplayDetail = (props: any) => {
     '评论',
     '更新时间'
   ]
+
+  const EnglishLabels = [
+    'Position number',
+    'Name of continent',
+    'English Name of continent',
+    'Country name',
+    'Country English name',
+    'Province name',
+    'Province short name',
+    'Province English name',
+    'Current confirmed count',
+    'Confirmed count',
+    'Suspected count',
+    'Cured count',
+    'Dead count',
+    'Cities',
+    'Comments',
+    'Update time'
+  ]
+
   const provinceName = props.currentChoose;
 
   //将时间戳转化成当前时间
@@ -82,14 +103,14 @@ const DisplayDetail = (props: any) => {
         temp[0] ? Object.keys(temp[0]).map((key: string, index: number) => {
           if (key !== 'cities' && key !== "locationId" && key !== 'comment' && key !== "updateTime") {
             return <span key={key}>
-              <p>{ChineseLabels[index] + ' : '}</p>
+              <p>{(language?ChineseLabels[index]:EnglishLabels[index]) + ' : '}</p>
               <p>{temp ? (temp[0] as any)[key] : ''}</p>
             </span>
           }
           else {
             if (key === "updateTime")
               return <span key={key}>
-                <p>{ChineseLabels[index] + ' : '}</p>
+                <p>{(language?ChineseLabels[index]:EnglishLabels[index]) + ' : '}</p>
                 <p>{temp ? getTime((temp[0] as any)[key]) : ''}</p>
               </span>
                 ;
@@ -100,9 +121,11 @@ const DisplayDetail = (props: any) => {
         }
         )
           :
-          <p className={classes.hint}>点击各省可以查看该省的详细情况</p>
+          // 选出来的如果是非法值
+          <p className={classes.hint}>{language ? '点击各省可以查看该省的详细情况' : 'Click on the province to see the details of the province'}</p>
         :
-        <p>点击各省可以查看该省的详细情况</p>
+        // 没有选
+        <p>{language ? '点击各省可以查看该省的详细情况' : 'Click on the province to see the details of the province'}</p>
       }
     </div>
   )

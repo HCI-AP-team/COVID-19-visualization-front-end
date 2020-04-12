@@ -85,7 +85,7 @@ function joinData(geodata: any, ncovData: any) {
 
 const World = React.memo(function Map(props: any) {
   const classes = useStyles();
-  const { setDisplayText } = props;
+  const { setDisplayText,language } = props;
   const [data, setData] = React.useState();
   const [filldata, setfillData] = React.useState();
   const [popupInfo, setPopupInfo] = React.useState<{
@@ -139,7 +139,7 @@ const World = React.memo(function Map(props: any) {
 
   return (
     <div className={classes.root}>
-      <strong className="internationalMap">世界概况(支持缩放和拖动)</strong>
+      <strong className="internationalMap">{language?'世界概况(支持缩放和拖动)':'World factbook (supports zooming and dragging)'}</strong>
       <div className={classes.mapBg + " internationalMap"}>
         <MapboxScene
           map={{
@@ -158,16 +158,16 @@ const World = React.memo(function Map(props: any) {
         >
           {popupInfo && (
             <Popup lnglat={popupInfo.lnglat}>
-              {popupInfo.feature.name}
+              {language?popupInfo.feature.name:popupInfo.feature.countryEnglishName}
               <ul
                 style={{
                   margin: 0,
                 }}
               >
-                <li>现有确诊:{popupInfo.feature.currentConfirmedCount}</li>
-                <li>累计确诊:{popupInfo.feature.confirmedCount}</li>
-                <li>治愈:{popupInfo.feature.curedCount}</li>
-                <li>死亡:{popupInfo.feature.deadCount}</li>
+                <li>{(language?'现有确诊:':'current confirm:')+popupInfo.feature.currentConfirmedCount}</li>
+                <li>{(language?'累计确诊':'total confirm:')+popupInfo.feature.confirmedCount}</li>
+                <li>{(language?'治愈':'cure count:')+popupInfo.feature.curedCount}</li>
+                <li>{(language?'死亡:':'dead count: ')+popupInfo.feature.deadCount}</li>
               </ul>
             </Popup>
           )}

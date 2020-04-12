@@ -1,4 +1,4 @@
-const mapData = {
+const data = {
   "dimension": {
     "width": 650,
     "height": 500
@@ -6798,4 +6798,4 @@ const mapData = {
     }]
   }]
 }
-export default mapData;
+export default data;

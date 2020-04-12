@@ -18,7 +18,8 @@ const useStyles = makeStyles({
         top: '30vh'
     }
 })
-function City() {
+function City(props:any) {
+    const { language } = props;
     const classes = useStyles();
     const [cityData, setCityData] = useState()
     //加载城市数据
@@ -37,6 +38,7 @@ function City() {
             .map((value: any, index: number) => value
                 .map((val: any) => {
                     val.provinceName = tempChinaData[index].provinceName;
+                    val.provinceEnglishName = tempChinaData[index].provinceEnglishName;
                     //给港澳台等地区设定一个城市名称
                     if (!val.cityName) {
                         val.cityName = val.provinceName
@@ -62,7 +64,7 @@ function City() {
     return (
         <div className={classes.root}>
 
-            <ChooseCity className="CityMap" cityData={cityData} />
+            <ChooseCity className="CityMap" language={language} cityData={cityData} />
             {
                 cityData?.map((value: any, id: any) =>
                     // 避免渲染过多导致页面卡顿
@@ -75,7 +77,7 @@ function City() {
                                         transform: 'rotate(' + Math.random() * 360 + 'deg)'
                                     }}
                                     key={id}>
-                                    <CityCard value={value} />
+                                    <CityCard language={language} value={value} />
                                 </div>
                                 :
                                 ''

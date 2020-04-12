@@ -261,7 +261,7 @@ function Earth(props) {
             // })
             // console.log(temp)
             cb(worldData, tsv2json)
-            setTimeout(() => setDisplayText(true), 0)//将文字是否显示放在宏任务队列末尾
+            // setTimeout(() => setDisplayText(true), 0)//将文字是否显示放在宏任务队列末尾
         }
 
         // https://github.com/d3/d3-polygon

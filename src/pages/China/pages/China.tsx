@@ -45,7 +45,8 @@ const useStyles = makeStyles({
 
 
 
-function China() {
+function China(props: any) {
+  const { areaData, language } = props;
   const [currentChoose, setCurrentChoose] = useState('');
   const labels: object[] = [
     {
@@ -90,15 +91,15 @@ function China() {
 
   return (
     <div className={classes.root} >
-      <CreateChinaMap className='ChinaMap' handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
+      <CreateChinaMap language={language} areaData={areaData} className='ChinaMap' handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
       <div className={classes.labels + ' ChinaMap'}>
-        <strong>确诊人数</strong>
+        <strong>{language ? '当前确诊人数' : 'current confirmed count'}</strong>
         {labels.map((el: any, index: number) => <Label key={index} color={el.color} value={el.value} />)}
       </div>
       <div id="detail" className={classes.detail + ' ChinaMap'}>
         <Slide direction="left" in={checked} mountOnEnter unmountOnExit>
           <Paper elevation={10}>
-            <DisplayDetail currentChoose={currentChoose} />
+            <DisplayDetail language={language} currentChoose={currentChoose} />
           </Paper>
         </Slide>
       </div>

@@ -28,7 +28,7 @@ function ChooseCity(props: any) {
     //TODO 将直辖市归位 市 ,同时处理没有情况的市
 
     const classes = useStyle();
-    const { className, cityData } = props //父组件传过来的城市数据,需要进一步处理放入下面一行的状态中
+    const { className, cityData, language } = props //父组件传过来的城市数据,需要进一步处理放入下面一行的状态中
     const [allCityArray, setAllCityArray] = useState()//所有城市数据合并的数组
     const [oneCity, setOneCity] = useState()//某一个城市的数据
     const inputRef = useRef<HTMLInputElement>(null)//输入框
@@ -66,14 +66,25 @@ function ChooseCity(props: any) {
             //设置城市
             setOneCity(
                 allCityArray
-                    .filter((value: any) =>
-                        (
-                            value.cityName ?
-                                value.cityName
-                                :
-                                value.provinceShortName
-                        )
-                        === chooseCityName)[0])//获得当前选择的城市,没有城市姓名属性就是香港等特殊地区
+                    .filter((value: any) =>{
+                        //如果是中文
+                        if(language)
+                            return (
+                                value.cityName ?
+                                    value.cityName
+                                    :
+                                    value.provinceShortName
+                            )
+                            === chooseCityName
+                        else//如果是英文
+                            return (
+                                value.cityEnglishName ?
+                                    value.cityEnglishName
+                                    :
+                                    value.provinceEnglishName
+                            )
+                            === chooseCityName
+                    })[0])//获得当前选择的城市,没有城市姓名属性就是香港等特殊地区
             cardRef?.current?.setAttribute('style',
                 `
             right:70vw
@@ -101,7 +112,7 @@ function ChooseCity(props: any) {
     return (
         <div className={className}>
             <div className={classes.searchComponents}>
-                <Button onClick={randomDisplay} color="primary" variant="contained" style={{ marginRight: '5vw' }}>随便看一看</Button>
+                <Button onClick={randomDisplay} color="primary" variant="contained" style={{ marginRight: '5vw' }}>{language ? '随便看一看' : 'random look'}</Button>
                 <div className={classes.autocomputeInputAndButton}>
                     {
                         allCityArray ?
@@ -112,26 +123,32 @@ function ChooseCity(props: any) {
                                 style={{ width: 300, marginRight: '10px' }}
                                 size='medium'
                                 options={allCityArray}
-                                groupBy={(option: any) => option.provinceName}
-                                getOptionLabel={(option: any) => option.cityName}
+                                groupBy={(option: any) => language ? option.provinceName : option.provinceEnglishName}
+                                getOptionLabel={
+                                    (option: any) =>
+                                        language ?
+                                            option.cityName
+                                            :
+                                            (option.cityEnglishName ? option.cityEnglishName : option.provinceEnglishName)
+                                }
                                 renderInput={params => (
-                                    <TextField {...params} inputRef={inputRef} label="城市名称" margin="normal" variant="outlined" />
+                                    <TextField {...params} inputRef={inputRef} label={language ? "城市名称" : 'city name'} margin="normal" variant="outlined" />
                                 )}
                             />
                             :
                             ''}
-                    <Button color="secondary" variant="contained" onClick={searchCityData}>查找指定城市</Button>
+                    <Button color="secondary" variant="contained" onClick={searchCityData}>{language ? '查找指定城市' : 'Find a specified city'}</Button>
                 </div>
             </div>
             <div ref={cardRef} className={classes.specailCard}>
                 {
                     oneCity ?
-                        <CityCard value={oneCity} />
+                        <CityCard language={language} value={oneCity} />
                         :
                         <strong>
-                            你当前没有查看任何城市的详情
+                            {language ? '你当前没有查看任何城市的详情' : 'You are not currently checking any city details'}
                             <br />
-                            注意:直辖市需要按区搜索
+                            {language ? '注意:直辖市需要按区搜索' : 'Note: municipalities need to be searched by district'}
                         </strong>
                 }
             </div>

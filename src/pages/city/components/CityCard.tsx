@@ -24,35 +24,36 @@ const useStyles = makeStyles({
     },
 });
 function CityCard(props:any) {
+    const { language } = props;
     const classes = useStyles();
     return (
         <Card className={classes.root} elevation={5}>
             <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
-                城市名称:{props.value.cityName?props.value.cityName:props.value.provinceShortName}
+                {(language?'城市名称: '+(props.value.cityName?props.value.cityName:props.value.provinceShortName):'city name: '+(props.value.cityEnglishName))}
                 {/* 没有城市名称属性就是特殊地区 */}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    今日确诊: {props.value.currentConfirmedCount}
+                    {(language?'今日确诊: ':'current confirmed count: ')+props.value.currentConfirmedCount}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    累计确诊: {props.value.confirmedCount}
+                   {(language?' 累计确诊: ':'confirmed count: ')+props.value.confirmedCount}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    疑似人数: {props.value.suspectedCount}
+                    {(language?'疑似人数: ':'suspencted count: ')+props.value.suspectedCount}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    治愈人数: {props.value.curedCount}
+                    {(language?'治愈人数: ':'cured count: ')+props.value.curedCount}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    死亡人数: {props.value.deadCount}
+                    {(language?'死亡人数: ':'dead count: ')+props.value.deadCount}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    所属省份: {props.value.provinceName}
+                    {(language?'所属省份: '+props.value.provinceName:'Subordinate to the province: '+props.value.provinceEnglishName)}
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small" color="primary" variant="contained">进一步了解这个城市</Button>
+                <Button size="small" color="primary" variant="contained">{language?'进一步了解这个城市':'learn more about this city'}</Button>
             </CardActions>
         </Card>
     )

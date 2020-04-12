@@ -33,7 +33,7 @@ const actions = [
   { icon: <Home onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }) }} />, name: 'Homepage' },
 ];
 
-export default function OpenIconSpeedDial() {
+export default function DirectionButton(props:any) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
