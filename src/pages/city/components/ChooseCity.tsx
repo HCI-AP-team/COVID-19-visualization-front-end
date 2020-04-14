@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Button, TextField } from '@material-ui/core'
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 import CityCard from './CityCard'
 const useStyle = makeStyles(theme => ({
     specailCard: {
@@ -26,8 +28,9 @@ const useStyle = makeStyles(theme => ({
 function ChooseCity(props: any) {
 
     //TODO 将直辖市归位 市 ,同时处理没有情况的市
-
+    const [firstTime, setFirstTime] = useState(true)//第一次的动画效果变成直接隐藏
     const classes = useStyle();
+    const [openSnackBar, setOpenSnackBar] = useState(false)
     const { className, cityData, language } = props //父组件传过来的城市数据,需要进一步处理放入下面一行的状态中
     const [allCityArray, setAllCityArray] = useState()//所有城市数据合并的数组
     const [oneCity, setOneCity] = useState()//某一个城市的数据
@@ -55,59 +58,131 @@ function ChooseCity(props: any) {
     //查询展示某个城市的数据
     const searchCityData = () => {
         let chooseCityName = inputRef.current?.value;
+        const theCity = allCityArray
+            .filter((value: any) => {
+                //如果是中文
+                if (language)
+                    return (
+                        value.cityName ?
+                            value.cityName
+                            :
+                            value.provinceShortName
+                    )
+                        === chooseCityName
+                else//如果是英文
+                    return (
+                        value.cityEnglishName ?
+                            value.cityEnglishName
+                            :
+                            value.provinceEnglishName
+                    )
+                        === chooseCityName
+            })[0];
+        //卡片动画, 如果选中了城市并且是第一次
+        if (theCity) {
+            if (firstTime) {
+                cardRef?.current?.setAttribute('style',
+                    `
+                right:10vw;
+                opacity:0;
+                `)
 
-        //卡片动画
-        cardRef?.current?.setAttribute('style',
-            `
-        right:10vw;
-        transform:rotate(${Math.random() * 360}deg)
-        `)
-        setTimeout(() => {
-            //设置城市
-            setOneCity(
-                allCityArray
-                    .filter((value: any) =>{
-                        //如果是中文
-                        if(language)
-                            return (
-                                value.cityName ?
-                                    value.cityName
-                                    :
-                                    value.provinceShortName
-                            )
-                            === chooseCityName
-                        else//如果是英文
-                            return (
-                                value.cityEnglishName ?
-                                    value.cityEnglishName
-                                    :
-                                    value.provinceEnglishName
-                            )
-                            === chooseCityName
-                    })[0])//获得当前选择的城市,没有城市姓名属性就是香港等特殊地区
-            cardRef?.current?.setAttribute('style',
-                `
-            right:70vw
-            `)
-        }, 1500)
+                setTimeout(() => {
+                    //设置城市
+                    setOneCity(
+                        theCity
+                    )//获得当前选择的城市,没有城市姓名属性就是香港等特殊地区
+                    cardRef?.current?.setAttribute('style',
+                        `
+                    right:70vw;
+                    opacity:1;
+                    `)
+                }, 1500)
+                setFirstTime(false)
+            }
+            //如果不是第一次
+            else {
+                cardRef?.current?.setAttribute('style',
+                    `
+                right:10vw;
+                transform:rotate(${Math.random() * 360}deg)
+                `)
+
+                setTimeout(() => {
+                    //设置城市
+                    setOneCity(
+                        allCityArray
+                            .filter((value: any) => {
+                                //如果是中文
+                                if (language)
+                                    return (
+                                        value.cityName ?
+                                            value.cityName
+                                            :
+                                            value.provinceShortName
+                                    )
+                                        === chooseCityName
+                                else//如果是英文
+                                    return (
+                                        value.cityEnglishName ?
+                                            value.cityEnglishName
+                                            :
+                                            value.provinceEnglishName
+                                    )
+                                        === chooseCityName
+                            })[0])//获得当前选择的城市,没有城市姓名属性就是香港等特殊地区
+                    cardRef?.current?.setAttribute('style',
+                        `
+                        right:70vw
+                        `)
+                }, 1500)
+            }
+        }
+        else {
+            //打开提示框,告知用户输入有问题
+            setOpenSnackBar(true)
+        }
     }
     //随机展示一个城市的数据
     const randomDisplay = () => {
         //卡片动画
-        cardRef?.current?.setAttribute('style',
-            `
-        right:10vw;
-        transform:rotate(${Math.random() * 360}deg)
-        `)
-        let randomCity = allCityArray[Math.floor(allCityArray.length * Math.random())]//随机抽取一个城市
-        setTimeout(() => {
-            //设置城市
-            setOneCity(randomCity);
+        if (firstTime) {
             cardRef?.current?.setAttribute('style',
                 `
-            right:70vw
+                right:10vw;
+            opacity:0;
+        `)
+        }
+        else {
+            cardRef?.current?.setAttribute('style',
+                `
+                right:10vw;
+                transform:rotate(${Math.random() * 360}deg)
             `)
-        }, 1500)
+        }
+        let randomCity = allCityArray[Math.floor(allCityArray.length * Math.random())]//随机抽取一个城市
+        if (firstTime) {
+            setTimeout(() => {
+                //设置城市
+                setOneCity(randomCity);
+                cardRef?.current?.setAttribute('style',
+                    `
+                    right:70vw
+                    `)
+            }, 1500)
+            setFirstTime(false)
+        }
+        else {
+            setTimeout(() => {
+                //设置城市
+                setOneCity(randomCity);
+                cardRef?.current?.setAttribute('style',
+                    `
+                    opacity:1;
+                    right:70vw
+                    `)
+            }, 1500)
+        }
     }
     return (
         <div className={className}>
@@ -152,6 +227,11 @@ function ChooseCity(props: any) {
                         </strong>
                 }
             </div>
+            <Snackbar open={openSnackBar} autoHideDuration={6000} onClose={() => setOpenSnackBar(false)}>
+                <MuiAlert elevation={6} onClose={() => setOpenSnackBar(false)} severity="error" variant="filled">
+                    {language ? "请输入正确的城市名称" : "Please input correct name of city"}
+                </MuiAlert>
+            </Snackbar>
         </div >
     )
 }
