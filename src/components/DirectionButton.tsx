@@ -1,68 +1,69 @@
 import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import SpeedDial from '@material-ui/lab/SpeedDial';
-import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon';
-import SpeedDialAction from '@material-ui/lab/SpeedDialAction';
 import LocationCity from '@material-ui/icons/LocationCity';
 import VpnLock from '@material-ui/icons/VpnLock';
 import People from '@material-ui/icons/People';
 import Public from '@material-ui/icons/Public';
-import SwapCalls from '@material-ui/icons/SwapCalls'
 import Home from '@material-ui/icons/Home';
-import SwapVert from '@material-ui/icons/SwapVert';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import Tooltip from '@material-ui/core/Tooltip';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       position: 'fixed',
-      bottom: theme.spacing(2),
+      bottom: '2px',
       right: theme.spacing(2),
-      height: 380,
-      transform: 'translateZ(0px)',
       flexGrow: 1,
       zIndex: 999
     }
   }),
 );
 
-const actions = [
-  { icon: <LocationCity onClick={() => { window.scrollTo({ top: window.innerHeight * 4, behavior: 'smooth' }) }} />, name: 'City' },
-  { icon: <People onClick={() => { window.scrollTo({ top: window.innerHeight * 3, behavior: 'smooth' }) }} />, name: 'Province' },
-  { icon: <VpnLock onClick={() => { window.scrollTo({ top: window.innerHeight * 2, behavior: 'smooth' }) }} />, name: 'China' },
-  { icon: <Public onClick={() => { window.scrollTo({ top: window.innerHeight, behavior: 'smooth' }) }} />, name: 'International' },
-  { icon: <Home onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }) }} />, name: 'Homepage' },
-];
 
-export default function DirectionButton(props:any) {
+export default function DirectionButton(props: any) {
+  const { language } = props;
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
+  const [position, setPosition] = React.useState<string | null>('home');
+  const handleClick = (event: React.MouseEvent<HTMLElement>, position: string | null) => {
+    setPosition(position);
   };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
     <div className={classes.root}>
-      <SpeedDial
-        ariaLabel="SpeedDial openIcon example"
-        icon={<SpeedDialIcon icon={<SwapVert/>} openIcon={<SwapCalls />} />}
-        onClose={handleClose}
-        onOpen={handleOpen}
-        open={open}
+      <ToggleButtonGroup
+        value={position}
+        exclusive
+        onChange={handleClick}
+        style={{backgroundColor:position==='home'?'white':'transparent'}}
       >
-        {actions.map(action => (
-          <SpeedDialAction
-            key={action.name}
-            icon={action.icon}
-            tooltipTitle={action.name}
-            onClick={handleClose}
-          />
-        ))}
-      </SpeedDial>
+        <Tooltip title={language?"主页":'Homepage'} placement="top">
+          <ToggleButton value="home" onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }) }} >
+            <Home />
+          </ToggleButton>
+        </Tooltip>
+        <Tooltip title={language?"世界概况":"World"} placement="top">
+          <ToggleButton value="earth" onClick={() => { window.scrollTo({ top: window.innerHeight, behavior: 'smooth' }) }} >
+            <Public />
+          </ToggleButton>
+        </Tooltip>
+        <Tooltip title={language?"中国概况":"China"} placement="top">
+          <ToggleButton value="China" onClick={() => { window.scrollTo({ top: window.innerHeight * 2, behavior: 'smooth' }) }}>
+            <VpnLock />
+          </ToggleButton>
+        </Tooltip>
+        <Tooltip title={language?"中国各省":"Province"} placement="top">
+          <ToggleButton value="province" onClick={() => { window.scrollTo({ top: window.innerHeight * 3, behavior: 'smooth' }) }}>
+            <People />
+          </ToggleButton>
+        </Tooltip>
+        <Tooltip title={language?"中国城市/区":"City"} placement="top">
+          <ToggleButton value="city" onClick={() => { window.scrollTo({ top: window.innerHeight * 4, behavior: 'smooth' }) }}>
+            <LocationCity />
+          </ToggleButton>
+        </Tooltip>
+      </ToggleButtonGroup>
     </div>
   );
 }
