@@ -1717,6 +1717,51 @@
     "@svgr/plugin-svgo" "^4.3.1"
     loader-utils "^1.2.3"
 
+"@tensorflow-models/speech-commands@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.npm.taobao.org/@tensorflow-models/speech-commands/download/@tensorflow-models/speech-commands-0.4.2.tgz#30da01114aba9253ba0871eedc1fbe03c1306aca"
+  integrity sha1-MNoBEUq6klO6CHHu3B++A8Ewaso=
+
+"@tensorflow/tfjs-converter@1.7.2":
+  version "1.7.2"
+  resolved "https://registry.npm.taobao.org/@tensorflow/tfjs-converter/download/@tensorflow/tfjs-converter-1.7.2.tgz#a2bb479f271aa9a5bb2909b3b8d90c431996893d"
+  integrity sha1-ortHnycaqaW7KQmzuNkMQxmWiT0=
+
+"@tensorflow/tfjs-core@1.7.2":
+  version "1.7.2"
+  resolved "https://registry.npm.taobao.org/@tensorflow/tfjs-core/download/@tensorflow/tfjs-core-1.7.2.tgz#c7b4ac37a7b8bd7226766ee9bcd930274bf8e019"
+  integrity sha1-x7SsN6e4vXImdm7pvNkwJ0v44Bk=
+  dependencies:
+    "@types/offscreencanvas" "~2019.3.0"
+    "@types/seedrandom" "2.4.27"
+    "@types/webgl-ext" "0.0.30"
+    "@types/webgl2" "0.0.4"
+    node-fetch "~2.1.2"
+    seedrandom "2.4.3"
+
+"@tensorflow/tfjs-data@1.7.2":
+  version "1.7.2"
+  resolved "https://registry.npm.taobao.org/@tensorflow/tfjs-data/download/@tensorflow/tfjs-data-1.7.2.tgz#6a3ab4d2c1fd1cfdf768f9774b108fb6477c75a0"
+  integrity sha1-ajq00sH9HP33aPl3SxCPtkd8daA=
+  dependencies:
+    "@types/node-fetch" "^2.1.2"
+    node-fetch "~2.1.2"
+
+"@tensorflow/tfjs-layers@1.7.2":
+  version "1.7.2"
+  resolved "https://registry.npm.taobao.org/@tensorflow/tfjs-layers/download/@tensorflow/tfjs-layers-1.7.2.tgz#b76e73042e999e1ea755869c1764503e43cf60f5"
+  integrity sha1-t25zBC6Znh6nVYacF2RQPkPPYPU=
+
+"@tensorflow/tfjs@^1.7.2":
+  version "1.7.2"
+  resolved "https://registry.npm.taobao.org/@tensorflow/tfjs/download/@tensorflow/tfjs-1.7.2.tgz#25a152246017c996948bde18f5a2cac16995e232"
+  integrity sha1-JaFSJGAXyZaUi94Y9aLKwWmV4jI=
+  dependencies:
+    "@tensorflow/tfjs-converter" "1.7.2"
+    "@tensorflow/tfjs-core" "1.7.2"
+    "@tensorflow/tfjs-data" "1.7.2"
+    "@tensorflow/tfjs-layers" "1.7.2"
+
 "@testing-library/dom@^6.15.0":
   version "6.16.0"
   resolved "https://registry.npm.taobao.org/@testing-library/dom/download/@testing-library/dom-6.16.0.tgz#04ada27ed74ad4c0f0d984a1245bb29b1fd90ba9"
@@ -2108,6 +2153,14 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
+"@types/node-fetch@^2.1.2":
+  version "2.5.6"
+  resolved "https://registry.npm.taobao.org/@types/node-fetch/download/@types/node-fetch-2.5.6.tgz?cache=0&sync_timestamp=1586575955098&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode-fetch%2Fdownload%2F%40types%2Fnode-fetch-2.5.6.tgz#df8377a66e64ddf75b65b072e37b3c5c5425a96f"
+  integrity sha1-34N3pm5k3fdbZbBy43s8XFQlqW8=
+  dependencies:
+    "@types/node" "*"
+    form-data "^3.0.0"
+
 "@types/node@*":
   version "13.7.1"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.7.1.tgz#238eb34a66431b71d2aaddeaa7db166f25971a0d"
@@ -2117,6 +2170,11 @@
   version "12.12.30"
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-12.12.30.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-12.12.30.tgz#3501e6f09b954de9c404671cefdbcc5d9d7c45f6"
   integrity sha1-NQHm8JuVTenEBGcc79vMXZ18RfY=
+
+"@types/offscreencanvas@~2019.3.0":
+  version "2019.3.0"
+  resolved "https://registry.npm.taobao.org/@types/offscreencanvas/download/@types/offscreencanvas-2019.3.0.tgz#3336428ec7e9180cf4566dfea5da04eb586a6553"
+  integrity sha1-MzZCjsfpGAz0Vm3+pdoE61hqZVM=
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -2190,6 +2248,11 @@
   resolved "https://registry.npm.taobao.org/@types/scrollreveal/download/@types/scrollreveal-0.0.6.tgz#e2e6a5e48dce3aa3d5c0bdf13280a7406e79c833"
   integrity sha1-4ual5I3OOqPVwL3xMoCnQG55yDM=
 
+"@types/seedrandom@2.4.27":
+  version "2.4.27"
+  resolved "https://registry.npm.taobao.org/@types/seedrandom/download/@types/seedrandom-2.4.27.tgz#9db563937dd86915f69092bc43259d2f48578e41"
+  integrity sha1-nbVjk33YaRX2kJK8QyWdL0hXjkE=
+
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
@@ -2252,6 +2315,16 @@
     "@types/topojson-server" "*"
     "@types/topojson-simplify" "*"
     "@types/topojson-specification" "*"
+
+"@types/webgl-ext@0.0.30":
+  version "0.0.30"
+  resolved "https://registry.npm.taobao.org/@types/webgl-ext/download/@types/webgl-ext-0.0.30.tgz#0ce498c16a41a23d15289e0b844d945b25f0fb9d"
+  integrity sha1-DOSYwWpBoj0VKJ4LhE2UWyXw+50=
+
+"@types/webgl2@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npm.taobao.org/@types/webgl2/download/@types/webgl2-0.0.4.tgz#c3b0f9d6b465c66138e84e64cb3bdf8373c2c279"
+  integrity sha1-w7D51rRlxmE46E5kyzvfg3PCwnk=
 
 "@types/yargs-parser@*":
   version "15.0.0"
@@ -3668,7 +3741,7 @@ color@^3.0.0:
     color-convert "^1.9.1"
     color-string "^1.5.2"
 
-combined-stream@^1.0.6, combined-stream@~1.0.6:
+combined-stream@^1.0.6, combined-stream@^1.0.8, combined-stream@~1.0.6:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.8.tgz#c3d45a8b34fd730631a110a8a2520682b31d5a7f"
   integrity sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==
@@ -5584,6 +5657,15 @@ fork-ts-checker-webpack-plugin@3.1.1:
     semver "^5.6.0"
     tapable "^1.0.0"
     worker-rpc "^0.1.0"
+
+form-data@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npm.taobao.org/form-data/download/form-data-3.0.0.tgz?cache=0&sync_timestamp=1573027118125&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fform-data%2Fdownload%2Fform-data-3.0.0.tgz#31b7e39c85f1355b7139ee0c647cf0de7f83c682"
+  integrity sha1-MbfjnIXxNVtxOe4MZHzw3n+DxoI=
+  dependencies:
+    asynckit "^0.4.0"
+    combined-stream "^1.0.8"
+    mime-types "^2.1.12"
 
 form-data@~2.3.2:
   version "2.3.3"
@@ -8113,6 +8195,11 @@ no-case@^2.2.0:
   dependencies:
     lower-case "^1.1.1"
 
+node-fetch@~2.1.2:
+  version "2.1.2"
+  resolved "https://registry.npm.taobao.org/node-fetch/download/node-fetch-2.1.2.tgz#ab884e8e7e57e38a944753cec706f788d1768bb5"
+  integrity sha1-q4hOjn5X44qUR1POxwb3iNF2i7U=
+
 node-forge@0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.9.0.tgz#d624050edbb44874adca12bb9a52ec63cb782579"
@@ -10502,6 +10589,11 @@ scrollreveal@^4.0.6:
     miniraf "1.0.0"
     rematrix "0.3.0"
     tealight "0.3.6"
+
+seedrandom@2.4.3:
+  version "2.4.3"
+  resolved "https://registry.npm.taobao.org/seedrandom/download/seedrandom-2.4.3.tgz#2438504dad33917314bff18ac4d794f16d6aaecc"
+  integrity sha1-JDhQTa0zkXMUv/GKxNeU8W1qrsw=
 
 select-hose@^2.0.0:
   version "2.0.0"
