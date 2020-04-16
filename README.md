@@ -39,4 +39,4 @@ yarn start
 - [x] International status
 - [x] General situation of China
 - [x] Provinces comparison
-- [ ] Cities detail
+- [x] Cities detail
