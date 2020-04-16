@@ -4,7 +4,6 @@ import ScrollReveal from 'scrollreveal'
 import Histogram from '../components/Histogram';
 // import areaData from '../../../assets/areaData'
 import SelectBox from '../components/SelectBox'
-import DataList from '../components/DataList'
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
     root: {
@@ -47,7 +46,6 @@ function Province(props: any) {
             <div className={'ProvinceMap'}>
                 <Histogram displayLabel={displayLabel} language={language} areaData={areaData} />
             </div>
-            {/* <DataList/> */}
         </div>
     )
 }
