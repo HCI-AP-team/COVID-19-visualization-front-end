@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     },
     cityCards: {
         position: 'absolute',
-        right: '10vw',
+        right: '15vw',
         top: '30vh'
     }
 })
@@ -28,10 +28,10 @@ function City(props: any) {
         if (areaData) {
             //设置两个零时变量,用于将省份信息添加到每一个市中
             let tempChinaData = areaData.results
-                .filter((value:any) => value.countryEnglishName === "China")
+                .filter((value: any) => value.countryEnglishName === "China"&&value.provinceName!=="中国")
             let tempCityData = areaData.results
-                .filter((value:any) => value.countryEnglishName === "China")
-                .map((el:any) => el.cities?.length ? el.cities : [el])//长度为0就是特殊地区如香港
+                .filter((value: any) => value.countryEnglishName === "China"&&value.provinceName!=="中国")
+                .map((el: any) => el.cities?.length ? el.cities : [el])//长度为0就是特殊地区如香港
 
             //将添加省份信息后的城市数据放在状态中
             setCityData(tempCityData
@@ -74,7 +74,7 @@ function City(props: any) {
                                 <div
                                     className={classes.cityCards}
                                     style={{
-                                        transform: `translate(-${2*id}px,-${2*id}px)`
+                                        transform: `translate(-${2 * id}px,-${2 * id}px)`
                                     }}
                                     key={id}>
                                     <CityCard language={language} value={value} />

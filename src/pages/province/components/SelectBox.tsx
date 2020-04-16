@@ -34,7 +34,7 @@ function SelectBox(props: any) {
     };
     return (
         <FormControl className={classes.formControl}>
-            <InputLabel id="demo-controlled-open-select-label">{language?'对比什么':'compare what'}</InputLabel>
+            <InputLabel id="demo-controlled-open-select-label">{language?'显示':'display'}</InputLabel>
             <Select
                 labelId="demo-controlled-open-select-label"
                 id="demo-controlled-open-select"

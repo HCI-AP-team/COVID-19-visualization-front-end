@@ -52,8 +52,8 @@ function ChooseCity(props: any) {
             :
             console.log('empty city data array');
 
-        console.log(allCityArr)
-    }, [cityData])
+        // console.log(allCityArr)
+    }, [cityData, language])
     //查询展示某个城市的数据
     const searchCityData = () => {
         let chooseCityName = inputRef.current?.value;
@@ -81,7 +81,7 @@ function ChooseCity(props: any) {
         if (theCity) {
             cardRef?.current?.setAttribute('style',
                 `
-                right:10vw;
+                right:15vw;
                 `)
 
             setTimeout(() => {
@@ -91,7 +91,7 @@ function ChooseCity(props: any) {
                 )//获得当前选择的城市,没有城市姓名属性就是香港等特殊地区
                 cardRef?.current?.setAttribute('style',
                     `
-                    right:70vw;
+                    right:65vw;
                     `)
             }, 1500)
 
@@ -106,7 +106,7 @@ function ChooseCity(props: any) {
         //卡片动画
         cardRef?.current?.setAttribute('style',
             `
-                right:10vw;
+                right:15vw;
         `)
         let randomCity = allCityArray[Math.floor(allCityArray.length * Math.random())]//随机抽取一个城市
 
@@ -115,7 +115,7 @@ function ChooseCity(props: any) {
             setOneCity(randomCity);
             cardRef?.current?.setAttribute('style',
                 `
-                    right:70vw
+                    right:65vw
                     `)
         }, 1500)
     }

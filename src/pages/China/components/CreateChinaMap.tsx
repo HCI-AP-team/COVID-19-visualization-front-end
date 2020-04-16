@@ -40,7 +40,7 @@ const CreateChinaMap = (props: any) => {
     province: string;
     value: string;
   }
-  let map: RaphaelPaper;
+  let map: any;
   const createChinaMap = () => {
 
     //中国地图容器
