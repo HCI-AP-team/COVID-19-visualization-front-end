@@ -56,7 +56,7 @@ function Homepage(props: any) {
             {/* <ruby className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>下<rt>xia</rt>滑<rt>hua</rt>并<rt>bing</rt>了<rt>liao</rt>解<rt>jie</rt>更<rt>geng</rt>多<rt>duo</rt>⬇️</ruby> */}
             {/* <ruby className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>右<rt>you</rt>下<rt>xia</rt>角<rt>jiao</rt>按<rt>an</rt>钮<rt>niu</rt>可<rt>ke</rt>以<rt>yi</rt>快<rt>kuai</rt>速<rt>su</rt>换<rt>huan</rt>页<rt>ye</rt>➡️⬇️</ruby> */}
             <div className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>{language?'下滑了解更多':'Slide to learn more'}⬇️</div>
-            <div className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>{language?'右下角按钮可以快速换页':'The bottom right button can quickly change the page'}➡️⬇️</div>
+            <div className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>{language?'右侧按钮可以快速换页':'The bottom right button can quickly change the page'}➡️</div>
             <LanguageChoose setLanguage={setLanguage} language={language} showHint={showHint}/>
         </div>
     )
