@@ -6,7 +6,7 @@ import * as d3 from "d3";
 import * as topojson from 'topojson';
 import worldData from '../../../assets/worldData.json'
 import versor from 'versor';
-import areaData from '../../../assets/areaData'
+// import areaData from '../../../assets/areaData'
 import tsv2json from '../../../assets/tsv2json.json'
 const useStyles = makeStyles(theme => ({
     globe: {
@@ -22,26 +22,26 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 function Earth(props) {
-    const { setDisplayText } = props;
+    const { setDisplayText, areaData } = props;
     const classes = useStyles();
     const getColor = (value) => {
-        if (value < 50) {
+        if (value < 500) {
             return red[50]
         }
         else {
-            if (value < 100) {
+            if (value < 1000) {
                 return red[100]
             }
             else {
-                if (value < 500) {
+                if (value < 5000) {
                     return red[200]
                 }
                 else {
-                    if (value < 1000) {
+                    if (value < 10000) {
                         return red[400]
                     }
                     else {
-                        if (value < 2000) {
+                        if (value < 20000) {
                             return red[600]
                         }
                         else {
@@ -195,22 +195,22 @@ function Earth(props) {
             fill(water, colorWater)
             stroke(graticule, colorGraticule)
             fill(land, "white")
-            stroke(countries,"black")
-            
+            stroke(countries, "black")
+
             // 对每个国家通过获取名字,再获取感染人数,最后上色
-            countries.features.forEach(el =>{
+            countries.features.forEach(el => {
                 let color;
                 let name;
-                name = countryList.find((value) => parseInt(value.id)===parseInt(el.id))
-                name = name?name.name:'';
-                if(!name)
+                name = countryList.find((value) => parseInt(value.id) === parseInt(el.id))
+                name = name ? name.name : '';
+                if (!name)
                     return
-                let confirm = areaData.results.find(f=>f.provinceEnglishName===name)
-                confirm = confirm?confirm.confirmedCount:'';
-                if(!confirm)
+                let confirm = areaData.results.find(f => f.provinceEnglishName === name)
+                confirm = confirm ? confirm.confirmedCount : '';
+                if (!confirm)
                     return
                 color = getColor(confirm)
-                fill(el,color)
+                fill(el, color)
             })
 
             // countries.features.find(f =>
@@ -327,15 +327,15 @@ function Earth(props) {
 
         setAngles()
 
-
-        loadData(function (world, cList) {
-            land = topojson.feature(world, world.objects.land)
-            countries = topojson.feature(world, world.objects.countries)
-            countryList = cList
-            // window.addEventListener('resize', scale)
-            scale()
-            autorotate = d3.timer(rotate)
-        })
+        if (areaData)
+            loadData(function (world, cList) {
+                land = topojson.feature(world, world.objects.land)
+                countries = topojson.feature(world, world.objects.countries)
+                countryList = cList
+                // window.addEventListener('resize', scale)
+                scale()
+                autorotate = d3.timer(rotate)
+            })
 
         canvas
             .call(d3.drag()
@@ -345,7 +345,7 @@ function Earth(props) {
             )
             .on('mousemove', mousemove)
 
-    }, [])
+    }, [areaData])
     return (
         <div style={{ height: '100vh', width: '100vw' }}>
             <h2 id="current" className={classes.current}></h2>

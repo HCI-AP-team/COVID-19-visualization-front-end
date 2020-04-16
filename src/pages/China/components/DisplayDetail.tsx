@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import areaData from '../../../assets/areaData';
+// import areaData from '../../../assets/areaData';
 const useStyle = makeStyles({
   root: {
     padding: '5px',
@@ -17,7 +17,7 @@ const useStyle = makeStyles({
   }
 })
 const DisplayDetail = (props: any) => {
-  const { language } = props;
+  const { language, areaData } = props;
   const classes = useStyle();
   interface DataStructure {
     'locationId': number
@@ -92,8 +92,10 @@ const DisplayDetail = (props: any) => {
   //过滤出来某个省的数据
   const [temp, setTemp]: [DataStructure[] | undefined, Function] = useState();
   useEffect(() => {
-    setTemp(areaData.results.filter((value) => value.countryEnglishName === "China" && value.provinceShortName === provinceName) as DataStructure[]);
-  }, [provinceName])
+    //因为初次渲染没有areaData没有定义
+    if(areaData)
+      setTemp(areaData.results.filter((value:any) => value.countryEnglishName === "China" && value.provinceShortName === provinceName) as DataStructure[]);
+  }, [provinceName,areaData])
   useEffect(() => {
   }, [temp])
 

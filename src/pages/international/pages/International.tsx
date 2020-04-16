@@ -17,7 +17,7 @@ const useStyle = makeStyles({
     }
 })
 function International(props: any) {
-    const { language } = props;
+    const { language, areaData } = props;
     const [display3D, setDisplay3D] = useState(false)
     const classes = useStyle();
     const { setDisplayText } = props
@@ -27,10 +27,10 @@ function International(props: any) {
                 <SwithV display3D={display3D} setDisplay3D={setDisplay3D} />
             </div>
             <div style={{display:display3D?'none':'block',height:'100vh',width:'100vw'}}>
-                <TwoD language={language} setDisplayText={setDisplayText} />
+                <TwoD areaData={areaData} language={language} setDisplayText={setDisplayText} />
             </div>
             <div style={{display:display3D?'block':'none',height:'100vh',width:'100vw'}}>
-                <ThreeD language={language} setDisplayText={setDisplayText} />
+                <ThreeD areaData={areaData} language={language} setDisplayText={setDisplayText} />
             </div>
         </div>
     )

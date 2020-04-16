@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import red from '@material-ui/core/colors/red';
 import raphael from 'raphael';
 import chinaMap from '../../../assets/chinamapData';
-import areaData from '../../../assets/areaData';
+// import areaData from '../../../assets/areaData';
 const getColor = (value: number): string => {
   if (value < 50) {
     return red[50]
@@ -33,14 +33,14 @@ const getColor = (value: number): string => {
   }
 }
 const CreateChinaMap = (props: any) => {
-  // const { className, handleChange, setCurrentChoose, areaData } = props;
-  const { className, handleChange, setCurrentChoose, language } = props;
+  const { className, handleChange, setCurrentChoose,language, areaData } = props;
+  // const { className, handleChange, setCurrentChoose, language } = props;
   interface dataForm {
     省份: string;
     province: string;
     value: string;
   }
-  let map:RaphaelPaper;
+  let map: RaphaelPaper;
   const createChinaMap = () => {
 
     //中国地图容器
@@ -56,7 +56,7 @@ const CreateChinaMap = (props: any) => {
     }) as dataForm[];
     data = data.filter((el: any) => el !== undefined)
     data = data.sort((a: any, b: any) => - b.value + a.value)
-    console.log(data)
+    // console.log(data)
 
     chinaMap.paths.forEach((value) => {
 
@@ -141,13 +141,14 @@ const CreateChinaMap = (props: any) => {
   }
   useEffect(() => {
     // console.log(areaData)
-    // if (areaData.result)
-    createChinaMap();
+    if (areaData)
+      createChinaMap();
     //清除地图,防止显示多个
-    return()=>{
-      map.remove()
+    return () => {
+      if (map)
+        map.remove()
     }
-  }, [language])
+  }, [language, areaData])
   return (
     <div id="map" className={className}>
     </div>

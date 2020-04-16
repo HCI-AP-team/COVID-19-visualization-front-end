@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Chart } from '@antv/g2'
 import ScrollReveal from 'scrollreveal'
-import areaData from '../../../assets/areaData'
+// import areaData from '../../../assets/areaData'
 import SelectBox from '../components/SelectBox'
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
@@ -25,14 +25,14 @@ const useStyles = makeStyles(theme => ({
         alignItems: 'center'
     }
 }));
-function Province(props:any) {
+function Province(props: any) {
     // 用于选择对比展示各省的哪一个属性
-    const { language } = props;
+    const { language, areaData } = props;
     const [displayLabel, setDisplayLabel] = useState('confirmedCount');
     interface dataForm {
         省份: any;
         value: any;
-        province:any;
+        province: any;
     }
     const classes = useStyles();
 
@@ -110,81 +110,83 @@ function Province(props:any) {
         // suspectedCount 疑似数量
         // curedCount 治愈数
         // deadCount 死亡数
-        let data: dataForm[] = areaData.results.map((el: any): {} | undefined => {
-            if (el.countryName === '中国') {
-                return { 省份: el.provinceShortName,province:el.provinceEnglishName, value: el[displayLabel] }
-            }
-            else
-                return undefined;
-        }) as dataForm[];
-        data = data.filter((el: any) => el !== undefined)
-        data = data.sort((a: any, b: any) => - b.value + a.value)
-        const chart = new Chart({
-            container: 'province',//容器姓名
-            autoFit: true,//自动适配容器宽高
-        });
-        chart.data(data);
-        chart.scale({
-            value: {
-                max: data[data.length - 1].value * 1.2,// 设定横坐标最大值,因为已经排序了,所以选取最后一个
-                min: 0,
-                alias: language?'单位/人':'people',//横坐标显示
-            },
-        });
-        chart.axis(language?'省份':'province', {
-            title: {
-                offset: 10,
-                style: {
-                    fontSize: 18,
-                    fontWeight: 800,
-                },
-            },
-            tickLine: null,
-        });
-
-        chart.axis('value', {
-            label: null,
-            title: {
-                offset: 5,
-                style: {
-                    fontSize: 18,
-                    fontWeight: 800,
-                },
-            },
-        });
-        chart.coordinate().transpose();//创建坐标系,并进行转置变换
-        chart
-            .interval()
-            .position((language?'省份':'province')+'*value')
-            .size(18)
-            .label('value', {
-                style: {
-                    fill: '#8d8d8d',
-                    fontWeight: 800
-                },
-                offset: 10,
+        if (areaData) {
+            let data: dataForm[] = areaData.results.map((el: any): {} | undefined => {
+                if (el.countryName === '中国') {
+                    return { 省份: el.provinceShortName, province: el.provinceEnglishName, value: el[displayLabel] }
+                }
+                else
+                    return undefined;
+            }) as dataForm[];
+            data = data.filter((el: any) => el !== undefined)
+            data = data.sort((a: any, b: any) => - b.value + a.value)
+            const chart = new Chart({
+                container: 'province',//容器姓名
+                autoFit: true,//自动适配容器宽高
             });
-        chart.interaction('element-active');
-        chart.render();
-        ScrollReveal().reveal(".ProvinceMap", {
-            duration: 2000,
-            rotate: {
-                x: -50,
-                z: -20
-            },
-            reset: true
-        })//入场动画
-        return () => {
-            chart.destroy();//摧毁图表,防止多次渲染
+            chart.data(data);
+            chart.scale({
+                value: {
+                    max: data[data.length - 1].value * 1.2,// 设定横坐标最大值,因为已经排序了,所以选取最后一个
+                    min: 0,
+                    alias: language ? '单位/人' : 'people',//横坐标显示
+                },
+            });
+            chart.axis(language ? '省份' : 'province', {
+                title: {
+                    offset: 10,
+                    style: {
+                        fontSize: 18,
+                        fontWeight: 800,
+                    },
+                },
+                tickLine: null,
+            });
+
+            chart.axis('value', {
+                label: null,
+                title: {
+                    offset: 5,
+                    style: {
+                        fontSize: 18,
+                        fontWeight: 800,
+                    },
+                },
+            });
+            chart.coordinate().transpose();//创建坐标系,并进行转置变换
+            chart
+                .interval()
+                .position((language ? '省份' : 'province') + '*value')
+                .size(18)
+                .label('value', {
+                    style: {
+                        fill: '#8d8d8d',
+                        fontWeight: 800
+                    },
+                    offset: 10,
+                });
+            chart.interaction('element-active');
+            chart.render();
+            ScrollReveal().reveal(".ProvinceMap", {
+                duration: 2000,
+                rotate: {
+                    x: -50,
+                    z: -20
+                },
+                reset: true
+            })//入场动画
+            return () => {
+                chart.destroy();//摧毁图表,防止多次渲染
+            }
         }
-    }, [displayLabel,language])
+    }, [displayLabel, language, areaData])
     return (
         <div className={classes.root}>
-            <div className={classes.chooseInput+' ProvinceMap'}>
-                <strong>{language?'可以对比不同的值':'You can compare different values'}</strong>
+            <div className={classes.chooseInput + ' ProvinceMap'}>
+                <strong>{language ? '可以对比不同的值' : 'You can compare different values'}</strong>
                 <SelectBox displayLabel={displayLabel} language={language} setDisplayLabel={setDisplayLabel} />
             </div>
-            <div id='province' className={classes.chart+' ProvinceMap'}>
+            <div id='province' className={classes.chart + ' ProvinceMap'}>
             </div>
         </div>
     )

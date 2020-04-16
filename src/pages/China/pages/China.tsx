@@ -99,7 +99,7 @@ function China(props: any) {
       <div id="detail" className={classes.detail + ' ChinaMap'}>
         <Slide direction="left" in={checked} mountOnEnter unmountOnExit>
           <Paper elevation={10}>
-            <DisplayDetail language={language} currentChoose={currentChoose} />
+            <DisplayDetail areaData={areaData} language={language} currentChoose={currentChoose} />
           </Paper>
         </Slide>
       </div>
