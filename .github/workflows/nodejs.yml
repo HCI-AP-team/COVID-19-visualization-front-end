@@ -16,4 +16,4 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
         FOLDER: build
-        BUILD_SCRIPT: npm cache clean --force && npm install yarn -g && yarn cache clean && yarn && yarn build
+        BUILD_SCRIPT: sudo rm -rf node_modules && npm install yarn && yarn && yarn build
