@@ -9,7 +9,7 @@ const useStyle = makeStyles(theme => ({
     specailCard: {
         position: 'absolute',
         transition: '1s all linear',
-        right: '70vw',
+        right: '65vw',
         top: '30vh',
     },
     searchComponents: {
