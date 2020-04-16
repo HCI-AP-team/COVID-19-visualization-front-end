@@ -33,7 +33,7 @@ yarn start
 - :gem: material-ui
 - :pencil2: raphael
 - :ant: antv
- 
+
 # Tasklist
 - [x] Homepage display
 - [x] International status
