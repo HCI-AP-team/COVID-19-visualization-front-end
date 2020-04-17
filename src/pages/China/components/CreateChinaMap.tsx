@@ -33,13 +33,8 @@ const getColor = (value: number): string => {
   }
 }
 const CreateChinaMap = (props: any) => {
-  const { className, handleChange, setCurrentChoose,language, areaData } = props;
+  const { className, handleChange, setCurrentChoose, language, chinaData } = props;
   // const { className, handleChange, setCurrentChoose, language } = props;
-  interface dataForm {
-    省份: string;
-    province: string;
-    value: string;
-  }
   let map: any;
   const createChinaMap = () => {
 
@@ -47,22 +42,23 @@ const CreateChinaMap = (props: any) => {
     map = raphael("map", chinaMap.dimension.width, chinaMap.dimension.height);
 
     //数据清洗
-    let data: dataForm[] = areaData.results.map((el: any): {} | undefined => {
-      console.log(el)
-      if (el.countryName === '中国') {
-        return { 省份: el.provinceShortName, province: el.provinceEnglishName, value: el.confirmedCount }
-      }
-      else
-        return undefined;
-    }) as dataForm[];
-    data = data.filter((el: any) => el !== undefined)
-    data = data.sort((a: any, b: any) => - b.value + a.value)
+    // let data: dataForm[] = areaData.results.map((el: any): {} | undefined => {
+    //   if (el.countryName === '中国'&& el.provinceShortName !== "中国") {
+    //     return { 省份: el.provinceShortName, province: el.provinceEnglishName, value: el.confirmedCount }
+    //   }
+    //   else
+    //     return undefined;
+    // }) as dataForm[];
+    // data = data.filter((el: any) => el !== undefined)
+    // data = data.sort((a: any, b: any) => - b.value + a.value)
     // console.log(data)
-
+    let data = chinaData.map((el:any) => {
+      return { 省份: el.provinceShortName, province: el.provinceEnglishName, value: el.confirmedCount }
+    })
     chinaMap.paths.forEach((value) => {
 
       //获取当前绘制的省份数据
-      let respondValue: dataForm[] = data.filter(el => el.省份 === value.name)
+      let respondValue = data.filter((el: any) => el.省份 === value.name)
       // console.log(respondValue)
       //调色
       let color: string = getColor(parseInt(respondValue[0].value));
@@ -141,15 +137,15 @@ const CreateChinaMap = (props: any) => {
     })
   }
   useEffect(() => {
-    // console.log(areaData)
-    if (areaData)
+    // console.log(chinaData)
+    if (chinaData)
       createChinaMap();
     //清除地图,防止显示多个
     return () => {
       if (map)
         map.remove()
     }
-  }, [language, areaData])
+  }, [language, chinaData])
   return (
     <div id="map" className={className}>
     </div>

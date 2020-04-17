@@ -12,7 +12,7 @@ import Province from './pages/province/pages/Province'
 // import City from './pages/city/pages/City'
 import Loading from './components/Loading'
 import requestAreaData from './api/requestAreaData'
-import * as speechcommand from '@tensorflow-models/speech-commands'
+import requestWorld2DData from './api/requestWorld2DData'
 // //异步加载
 // const International = React.lazy(() => import('./pages/International'));
 // const China = React.lazy(() => import('./pages/China/pages/China'));
@@ -38,13 +38,14 @@ const useStyles = makeStyles(theme => ({
     top: '10px'
   }
 }));
-
 function App() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);//关于我们  这一部分的开关状态
   const [language, setLanguage] = useState(true);//设定显示的语言,true为中文,false 为英语
   const [displayText, setDisplayText] = useState(false)//设定首页的逐个文字显示
-  const [areaData, setAreaData] = useState()//疫情数据
+  const [areaData, setAreaData] = useState()//世界疫情数据
+  const [chinaData, setChinaData] = useState()//疫情数据
+  const [world2D, setWorld2D] = useState()//2D世界地图数据
   const handleClose = () => {
     setOpen(false);
   };
@@ -52,40 +53,23 @@ function App() {
     setOpen(!open);
   };
   useEffect(() => {
-    let b = async () => {
-      let data = await requestAreaData()
+    const fetchData = async () => {
+      let data = await requestAreaData()//请求疫情数据
       setAreaData(data)
+      let tempChinaData = data.results.filter((el: any): {} | undefined =>
+        el.countryName === '中国' && el.provinceShortName !== "中国"
+      );
+      tempChinaData = tempChinaData.filter((el: any) => el !== undefined)
+      setChinaData(tempChinaData);
+
+      let dataWorld2D = await requestWorld2DData();//2D世界数据
+      setWorld2D(dataWorld2D)
+
+      setTimeout(() => setDisplayText(true), 0)//将文字是否显示放在宏任务队列末尾
     }
-    let MODEL_PATH = 'http://127.0.0.1:9999/speech'
-    let c = async () => {
-      const rec = speechcommand.create(
-        'BROWSER_FFT',//浏览器自带的傅立叶变换
-        undefined,
-        MODEL_PATH + '/model.json',
-        MODEL_PATH + '/metadata.json'
-      )//创建识别器
-
-      await rec.ensureModelLoaded();//确保模型加载完成
-
-      let labels = rec.wordLabels()//获得可识别的字符
-      labels = labels.slice(2)
 
 
-
-      rec.listen(result => {
-        const scores  = result.scores as unknown as number[];
-        
-        let index = scores.indexOf(Math.max(...scores))
-        console.log(labels[index])
-        return new Promise(()=>{});
-      },
-        {
-          overlapFactor: 0.2,//覆盖率
-          probabilityThreshold: 0.75//相似度
-        })
-    }
-    c();
-    b();
+    fetchData();
   }, [])
   return (
 
@@ -104,11 +88,11 @@ function App() {
       <Homepage setLanguage={setLanguage} language={language} displayText={displayText} />
 
 
-      <International language={language} areaData={areaData} setDisplayText={setDisplayText} />
-      <China language={language} areaData={areaData} />
-      <Province language={language} areaData={areaData}/>
+      <International language={language} world2D={world2D} areaData={areaData} />
+      <China language={language} chinaData={chinaData} />
+      <Province language={language} chinaData={chinaData} />
       <Suspense fallback={<Loading />}>
-        <City language={language} areaData={areaData} />
+        <City language={language} chinaData={chinaData} />
       </Suspense>
 
 

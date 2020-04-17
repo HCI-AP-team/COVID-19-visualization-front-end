@@ -10,12 +10,7 @@ const useStyles = makeStyles(theme => ({
 }));
 function Histogram(props: any) {
     // 用于选择对比展示各省的哪一个属性
-    const { language, areaData, displayLabel } = props;
-    interface dataForm {
-        省份: any;
-        value: any;
-        province: any;
-    }
+    const { language, chinaData, displayLabel } = props;
     const classes = useStyles();
 
     useEffect(() => {
@@ -26,15 +21,23 @@ function Histogram(props: any) {
         // suspectedCount 疑似数量
         // curedCount 治愈数
         // deadCount 死亡数
-        if (areaData) {
-            let data: dataForm[] = areaData.results.map((el: any): {} | undefined => {
-                if (el.countryName === '中国' && el.provinceShortName !== "中国") {
-                    return { 省份: el.provinceShortName, province: el.provinceEnglishName, value: el[displayLabel] > 0 ? el[displayLabel] : 0 }
+        if (chinaData) {
+            // let data: dataForm[] = areaData.results.map((el: any): {} | undefined => {
+            //     if (el.countryName === '中国' && el.provinceShortName !== "中国") {
+            //         return { 省份: el.provinceShortName, province: el.provinceEnglishName, value: el[displayLabel] > 0 ? el[displayLabel] : 0 }
+            //     }
+            //     else
+            //         return undefined;
+            // }) as dataForm[];
+            // data = data.filter((el: any) => el !== undefined)
+            // console.log(data)
+            let data = chinaData.map((el: any) => {
+                return {
+                    省份: el.provinceShortName,
+                    province: el.provinceEnglishName,
+                    value: el[displayLabel] > 0 ? el[displayLabel] : 0
                 }
-                else
-                    return undefined;
-            }) as dataForm[];
-            data = data.filter((el: any) => el !== undefined)
+            })
             data = data.sort((a: any, b: any) => - b.value + a.value)
             const chart = new Chart({
                 container: 'province',//容器姓名
@@ -87,7 +90,7 @@ function Histogram(props: any) {
                 chart.destroy();//摧毁图表,防止多次渲染
             }
         }
-    }, [displayLabel, language, areaData])
+    }, [displayLabel, language, chinaData])
     return (
         <div id='province' className={classes.chart} />
     )

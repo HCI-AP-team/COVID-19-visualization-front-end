@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 }));
 function Province(props: any) {
     // 用于选择对比展示各省的哪一个属性
-    const { language, areaData } = props;
+    const { language, chinaData } = props;
     const [displayLabel, setDisplayLabel] = useState('confirmedCount');
     const classes = useStyles();
     useEffect(() => {
@@ -36,14 +36,14 @@ function Province(props: any) {
             },
             reset: true
         })//入场动画
-    }, [language, areaData, displayLabel])
+    }, [language, chinaData, displayLabel])
     return (
         <div className={classes.root + ' ProvinceMap'}>
             <div className={classes.chooseInput}>
                 <strong>{language ? '可以对比不同的值' : 'You can compare different values'}</strong>
                 <SelectBox displayLabel={displayLabel} language={language} setDisplayLabel={setDisplayLabel} />
             </div>
-            <Histogram displayLabel={displayLabel} language={language} areaData={areaData} />
+            <Histogram displayLabel={displayLabel} language={language} chinaData={chinaData} />
         </div>
     )
 }

@@ -17,7 +17,7 @@ const useStyle = makeStyles({
   }
 })
 const DisplayDetail = (props: any) => {
-  const { language, areaData } = props;
+  const { language, chinaData } = props;
   const classes = useStyle();
   interface DataStructure {
     'locationId': number
@@ -92,18 +92,19 @@ const DisplayDetail = (props: any) => {
   //过滤出来某个省的数据
   const [temp, setTemp]: [DataStructure[] | undefined, Function] = useState();
   useEffect(() => {
-    //因为初次渲染没有areaData没有定义
-    if(areaData)
-      setTemp(areaData.results.filter((value:any) => value.countryEnglishName === "China" && value.provinceShortName === provinceName) as DataStructure[]);
-  }, [provinceName,areaData])
+    //因为初次渲染没有chinaData没有定义
+    if(chinaData)
+      setTemp(chinaData.filter((value:any)=>value.provinceShortName === provinceName) as DataStructure[]);
+  }, [provinceName,chinaData])
   useEffect(() => {
+    console.log(temp)
   }, [temp])
 
   return (
     <div className={classes.root}>
       {temp ?
         temp[0] ? Object.keys(temp[0]).map((key: string, index: number) => {
-          if (key !== 'cities' && key !== "locationId" && key !== 'comment' && key !== "updateTime") {
+          if (key !== 'cities' && key !== 'cityName' && key !== "locationId" && key !== 'comment' && key !== "updateTime") {
             return <span key={key}>
               <p>{(language?ChineseLabels[index]:EnglishLabels[index]) + ' : '}</p>
               <p>{temp ? (temp[0] as any)[key] : ''}</p>

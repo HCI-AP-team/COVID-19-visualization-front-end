@@ -19,10 +19,9 @@ const useStyle = makeStyles({
     }
 })
 function International(props: any) {
-    const { language, areaData } = props;
+    const { language, areaData, world2D } = props;
     const [display3D, setDisplay3D] = useState(false)
     const classes = useStyle();
-    const { setDisplayText } = props
     useEffect(()=>{
         ScrollReveal().reveal(".international", {
             duration: 2000,
@@ -40,10 +39,10 @@ function International(props: any) {
                 <SwithV display3D={display3D} setDisplay3D={setDisplay3D} />
             </div>
             <div style={{display:display3D?'none':'block',height:'100vh',width:'100vw'}}>
-                <TwoD areaData={areaData} language={language} setDisplayText={setDisplayText} />
+                <TwoD world2D={world2D} areaData={areaData} language={language} />
             </div>
             <div style={{display:display3D?'block':'none',height:'100vh',width:'100vw'}}>
-                <ThreeD areaData={areaData} language={language} setDisplayText={setDisplayText} />
+                <ThreeD areaData={areaData} language={language}/>
             </div>
         </div>
     )

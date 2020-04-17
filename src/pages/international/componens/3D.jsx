@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 function Earth(props) {
-    const { setDisplayText, areaData } = props;
+    const { areaData } = props;
     const classes = useStyles();
     const getColor = (value) => {
         if (value < 500) {
@@ -83,7 +83,7 @@ function Earth(props) {
             })
             console.log(country && country.name || '')
             let temp = areaData.results.filter((e) => e.countryEnglishName === (country && country.name || ''))
-            // console.log(temp)
+            console.log(temp)
         }
 
         //鼠标离开
@@ -261,7 +261,7 @@ function Earth(props) {
             // })
             // console.log(temp)
             cb(worldData, tsv2json)
-            // setTimeout(() => setDisplayText(true), 0)//将文字是否显示放在宏任务队列末尾
+            
         }
 
         // https://github.com/d3/d3-polygon
@@ -344,6 +344,7 @@ function Earth(props) {
                 .on('end', dragended)
             )
             .on('mousemove', mousemove)
+            .on('click',()=>{console.log(1)})
 
     }, [areaData])
     return (
