@@ -1,9 +1,11 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import TwoD from '../componens/2D'
 import ThreeD from '../componens/3D'
 import SwithV from '../componens/SwitchV'
 import { makeStyles } from '@material-ui/core/styles'
+import ScrollReveal from 'scrollreveal'
+
 const useStyle = makeStyles({
     root: {
         height: '100vh',
@@ -21,8 +23,19 @@ function International(props: any) {
     const [display3D, setDisplay3D] = useState(false)
     const classes = useStyle();
     const { setDisplayText } = props
+    useEffect(()=>{
+        ScrollReveal().reveal(".international", {
+            duration: 2000,
+            distance: '0px',
+            reset: true,
+            rotate: {
+              x: -200,
+              z: -50
+            }
+          })
+    },[])
     return (
-        <div className={classes.root}>
+        <div className={classes.root+' international'}>
             <div className={classes.switchV}>
                 <SwithV display3D={display3D} setDisplay3D={setDisplay3D} />
             </div>

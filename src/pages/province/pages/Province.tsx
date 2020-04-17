@@ -38,14 +38,12 @@ function Province(props: any) {
         })//入场动画
     }, [language, areaData, displayLabel])
     return (
-        <div className={classes.root}>
-            <div className={classes.chooseInput + ' ProvinceMap'}>
+        <div className={classes.root + ' ProvinceMap'}>
+            <div className={classes.chooseInput}>
                 <strong>{language ? '可以对比不同的值' : 'You can compare different values'}</strong>
                 <SelectBox displayLabel={displayLabel} language={language} setDisplayLabel={setDisplayLabel} />
             </div>
-            <div className={'ProvinceMap'}>
-                <Histogram displayLabel={displayLabel} language={language} areaData={areaData} />
-            </div>
+            <Histogram displayLabel={displayLabel} language={language} areaData={areaData} />
         </div>
     )
 }

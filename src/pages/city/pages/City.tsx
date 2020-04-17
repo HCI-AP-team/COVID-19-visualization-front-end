@@ -28,9 +28,9 @@ function City(props: any) {
         if (areaData) {
             //设置两个零时变量,用于将省份信息添加到每一个市中
             let tempChinaData = areaData.results
-                .filter((value: any) => value.countryEnglishName === "China"&&value.provinceName!=="中国")
+                .filter((value: any) => value.countryEnglishName === "China" && value.provinceName !== "中国")
             let tempCityData = areaData.results
-                .filter((value: any) => value.countryEnglishName === "China"&&value.provinceName!=="中国")
+                .filter((value: any) => value.countryEnglishName === "China" && value.provinceName !== "中国")
                 .map((el: any) => el.cities?.length ? el.cities : [el])//长度为0就是特殊地区如香港
 
             //将添加省份信息后的城市数据放在状态中
@@ -62,9 +62,9 @@ function City(props: any) {
         console.log(cityData)
     }, [cityData])
     return (
-        <div className={classes.root}>
+        <div className={classes.root + " CityMap"}>
 
-            <ChooseCity className="CityMap" language={language} cityData={cityData} />
+            <ChooseCity language={language} cityData={cityData} />
             {
                 cityData?.map((value: any, i: any) =>
                     // 避免渲染过多导致页面卡顿

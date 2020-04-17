@@ -8,7 +8,6 @@ import {
 } from '@antv/l7-react';
 import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import ScrollReveal from 'scrollreveal'
 // import areaData from '../../../assets/areaData'
 
 const useStyles = makeStyles({
@@ -121,16 +120,7 @@ const World = React.memo(function Map(props: any) {
     if (areaData)
       fetchData();
 
-    ScrollReveal().reveal(".internationalMap", {
-      duration: 2000,
-      distance: '0px',
-      reset: true,
-      rotate: {
-        x: -200,
-        z: -50
-      }
-    })//入场动画
-  }, [areaData]);
+  },[areaData]);
   function showPopup(args: any): void {
     setPopupInfo({
       lnglat: args.lngLat,
@@ -140,8 +130,8 @@ const World = React.memo(function Map(props: any) {
 
   return (
     <div className={classes.root}>
-      <strong className="internationalMap">{language ? '世界概况(支持缩放和拖动)' : 'World factbook (supports zooming and dragging)'}</strong>
-      <div className={classes.mapBg + " internationalMap"}>
+      <strong>{language ? '世界概况(支持缩放和拖动)' : 'World factbook (supports zooming and dragging)'}</strong>
+      <div className={classes.mapBg}>
         <MapboxScene
           map={{
             center: [110.19382669582967, 50.258134],
@@ -165,10 +155,10 @@ const World = React.memo(function Map(props: any) {
                   margin: 0,
                 }}
               >
-                <li>{(language ? '现有确诊:' : 'current confirm: ') + popupInfo.feature.currentConfirmedCount}</li>
+                <li>{(language ? '现有确诊: ' : 'current confirm: ') + popupInfo.feature.currentConfirmedCount}</li>
                 <li>{(language ? '累计确诊: ' : 'total confirm: ') + popupInfo.feature.confirmedCount}</li>
                 <li>{(language ? '治愈: ' : 'cure count: ') + popupInfo.feature.curedCount}</li>
-                <li>{(language ? '死亡:' : 'dead count: ') + popupInfo.feature.deadCount}</li>
+                <li>{(language ? '死亡: ' : 'dead count: ') + popupInfo.feature.deadCount}</li>
               </ul>
             </Popup>
           )}

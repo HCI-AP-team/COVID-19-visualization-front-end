@@ -29,7 +29,7 @@ function Histogram(props: any) {
         if (areaData) {
             let data: dataForm[] = areaData.results.map((el: any): {} | undefined => {
                 if (el.countryName === '中国' && el.provinceShortName !== "中国") {
-                    return { 省份: el.provinceShortName, province: el.provinceEnglishName, value: el[displayLabel] }
+                    return { 省份: el.provinceShortName, province: el.provinceEnglishName, value: el[displayLabel] > 0 ? el[displayLabel] : 0 }
                 }
                 else
                     return undefined;
@@ -82,14 +82,14 @@ function Histogram(props: any) {
                     offset: 10,
                 });
             chart.interaction('element-active');
-            setTimeout(()=>chart.render(),0)
+            setTimeout(() => chart.render(), 0)
             return () => {
                 chart.destroy();//摧毁图表,防止多次渲染
             }
         }
     }, [displayLabel, language, areaData])
     return (
-        <div id='province' className={classes.chart}/>
+        <div id='province' className={classes.chart} />
     )
 }
 

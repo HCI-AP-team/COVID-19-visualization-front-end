@@ -156,9 +156,7 @@ function ChooseCity(props: any) {
                         <CityCard language={language} value={oneCity} />
                         :
                         <strong>
-                            {language ? '你当前没有查看任何城市的详情' : 'You are not currently checking any city details'}
-                            <br />
-                            {language ? '注意:直辖市需要按区搜索' : 'Note: municipalities need to be searched by district'}
+                            {language ? '请选择一个城市查看' : 'Please choose a city'}
                         </strong>
                 }
             </div>

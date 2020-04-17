@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     border: 'solid 2px black',
     borderRadius: '5px',
     padding: '2px',
-    minWidth:'144px',
+    minWidth: '144px',
     backgroundColor: '#e1f5fe'
   },
   detail: {
@@ -91,13 +91,13 @@ function China(props: any) {
   }, [])
 
   return (
-    <div className={classes.root} >
-      <CreateChinaMap language={language} areaData={areaData} className='ChinaMap' handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
-      <div className={classes.labels + ' ChinaMap'}>
-        <strong>{language ? '当前确诊人数' : 'current confirmed count'}</strong>
+    <div className={classes.root + ' ChinaMap'} >
+      <CreateChinaMap language={language} areaData={areaData} handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
+      <div className={classes.labels}>
+        <strong>{language ? '累计确诊人数' : 'confirmed count'}</strong>
         {labels.map((el: any, index: number) => <Label key={index} color={el.color} value={el.value} />)}
       </div>
-      <div id="detail" className={classes.detail + ' ChinaMap'}>
+      <div id="detail" className={classes.detail}>
         <Slide direction="left" in={checked} mountOnEnter unmountOnExit>
           <Paper elevation={10}>
             <DisplayDetail areaData={areaData} language={language} currentChoose={currentChoose} />

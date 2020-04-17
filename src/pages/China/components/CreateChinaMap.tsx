@@ -48,8 +48,9 @@ const CreateChinaMap = (props: any) => {
 
     //数据清洗
     let data: dataForm[] = areaData.results.map((el: any): {} | undefined => {
+      console.log(el)
       if (el.countryName === '中国') {
-        return { 省份: el.provinceShortName, province: el.provinceEnglishName, value: el.curedCount }
+        return { 省份: el.provinceShortName, province: el.provinceEnglishName, value: el.confirmedCount }
       }
       else
         return undefined;
