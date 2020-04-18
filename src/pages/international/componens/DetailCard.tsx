@@ -64,7 +64,7 @@ const DetailCard = (props: any) => {
                     default:
                         return ''
                 }
-            }) : <p>{language?'数据缺失':'data loss'}</p>}
+            }) : <p style={{textAlign:'center'}}>{language?'数据缺失':'data loss'}</p>}
         </div>
     )
 }
