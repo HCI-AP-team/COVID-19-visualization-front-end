@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import red from '@material-ui/core/colors/red';
 import { makeStyles } from '@material-ui/core/styles';
 import * as d3 from "d3";
@@ -8,6 +8,7 @@ import worldData from '../../../assets/worldData.json'
 import versor from 'versor';
 // import areaData from '../../../assets/areaData'
 import tsv2json from '../../../assets/tsv2json.json'
+import DetailCard from './DetailCard';
 const useStyles = makeStyles(theme => ({
     globe: {
         cursor: 'move',
@@ -19,10 +20,18 @@ const useStyles = makeStyles(theme => ({
         fontFamily: 'sans - serif',
         marginLeft: '4 %',
         marginTop: '4 %'
+    },
+    card: {
+        position: 'absolute',
+        right: '0',
+        bottom: '0',
+        width: '300px',
+        height: '300px'
     }
 }))
 function Earth(props) {
-    const { areaData } = props;
+    const [countryData, setCountryData] = useState()
+    const { areaData, language } = props;
     const classes = useStyles();
     const getColor = (value) => {
         if (value < 500) {
@@ -82,8 +91,9 @@ function Earth(props) {
                 return c.id === country.id
             })
             console.log(country && country.name || '')
-            let temp = areaData.results.filter((e) => e.countryEnglishName === (country && country.name || ''))
+            let temp = areaData.results.filter((e) => e.countryEnglishName === (country && country.name || '') && e.provinceEnglishName === (country && country.name || ''))
             console.log(temp)
+            setCountryData(temp[0])
         }
 
         //鼠标离开
@@ -261,7 +271,7 @@ function Earth(props) {
             // })
             // console.log(temp)
             cb(worldData, tsv2json)
-            
+
         }
 
         // https://github.com/d3/d3-polygon
@@ -344,13 +354,25 @@ function Earth(props) {
                 .on('end', dragended)
             )
             .on('mousemove', mousemove)
-            .on('click',()=>{console.log(1)})
+        // .on('click',()=>{
+        //     let country = getCountry(this)
+        //     country = countryList.find(function (c) {
+        //         return c.id === country.id
+        //     })
+        //     console.log(country && country.name || '')
+        //     let temp = areaData.results.filter((e) => e.countryEnglishName === (country && country.name || '') && e.provinceEnglishName === (country && country.name || ''))
+        //     console.log(temp)
+        //     setCountryData(temp[0])
+        // })
 
     }, [areaData])
     return (
-        <div style={{ height: '100vh', width: '100vw' }}>
+        <div style={{ height: '100vh', width: '100vw', position: 'relative' }}>
             <h2 id="current" className={classes.current}></h2>
             <canvas id="globe" className={classes.globe}></canvas>
+            <div className={classes.card}>
+                <DetailCard language={language} areaData={areaData} countryData={countryData} />
+            </div>
         </div>
     )
 }

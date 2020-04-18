@@ -40,7 +40,6 @@ function Province(props: any) {
     return (
         <div className={classes.root + ' ProvinceMap'}>
             <div className={classes.chooseInput}>
-                <strong>{language ? '可以对比不同的值' : 'You can compare different values'}</strong>
                 <SelectBox displayLabel={displayLabel} language={language} setDisplayLabel={setDisplayLabel} />
             </div>
             <Histogram displayLabel={displayLabel} language={language} chinaData={chinaData} />

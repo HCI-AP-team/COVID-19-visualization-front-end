@@ -15,34 +15,35 @@ const useStyle = makeStyles({
     switchV: {
         position: 'absolute',
         top: '2px',
-        left: '10px'
+        left: '10px',
+        zIndex: 5,
     }
 })
 function International(props: any) {
     const { language, areaData, world2D } = props;
     const [display3D, setDisplay3D] = useState(false)
     const classes = useStyle();
-    useEffect(()=>{
+    useEffect(() => {
         ScrollReveal().reveal(".international", {
             duration: 2000,
             distance: '0px',
             reset: true,
             rotate: {
-              x: -200,
-              z: -50
+                x: -200,
+                z: -50
             }
-          })
-    },[])
+        })
+    }, [])
     return (
-        <div className={classes.root+' international'}>
+        <div className={classes.root + ' international'}>
             <div className={classes.switchV}>
                 <SwithV display3D={display3D} setDisplay3D={setDisplay3D} />
             </div>
-            <div style={{display:display3D?'none':'block',height:'100vh',width:'100vw'}}>
+            <div style={{ display: display3D ? 'none' : 'block', height: '100vh', width: '100vw' }}>
                 <TwoD world2D={world2D} areaData={areaData} language={language} />
             </div>
-            <div style={{display:display3D?'block':'none',height:'100vh',width:'100vw'}}>
-                <ThreeD areaData={areaData} language={language}/>
+            <div style={{ display: display3D ? 'block' : 'none', height: '100vh', width: '100vw' }}>
+                <ThreeD areaData={areaData} language={language} />
             </div>
         </div>
     )
