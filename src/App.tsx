@@ -18,6 +18,7 @@ import requestWorld2DData from './api/requestWorld2DData'
 // const China = React.lazy(() => import('./pages/China/pages/China'));
 // const Province = React.lazy(() => import('./pages/Province'));
 const City = React.lazy(() => import('./pages/city/pages/City'));
+const Journalism = React.lazy(() => import('./pages/News/Journalism'));
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -94,7 +95,9 @@ function App() {
       <Suspense fallback={<Loading />}>
         <City language={language} chinaData={chinaData} />
       </Suspense>
-
+        <Suspense fallback={<Loading />}>
+            <Journalism />
+        </Suspense>
 
       <Button variant="outlined" color="primary" onClick={handleToggle} className={classes.bdButton}>
         {language ? '关于我们' : 'about us'}
