@@ -13,6 +13,7 @@ import Province from './pages/province/pages/Province'
 import Loading from './components/Loading'
 import requestAreaData from './api/requestAreaData'
 import requestWorld2DData from './api/requestWorld2DData'
+import VoiceHelper from './components/VoiceHelper'
 // //异步加载
 // const International = React.lazy(() => import('./pages/International'));
 // const China = React.lazy(() => import('./pages/China/pages/China'));
@@ -86,6 +87,7 @@ function App() {
         </GitHubButton>
       </div>
       <DirectionButton language={language} />
+      <VoiceHelper language={language}/>
       <Homepage setLanguage={setLanguage} language={language} displayText={displayText} />
 
 

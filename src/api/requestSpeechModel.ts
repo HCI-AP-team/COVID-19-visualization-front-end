@@ -1,6 +1,6 @@
 import * as speechCommands from '@tensorflow-models/speech-commands';
 
-const PATH = 'http://127.0.0.1:8080/data.bin';
+const PATH = 'http://127.0.0.1:8080/Chinese.bin';
 const PATH2 = 'http://127.0.0.1:8080/'
 const c = async (setTransferRec: any) => {
     const rec = speechCommands.create('BROWSER_FFT')
