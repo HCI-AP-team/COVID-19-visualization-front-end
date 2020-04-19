@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/COVID-19-visualization-front-end/static/css/main.c64fdf6a.chunk.css",
+    "main.js": "/COVID-19-visualization-front-end/static/js/main.02637283.chunk.js",
+    "main.js.map": "/COVID-19-visualization-front-end/static/js/main.02637283.chunk.js.map",
+    "runtime-main.js": "/COVID-19-visualization-front-end/static/js/runtime-main.f1aca51b.js",
+    "runtime-main.js.map": "/COVID-19-visualization-front-end/static/js/runtime-main.f1aca51b.js.map",
+    "static/js/2.9fd67a40.chunk.js": "/COVID-19-visualization-front-end/static/js/2.9fd67a40.chunk.js",
+    "static/js/2.9fd67a40.chunk.js.map": "/COVID-19-visualization-front-end/static/js/2.9fd67a40.chunk.js.map",
+    "static/js/3.ce992d59.chunk.js": "/COVID-19-visualization-front-end/static/js/3.ce992d59.chunk.js",
+    "static/js/3.ce992d59.chunk.js.map": "/COVID-19-visualization-front-end/static/js/3.ce992d59.chunk.js.map",
+    "static/js/4.ac6461b8.chunk.js": "/COVID-19-visualization-front-end/static/js/4.ac6461b8.chunk.js",
+    "static/js/4.ac6461b8.chunk.js.map": "/COVID-19-visualization-front-end/static/js/4.ac6461b8.chunk.js.map",
+    "static/js/5.32585d2d.chunk.js": "/COVID-19-visualization-front-end/static/js/5.32585d2d.chunk.js",
+    "static/js/5.32585d2d.chunk.js.map": "/COVID-19-visualization-front-end/static/js/5.32585d2d.chunk.js.map",
+    "static/js/6.b48aef69.chunk.js": "/COVID-19-visualization-front-end/static/js/6.b48aef69.chunk.js",
+    "static/js/6.b48aef69.chunk.js.map": "/COVID-19-visualization-front-end/static/js/6.b48aef69.chunk.js.map",
+    "index.html": "/COVID-19-visualization-front-end/index.html",
+    "precache-manifest.60728ab4a625195261b00269433c4bfc.js": "/COVID-19-visualization-front-end/precache-manifest.60728ab4a625195261b00269433c4bfc.js",
+    "service-worker.js": "/COVID-19-visualization-front-end/service-worker.js",
+    "static/css/main.c64fdf6a.chunk.css.map": "/COVID-19-visualization-front-end/static/css/main.c64fdf6a.chunk.css.map",
+    "static/js/2.9fd67a40.chunk.js.LICENSE.txt": "/COVID-19-visualization-front-end/static/js/2.9fd67a40.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f1aca51b.js",
+    "static/js/2.9fd67a40.chunk.js",
+    "static/css/main.c64fdf6a.chunk.css",
+    "static/js/main.02637283.chunk.js"
+  ]
+}

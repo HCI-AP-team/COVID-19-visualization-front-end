@@ -51,7 +51,7 @@ const CreateChinaMap = (props: any) => {
     // }) as dataForm[];
     // data = data.filter((el: any) => el !== undefined)
     // data = data.sort((a: any, b: any) => - b.value + a.value)
-    // console.log(data)
+    // console.log(chinaData)
     let data = chinaData.map((el:any) => {
       return { 省份: el.provinceShortName, province: el.provinceEnglishName, value: el.confirmedCount }
     })

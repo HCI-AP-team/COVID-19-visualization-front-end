@@ -6,6 +6,7 @@ import VpnLock from '@material-ui/icons/VpnLock';
 import People from '@material-ui/icons/People';
 import Public from '@material-ui/icons/Public';
 import Home from '@material-ui/icons/Home';
+import FiberNew from '@material-ui/icons/FiberNew'
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -96,6 +97,13 @@ export default function DirectionButton(props: any) {
           <ToggleButton value="city" style={{ color: scrollPosition > window.innerHeight * 3.5 && scrollPosition < window.innerHeight * 4.5 ? 'black' : 'rgba(0, 0, 0, 0.38' }} onClick={() => { window.scrollTo({ top: window.innerHeight * 4, behavior: 'smooth' }) }}>
             <Badge color="secondary" invisible={cityF} badgeContent=" " variant="dot">
               <LocationCity />
+            </Badge>
+          </ToggleButton>
+        </Tooltip>
+        <Tooltip title={language ? "新闻" : "News"} placement="left">
+          <ToggleButton value="News" style={{ color: scrollPosition > window.innerHeight * 4.5 && scrollPosition < window.innerHeight * 5.5 ? 'black' : 'rgba(0, 0, 0, 0.38' }} onClick={() => { window.scrollTo({ top: window.innerHeight * 5, behavior: 'smooth' }) }}>
+            <Badge color="secondary" invisible={cityF} badgeContent=" " variant="dot">
+              <FiberNew />
             </Badge>
           </ToggleButton>
         </Tooltip>
