@@ -4,3 +4,6 @@
 */*/.DS_store
 yarn-error.log
 node_modules
+.idea/*
+.idea
+build

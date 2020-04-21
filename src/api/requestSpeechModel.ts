@@ -1,30 +1,26 @@
-import * as speechcommand from '@tensorflow-models/speech-commands'
-const MODEL_PATH = 'http://127.0.0.1:9999/speech'
-const c = async () => {
-    const rec = speechcommand.create(
-        'BROWSER_FFT',//浏览器自带的傅立叶变换
-        undefined,
-        MODEL_PATH + '/model.json',
-        MODEL_PATH + '/metadata.json'
-    )//创建识别器
+import * as speechCommands from '@tensorflow-models/speech-commands';
 
-    await rec.ensureModelLoaded();//确保模型加载完成
+const PATH = 'http://127.0.0.1:8080';
+const c = async (setTransferRec: any,language:string) => {
+    const rec = speechCommands.create('BROWSER_FFT')
+    await rec.ensureModelLoaded()
+    let transferRec: speechCommands.TransferSpeechCommandRecognizer = rec.createTransfer('VoiceHelper')
+    let res;
+    if(language)
+        res = await fetch(PATH+"/Chinese.bin")//下载数据
+    else
+        res = await fetch(PATH+"/English.bin")
 
-    let labels = rec.wordLabels()//获得可识别的字符
-    labels = labels.slice(2)
+    const arrayBuffer = await res.arrayBuffer()//将数据转化成arrayBuffer
 
+    transferRec.loadExamples(arrayBuffer)//给迁移学习期加载数据
 
+    //console.log(transferRec.countExamples())//查看数据
 
-    rec.listen(result => {
-        const scores = result.scores as unknown as number[];
-
-        let index = scores.indexOf(Math.max(...scores))
-        console.log(labels[index])
-        return new Promise(() => { });
-    },
-        {
-            overlapFactor: 0.2,//覆盖率
-            probabilityThreshold: 0.75//相似度
-        })
+    await transferRec.train({
+        epochs: 30
+    })//训练数据
+    //console.log('training finish')
+    setTransferRec(transferRec)
 }
 export default c;

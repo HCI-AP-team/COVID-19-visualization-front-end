@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -7,9 +6,12 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Button from "@material-ui/core/Button/Button";
+<<<<<<< HEAD
 import ScrollReveal from "scrollreveal";
 import LanguageChoose from "../../components/LanguageChoose";
 
+=======
+>>>>>>> a07b059e4a81a63b3c3891d78864bc09d252f39f
 const useStyles = makeStyles({
     root: {
         width: '100vw',
@@ -89,11 +91,19 @@ function Journalism(props: any) {
         }
     ]
     const list: JSX.Element[] = newsData.map((item: any) =>
+<<<<<<< HEAD
         <List>
             <ListItem>
                 <Button href={item.sourceUrl} >
                     <ListItemAvatar  >
                         <Avatar  src={item.sourceUrl}/>
+=======
+        <List component="nav" aria-label="main mailbox folders" key={item.sourceUrl}>
+            <ListItem  >
+                <Button href={item.sourceUrl}>
+                    <ListItemAvatar>
+                        <Avatar src={item.sourceUrl} />
+>>>>>>> a07b059e4a81a63b3c3891d78864bc09d252f39f
                     </ListItemAvatar>
 
                     <ListItemText  primary={language?item.title:item.titleE} secondary={language?item.infoSource:item.infoSourceE} />
@@ -114,6 +124,7 @@ function Journalism(props: any) {
 
 export default Journalism
 
+<<<<<<< HEAD
 
 /*const Journalism = () => {src={item.sourceUrl}
     const classes = useStyles();
@@ -202,3 +213,5 @@ export default Journalism
 }
 
 export default Journalism*/
+=======
+>>>>>>> a07b059e4a81a63b3c3891d78864bc09d252f39f

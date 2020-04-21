@@ -44,7 +44,7 @@ function SelectBox(props: any) {
                 value={displayLabel}
                 onChange={handleChange}
             >
-                <MenuItem value={'currentConfirmedCount'}>{language?'今日确诊数':'current confirmed count'}</MenuItem>
+                <MenuItem value={'currentConfirmedCount'}>{language?'当前确诊数':'current confirmed count'}</MenuItem>
                 <MenuItem value={'confirmedCount'}>{language?'累计确诊数':'confirm count'}</MenuItem>
                 <MenuItem value={'suspectedCount'}>{language?'疑似病例数':'suspected count'}</MenuItem>
                 <MenuItem value={'curedCount'}>{language?'治愈数':'cured count'}</MenuItem>

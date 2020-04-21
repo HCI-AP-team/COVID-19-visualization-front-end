@@ -9,14 +9,12 @@ import DirectionButton from './components/DirectionButton'
 import International from './pages/international/pages/International'
 import China from './pages/China/pages/China'
 import Province from './pages/province/pages/Province'
-// import City from './pages/city/pages/City'
+import ErrorBound from './components/ErrorBound'
 import Loading from './components/Loading'
 import requestAreaData from './api/requestAreaData'
 import requestWorld2DData from './api/requestWorld2DData'
+import VoiceHelper from './components/VoiceHelper'
 // //异步加载
-// const International = React.lazy(() => import('./pages/International'));
-// const China = React.lazy(() => import('./pages/China/pages/China'));
-// const Province = React.lazy(() => import('./pages/Province'));
 const City = React.lazy(() => import('./pages/city/pages/City'));
 const Journalism = React.lazy(() => import('./pages/News/Journalism'));
 
@@ -86,8 +84,12 @@ function App() {
         </GitHubButton>
       </div>
       <DirectionButton language={language} />
-      <Homepage setLanguage={setLanguage} language={language} displayText={displayText} />
+      <VoiceHelper language={language} />
+      <ErrorBound>
+        <Homepage setLanguage={setLanguage} language={language} displayText={displayText} />
+      </ErrorBound>
 
+<<<<<<< HEAD
 
       <International language={language} world2D={world2D} areaData={areaData} />
       <China language={language} chinaData={chinaData} />
@@ -100,13 +102,34 @@ function App() {
             />
       </Suspense>
 
+=======
+      <ErrorBound>
+        <International language={language} world2D={world2D} areaData={areaData} />
+      </ErrorBound>
+      <ErrorBound>
+        <China language={language} chinaData={chinaData} />
+      </ErrorBound>
+      <ErrorBound>
+        <Province language={language} chinaData={chinaData} />
+      </ErrorBound>
+      <ErrorBound>
+        <Suspense fallback={<Loading />}>
+          <City language={language} chinaData={chinaData} />
+        </Suspense>
+      </ErrorBound>
+      <ErrorBound>
+        <Suspense fallback={<Loading />}>
+          <Journalism />
+        </Suspense>
+      </ErrorBound>
+>>>>>>> a07b059e4a81a63b3c3891d78864bc09d252f39f
 
 
       <Button variant="outlined" color="primary" onClick={handleToggle} className={classes.bdButton}>
         {language ? '关于我们' : 'about us'}
       </Button>
       <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
-        <Memberpage />
+        <Memberpage language={language} />
       </Backdrop>
     </div>
 

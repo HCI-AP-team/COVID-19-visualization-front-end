@@ -34,7 +34,7 @@ function CityCard(props:any) {
                 {/* 没有城市名称属性就是特殊地区 */}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    {(language?'今日确诊: ':'current confirmed count: ')+props.value.currentConfirmedCount}
+                    {(language?'当前确诊: ':'current confirmed count: ')+props.value.currentConfirmedCount}
                 </Typography>
                 <Typography variant="body2" component="p">
                    {(language?' 累计确诊: ':'confirmed count: ')+props.value.confirmedCount}
@@ -49,12 +49,12 @@ function CityCard(props:any) {
                     {(language?'死亡人数: ':'dead count: ')+props.value.deadCount}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    {(language?'所属省份: '+props.value.provinceName:'Subordinate to the province: '+props.value.provinceEnglishName)}
+                    {(language?'所属省份: '+props.value.provinceName:'province: '+props.value.provinceEnglishName)}
                 </Typography>
             </CardContent>
-            <CardActions>
+            {/* <CardActions>
                 <Button size="small" color="primary" variant="contained">{language?'进一步了解这个城市':'learn more about this city'}</Button>
-            </CardActions>
+            </CardActions> */}
         </Card>
     )
 }
