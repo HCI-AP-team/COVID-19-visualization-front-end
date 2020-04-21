@@ -90,9 +90,9 @@ function Earth(props) {
             country = countryList.find(function (c) {
                 return c.id === country.id
             })
-            console.log(country && country.name || '')
+            //console.log(country && country.name || '')
             let temp = areaData.results.filter((e) => e.countryEnglishName === (country && country.name || '') && e.provinceEnglishName === (country && country.name || ''))
-            console.log(temp)
+            //console.log(temp)
             setCountryData(temp[0])
         }
 
@@ -269,7 +269,7 @@ function Earth(props) {
             // await d3.tsv('https://gist.githubusercontent.com/mbostock/4090846/raw/07e73f3c2d21558489604a0bc434b3a5cf41a867/world-country-names.tsv', function (countries) {
             //     temp.push(countries)
             // })
-            // console.log(temp)
+            // //console.log(temp)
             cb(worldData, tsv2json)
 
         }
@@ -311,7 +311,7 @@ function Earth(props) {
             }
             currentCountry = c
 
-            // console.log(countryList.find(el=>parseInt(el.id)===parseInt(c.id)).name)
+            // //console.log(countryList.find(el=>parseInt(el.id)===parseInt(c.id)).name)
             render()
             enter(c)
         }
@@ -359,9 +359,9 @@ function Earth(props) {
         //     country = countryList.find(function (c) {
         //         return c.id === country.id
         //     })
-        //     console.log(country && country.name || '')
+        //     //console.log(country && country.name || '')
         //     let temp = areaData.results.filter((e) => e.countryEnglishName === (country && country.name || '') && e.provinceEnglishName === (country && country.name || ''))
-        //     console.log(temp)
+        //     //console.log(temp)
         //     setCountryData(temp[0])
         // })
 

@@ -67,40 +67,40 @@ export default function DirectionButton(props: any) {
         onChange={handleClick}
         style={{ backgroundColor: scrollPosition < window.innerHeight * 0.5 ? 'white' : 'transparent', display: 'flex', flexDirection: 'column' }}
       >
-        <Tooltip title={language ? "主页" : 'Homepage'} placement="left">
+        <Tooltip enterDelay={1} title={language ? "主页" : 'Homepage'} placement="left">
           <ToggleButton value="home" style={{ color: scrollPosition < window.innerHeight * 0.5 ? 'black' : 'rgba(0, 0, 0, 0.38' }} onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }) }} >
             <Home />
           </ToggleButton>
         </Tooltip>
-        <Tooltip title={language ? "世界概况" : "World"} placement="left">
+        <Tooltip enterDelay={1} title={language ? "世界概况" : "World"} placement="left">
           <ToggleButton value="earth" style={{ color: scrollPosition > window.innerHeight * 0.5 && scrollPosition < window.innerHeight * 1.5 ? 'black' : 'rgba(0, 0, 0, 0.38' }} onClick={() => { window.scrollTo({ top: window.innerHeight, behavior: 'smooth' }) }} >
             <Badge color="secondary" invisible={worldF} badgeContent=" " variant="dot">
               <Public />
             </Badge>
           </ToggleButton>
         </Tooltip>
-        <Tooltip title={language ? "中国概况" : "China"} placement="left">
+        <Tooltip enterDelay={1} title={language ? "中国概况" : "China"} placement="left">
           <ToggleButton value="China" style={{ color: scrollPosition > window.innerHeight * 1.5 && scrollPosition < window.innerHeight * 2.5 ? 'black' : 'rgba(0, 0, 0, 0.38' }} onClick={() => { window.scrollTo({ top: window.innerHeight * 2, behavior: 'smooth' }) }}>
             <Badge color="secondary" invisible={chinaF} badgeContent=" " variant="dot">
               <VpnLock />
             </Badge>
           </ToggleButton>
         </Tooltip>
-        <Tooltip title={language ? "中国各省" : "Province"} placement="left">
+        <Tooltip enterDelay={1} title={language ? "中国各省" : "Province"} placement="left">
           <ToggleButton value="province" style={{ color: scrollPosition > window.innerHeight * 2.5 && scrollPosition < window.innerHeight * 3.5 ? 'black' : 'rgba(0, 0, 0, 0.38' }} onClick={() => { window.scrollTo({ top: window.innerHeight * 3, behavior: 'smooth' }) }}>
             <Badge color="secondary" invisible={provinceF} badgeContent=" " variant="dot">
               <People />
             </Badge>
           </ToggleButton>
         </Tooltip>
-        <Tooltip title={language ? "中国城市/区" : "City"} placement="left">
+        <Tooltip enterDelay={1} title={language ? "中国城市/区" : "City"} placement="left">
           <ToggleButton value="city" style={{ color: scrollPosition > window.innerHeight * 3.5 && scrollPosition < window.innerHeight * 4.5 ? 'black' : 'rgba(0, 0, 0, 0.38' }} onClick={() => { window.scrollTo({ top: window.innerHeight * 4, behavior: 'smooth' }) }}>
             <Badge color="secondary" invisible={cityF} badgeContent=" " variant="dot">
               <LocationCity />
             </Badge>
           </ToggleButton>
         </Tooltip>
-        <Tooltip title={language ? "新闻" : "News"} placement="left">
+        <Tooltip enterDelay={1} title={language ? "新闻" : "News"} placement="left">
           <ToggleButton value="News" style={{ color: scrollPosition > window.innerHeight * 4.5 && scrollPosition < window.innerHeight * 5.5 ? 'black' : 'rgba(0, 0, 0, 0.38' }} onClick={() => { window.scrollTo({ top: window.innerHeight * 5, behavior: 'smooth' }) }}>
             <Badge color="secondary" invisible={cityF} badgeContent=" " variant="dot">
               <FiberNew />

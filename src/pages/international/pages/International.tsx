@@ -29,7 +29,7 @@ function International(props: any) {
             distance: '0px',
             reset: true,
             rotate: {
-                x: -200,
+                x: -100,
                 z: -50
             }
         })

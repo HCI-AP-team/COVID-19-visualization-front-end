@@ -56,7 +56,7 @@ function City(props: any) {
     }, [chinaData])
     useEffect(() => {
         //重新渲染页面保证ChooseCity组件能够获得数据
-        // console.log(cityData)
+        // //console.log(cityData)
     }, [cityData])
     return (
         <div className={classes.root + " CityMap"}>

@@ -46,7 +46,7 @@ const DisplayDetail = (props: any) => {
     '省份名称',
     '省份简称',
     '省份英文名称',
-    '今日确诊人数',
+    '当前确诊人数',
     '累计确诊人数',
     '疑似病例数',
     '治愈人数',
@@ -97,7 +97,7 @@ const DisplayDetail = (props: any) => {
       setTemp(chinaData.filter((value:any)=>value.provinceShortName === provinceName) as DataStructure[]);
   }, [provinceName,chinaData])
   useEffect(() => {
-    console.log(temp)
+    //console.log(temp)
   }, [temp])
 
   return (

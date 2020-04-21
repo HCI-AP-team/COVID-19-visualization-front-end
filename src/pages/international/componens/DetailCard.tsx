@@ -38,7 +38,7 @@ const DetailCard = (props: any) => {
 
 
     useEffect(() => {
-        console.log(countryData)
+        //console.log(countryData)
     }, [countryData])
 
     return (
@@ -46,21 +46,21 @@ const DetailCard = (props: any) => {
             {countryData ? Object.keys(countryData).map((el: any) => {
                 switch (el) {
                     case "countryName":
-                        return language ? <p>{`国家名称: ${countryData[el]}`}</p> : ''
+                        return language ? <p key={el}>{`国家名称: ${countryData[el]}`}</p> : ''
                     case "countryEnglishName":
-                        return language ? '' : <p>{`country name: ${countryData[el]}`}</p>
+                        return language ? '' : <p key={el}>{`country name: ${countryData[el]}`}</p>
                     case "currentConfirmedCount":
-                        return <p>{`${language ? '今日确诊数: ' : 'current confirmed count: '}${countryData[el]}`}</p>
+                        return <p key={el}>{`${language ? '当前确诊数: ' : 'current confirmed count: '}${countryData[el]}`}</p>
                     case "confirmedCount":
-                        return <p>{`${language ? '累计确诊数: ' : 'confirmed count: '}${countryData[el]}`}</p>
+                        return <p key={el}>{`${language ? '累计确诊数: ' : 'confirmed count: '}${countryData[el]}`}</p>
                     case "suspectedCount":
-                        return <p>{`${language ? '疑似数: ' : 'suspected count: '}${countryData[el]}`}</p>
+                        return <p key={el}>{`${language ? '疑似数: ' : 'suspected count: '}${countryData[el]}`}</p>
                     case "curedCount":
-                        return <p>{`${language ? '治愈数: ' : 'cured count: '}${countryData[el]}`}</p>
+                        return <p key={el}>{`${language ? '治愈数: ' : 'cured count: '}${countryData[el]}`}</p>
                     case "deadCount":
-                        return <p>{`${language ? '死亡数: ' : 'dead count: '}${countryData[el]}`}</p>
+                        return <p key={el}>{`${language ? '死亡数: ' : 'dead count: '}${countryData[el]}`}</p>
                     case "updateTime":
-                        return <p>{`${language ? '更新时间: ' : 'update time: '}${getTime(countryData[el])}`}</p>
+                        return <p key={el}>{`${language ? '更新时间: ' : 'update time: '}${getTime(countryData[el])}`}</p>
                     default:
                         return ''
                 }

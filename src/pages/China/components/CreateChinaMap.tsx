@@ -51,7 +51,7 @@ const CreateChinaMap = (props: any) => {
     // }) as dataForm[];
     // data = data.filter((el: any) => el !== undefined)
     // data = data.sort((a: any, b: any) => - b.value + a.value)
-    // console.log(chinaData)
+    // //console.log(chinaData)
     let data = chinaData.map((el:any) => {
       return { 省份: el.provinceShortName, province: el.provinceEnglishName, value: el.confirmedCount }
     })
@@ -59,7 +59,7 @@ const CreateChinaMap = (props: any) => {
 
       //获取当前绘制的省份数据
       let respondValue = data.filter((el: any) => el.省份 === value.name)
-      // console.log(respondValue)
+      // //console.log(respondValue)
       //调色
       let color: string = getColor(parseInt(respondValue[0].value));
 
@@ -137,7 +137,7 @@ const CreateChinaMap = (props: any) => {
     })
   }
   useEffect(() => {
-    // console.log(chinaData)
+    // //console.log(chinaData)
     if (chinaData)
       createChinaMap();
     //清除地图,防止显示多个

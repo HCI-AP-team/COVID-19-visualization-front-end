@@ -30,7 +30,7 @@ function Histogram(props: any) {
             //         return undefined;
             // }) as dataForm[];
             // data = data.filter((el: any) => el !== undefined)
-            // console.log(data)
+            // //console.log(data)
             let data = chinaData.map((el: any) => {
                 return {
                     省份: el.provinceShortName,

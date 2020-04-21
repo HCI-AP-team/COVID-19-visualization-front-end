@@ -32,7 +32,8 @@ const useStyles = makeStyles({
   }
 });
 
-const Memberpage = () => {
+const Memberpage = (props: any) => {
+  const { language } = props;
   const classes = useStyles();
   const peopleData: object[] = [
     {
@@ -80,13 +81,13 @@ const Memberpage = () => {
       </CardActionArea>
       <CardActions>
         <Button size="large" variant="contained" color="primary">
-          <a href={item.link}>我的github</a>
+          <a href={item.link}>{language ? '我的github' : 'My github'}</a>
         </Button>
       </CardActions>
     </Card>)
   return (
     <div className={classes.root}>
-      <p className={classes.title}>欢迎来到我们的新冠肺炎可视化系统</p>
+      <p className={classes.title}>{language ? '欢迎来到我们的新冠肺炎可视化系统' : "Welcome to our covid-19 visualization system"}</p>
       <div className={classes.cards}>{card}</div>
     </div>
   )

@@ -16,9 +16,15 @@ const useStyle = makeStyles({
 function VoiceHelper(props: any) {
     const classes = useStyle();
     const { language } = props
-    const [on, setOn] = useState(false)
+    const [on, setOn] = useState(false)//语音助手开关
     const [open, setOpen] = useState(false)//警告框显示
     const [transferRec, setTransferRec] = useState();//模型迁移器
+    // 下面这些是用于进度条的
+    const [completed, setCompleted] = useState(0);
+    const [buffer, setBuffer] = useState(10);
+    const [load, setLoad] = useState(false)
+    const progress = React.useRef(() => { });
+
     const handleChange = async () => {
         setOn(!on);//异步更改开关状态
 
@@ -42,7 +48,7 @@ function VoiceHelper(props: any) {
         setLoad(true)
         //吧加载操作放置在宏任务队列末尾去阻塞任务队列, 避免进度条秒出秒关
         setTimeout(async () => {
-            await GetVoiceHelper(setTransferRec);
+            await GetVoiceHelper(setTransferRec, language);
             setLoad(false);
             setOpen(false);
         }, 0)
@@ -54,7 +60,7 @@ function VoiceHelper(props: any) {
             const label = transferRec.wordLabels();//获得可识别列表
             const index = scores.indexOf(Math.max(...scores))//获得最大值索引
             const res = label[index] //这里存着结果,上翻页或者下翻页
-            console.log(res)
+            //console.log(res)
             if (window.scrollY < window.innerHeight) {
                 if (res === "down") {
                     window.scrollTo({ top: window.innerHeight * 1, behavior: 'smooth' })
@@ -109,6 +115,13 @@ function VoiceHelper(props: any) {
             probabilityTHreshold: 0.80
         })
     }
+    //切换语言自动关闭语音助手
+    useEffect(() => {
+        if (transferRec) {
+            handleChange();
+            handleClose();
+        }
+    }, [language])
     useEffect(() => {
         //如果训练了模型就开始监听
         if (transferRec) {
@@ -116,11 +129,6 @@ function VoiceHelper(props: any) {
         }
     }, [transferRec]);
 
-    // 下面这些是用于进度条的
-    const [completed, setCompleted] = useState(0);
-    const [buffer, setBuffer] = useState(10);
-    const [load, setLoad] = useState(false)
-    const progress = React.useRef(() => { });
     useEffect(() => {
         progress.current = () => {
             if (completed > 100) {
