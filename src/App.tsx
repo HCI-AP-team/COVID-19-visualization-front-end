@@ -95,9 +95,12 @@ function App() {
       <Suspense fallback={<Loading />}>
         <City language={language} chinaData={chinaData} />
       </Suspense>
-        <Suspense fallback={<Loading />}>
-            <Journalism />
-        </Suspense>
+      <Suspense fallback={<Loading />}>
+            <Journalism language={language}
+            />
+      </Suspense>
+
+
 
       <Button variant="outlined" color="primary" onClick={handleToggle} className={classes.bdButton}>
         {language ? '关于我们' : 'about us'}

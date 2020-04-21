@@ -46,6 +46,7 @@ function Homepage(props: any) {
         if (displayText)//如果全部加载完成,开始显示文字
             disStr();
     }, [displayText])
+
     return (
         <div className={classes.root}>
             {
