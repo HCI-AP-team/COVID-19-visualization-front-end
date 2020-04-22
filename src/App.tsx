@@ -88,21 +88,6 @@ function App() {
       <ErrorBound>
         <Homepage setLanguage={setLanguage} language={language} displayText={displayText} />
       </ErrorBound>
-
-<<<<<<< HEAD
-
-      <International language={language} world2D={world2D} areaData={areaData} />
-      <China language={language} chinaData={chinaData} />
-      <Province language={language} chinaData={chinaData} />
-      <Suspense fallback={<Loading />}>
-        <City language={language} chinaData={chinaData} />
-      </Suspense>
-      <Suspense fallback={<Loading />}>
-            <Journalism language={language}
-            />
-      </Suspense>
-
-=======
       <ErrorBound>
         <International language={language} world2D={world2D} areaData={areaData} />
       </ErrorBound>
@@ -119,10 +104,10 @@ function App() {
       </ErrorBound>
       <ErrorBound>
         <Suspense fallback={<Loading />}>
-          <Journalism />
+          <Journalism language={language} />
         </Suspense>
       </ErrorBound>
->>>>>>> a07b059e4a81a63b3c3891d78864bc09d252f39f
+
 
 
       <Button variant="outlined" color="primary" onClick={handleToggle} className={classes.bdButton}>

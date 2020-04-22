@@ -46,11 +46,7 @@ function Homepage(props: any) {
         if (displayText)//如果全部加载完成,开始显示文字
             disStr();
     }, [displayText])
-<<<<<<< HEAD
-
-=======
     useEffect(() => { }, [language])
->>>>>>> a07b059e4a81a63b3c3891d78864bc09d252f39f
     return (
         <div className={classes.root}>
             {
