@@ -1,7 +1,7 @@
 // import baseURL from './baseURL'
 // //用于获取绘制地球的路径数据
 // const getData = async () => {
-//     let areaData = await fetch(baseURL + '/xxxx').then(e => e.json())
+//     let areaData = await fetch(baseURL + '/2Dearth').then(e => e.json())
 //     //console.log(areaData.result)
 //     return areaData;
 // }

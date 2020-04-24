@@ -73,7 +73,7 @@ function App() {
   return (
 
     <div className={classes.root}>
-      <div className={classes.gitBut}>
+      {/* <div className={classes.gitBut}>
         <GitHubButton
           href="https://github.com/HCI-AP-team/AP-coursework-front-end"
           data-color-scheme="no-preference: light; light: light; dark: dark;"
@@ -82,7 +82,7 @@ function App() {
           aria-label="Star HCI-AP-team/AP-coursework-front-end on GitHub">
           Star
         </GitHubButton>
-      </div>
+      </div> */}
       <DirectionButton language={language} />
       <VoiceHelper language={language} />
       <ErrorBound>
