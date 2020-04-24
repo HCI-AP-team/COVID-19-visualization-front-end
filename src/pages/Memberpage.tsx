@@ -37,28 +37,38 @@ const Memberpage = (props: any) => {
   const classes = useStyles();
   const peopleData: object[] = [
     {
-      name: '李🚗',
-      des: '计科首富',
+      name: '李康诚',
+      enName: 'Kangcheng Li',
+      des: '数据库管理员',
+      enDes: 'database manager',
       link: 'https://github.com/lkczn'
     },
     {
-      name: '郭👩‍🏫',
-      des: '第一蛮王',
+      name: '郭帅',
+      enName: 'Shuai Guo',
+      des: '打包工程师',
+      enDes: 'packege engineer',
       link: 'https://github.com/loveisever'
     },
     {
-      name: '高🐯',
-      des: '大老虎',
+      name: '高士玮',
+      enName: 'Shiwei Gao',
+      des: '前端工程师',
+      enDes: 'back-end engineer',
       link: 'https://github.com/shituweian'
     },
     {
-      name: '肖👃',
-      des: '...',
+      name: '肖文伟',
+      enName: 'Wenwei Xiao',
+      des: '前端工程师',
+      enDes: 'front-end engineer',
       link: 'https://github.com/xiao-wenwei'
     },
     {
-      name: '彭📈',
-      des: '肝帝',
+      name: '彭奏章',
+      enName: 'Zouzhang Peng',
+      des: '前端工程师',
+      enDes: 'front-end engineer',
       link: 'https://github.com/GiorgioPeng'
     }
   ]
@@ -71,12 +81,26 @@ const Memberpage = (props: any) => {
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {item.name}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {item.des}
-          </Typography>
+          {language ?
+            <>
+              <Typography gutterBottom variant="h5" component="h2">
+                {item.name}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                {item.des}
+              </Typography>
+            </>
+            :
+            <>
+              <Typography gutterBottom variant="h5" component="h2">
+                {item.enName}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                {item.enDes}
+              </Typography>
+            </>
+          }
+
         </CardContent>
       </CardActionArea>
       <CardActions>
