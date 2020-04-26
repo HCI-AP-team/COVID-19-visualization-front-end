@@ -10,12 +10,22 @@ const useStyles = makeStyles({
         width: '100vw',
         height: '100vh',
         position: 'relative',
-        backgroundColor: '#fff9c4'
+        backgroundColor: '#748ba4'//#fff9c4
     },
     cityCards: {
         position: 'absolute',
         right: '15vw',
-        top: '30vh'
+        top: '30vh',
+        backgroundColor: '#748ba4'
+    },
+
+    h1: {
+        width: '100vw',
+        height: '10vh',
+        color: '#1d2228',//字体颜色
+        fontSize: '40px',
+        textAlign: 'center',
+        backgroundColor: '#748ba4'//#E8E8FF
     }
 })
 function City(props: any) {
@@ -24,7 +34,6 @@ function City(props: any) {
     const [cityData, setCityData] = useState()
     //加载城市数据
     useEffect(() => {
-
         if (chinaData) {
             //将省份信息添加到每一个市中
             let tempCityData = chinaData
@@ -60,7 +69,7 @@ function City(props: any) {
     }, [cityData])
     return (
         <div className={classes.root + " CityMap"}>
-
+            <h1 className={classes.h1}>{language ? '城市概览' : 'Cities Overview'}</h1>
             <ChooseCity language={language} cityData={cityData} />
             {
                 cityData?.map((value: any, i: any) =>

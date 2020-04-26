@@ -1,4 +1,4 @@
-const news = {
+const newsIn = {
     "results": [
         {
             "title": "塞尔维亚足协主席确诊感染",
@@ -93,4 +93,4 @@ const news = {
     ],
     "success": true
 }
-export default news;
+export default newsIn;

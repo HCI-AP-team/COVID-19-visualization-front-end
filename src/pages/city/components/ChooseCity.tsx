@@ -36,7 +36,6 @@ function ChooseCity(props: any) {
     const inputRef = useRef<HTMLInputElement>(null)//输入框
     const cardRef = useRef<HTMLDivElement>(null)//那张需要特殊显示的卡
     useEffect(() => {
-
         //将所有城市的数据放在一个一维数组中便于查找
         let allCityArr: any[] = []   //用于合并数据的临时变量
 
@@ -54,6 +53,7 @@ function ChooseCity(props: any) {
 
         // console.log(allCityArr)
     }, [cityData, language])
+
     //查询展示某个城市的数据
     const searchCityData = () => {
         let chooseCityName = inputRef.current?.value;
@@ -62,18 +62,12 @@ function ChooseCity(props: any) {
                 //如果是中文
                 if (language)
                     return (
-                        value.cityName ?
-                            value.cityName
-                            :
-                            value.provinceShortName
+                        value.cityName ? value.cityName : value.provinceShortName
                     )
                         === chooseCityName
                 else//如果是英文
                     return (
-                        value.cityEnglishName ?
-                            value.cityEnglishName
-                            :
-                            value.provinceEnglishName
+                        value.cityEnglishName ? value.cityEnglishName : value.provinceEnglishName
                     )
                         === chooseCityName
             })[0];
@@ -101,6 +95,8 @@ function ChooseCity(props: any) {
             setOpenSnackBar(true)
         }
     }
+
+
     //随机展示一个城市的数据
     const randomDisplay = () => {
         //卡片动画

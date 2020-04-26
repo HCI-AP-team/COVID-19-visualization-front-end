@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff9c4'
+    backgroundColor: '#748ba4'
   },
   labels: {
     marginTop: '20vh',
@@ -41,7 +41,15 @@ const useStyles = makeStyles({
       height: '5vh',
       alignItems: 'center'
     }
-  }
+  },
+    h1: {
+        width: '100vw',
+        height: '10vh',
+        color: '#1d2228',//字体颜色
+        fontSize: '50px',
+        textAlign: 'center',
+        backgroundColor: '#748ba4'//#E8E8FF
+    }
 })
 
 
@@ -92,6 +100,7 @@ function China(props: any) {
 
   return (
     <div className={classes.root + ' ChinaMap'} >
+
       <CreateChinaMap language={language} chinaData={chinaData} handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
       <div className={classes.labels}>
         <strong>{language ? '累计确诊人数' : 'confirmed count'}</strong>

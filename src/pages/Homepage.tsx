@@ -46,16 +46,16 @@ function Homepage(props: any) {
         if (displayText)//如果全部加载完成,开始显示文字
             disStr();
     }, [displayText])
-<<<<<<< HEAD
 
-=======
+
+
     useEffect(() => { }, [language])
->>>>>>> a07b059e4a81a63b3c3891d78864bc09d252f39f
+
     return (
         <div className={classes.root}>
             {
                 displayText ?
-                    <p>{language ? str : 'This is a unprecedented epidemic, a challenge for all mankind, nobody can escape.'}</p> :
+                    <p>{language ? str : 'This is an unprecedented epidemic, a challenge for all mankind, nobody can escape.'}</p> :
                     <CircularProgress size={90} thickness={6} />
             }
             <div className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>{language ? '下滑了解更多' : 'Slide to learn more'}⬇️</div>

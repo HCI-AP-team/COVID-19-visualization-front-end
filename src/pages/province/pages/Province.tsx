@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff9c4'
+        backgroundColor: '#748ba4'
     },
     chooseInput: {
         display: 'flex',
@@ -21,6 +21,8 @@ const useStyles = makeStyles(theme => ({
         alignItems: 'center'
     }
 }));
+
+
 function Province(props: any) {
     // 用于选择对比展示各省的哪一个属性
     const { language, chinaData } = props;
@@ -39,6 +41,7 @@ function Province(props: any) {
     }, [language, chinaData, displayLabel])
     return (
         <div className={classes.root + ' ProvinceMap'}>
+            <h1 >{language ? '省份概览' : 'Province Overview'}</h1>
             <div className={classes.chooseInput}>
                 <SelectBox displayLabel={displayLabel} language={language} setDisplayLabel={setDisplayLabel} />
             </div>

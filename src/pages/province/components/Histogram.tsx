@@ -5,7 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
     chart: {
         height: '80vh',
-        width: '80vw'
+        width: '80vw',
+        color: '#1d2228',//字体颜色
     },
 }));
 function Histogram(props: any) {
@@ -49,6 +50,7 @@ function Histogram(props: any) {
                     max: data[data.length - 1].value * 1.2,// 设定横坐标最大值,因为已经排序了,所以选取最后一个
                     min: 0,
                     alias: language ? '单位/人' : 'people',//横坐标显示
+
                 },
             });
             chart.axis(language ? '省份' : 'province', {

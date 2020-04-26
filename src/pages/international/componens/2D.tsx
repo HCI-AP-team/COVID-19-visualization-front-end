@@ -12,7 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: '#fff9c4',
+    backgroundColor: '#748ba4',
     height: '100vh',
     width: '100vw',
     display: 'flex',
@@ -20,9 +20,10 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     alignItems: 'center'
   },
+
   mapBg: {
-    height: '90vh',
-    width: '90vw',
+    height: '70vh',
+    width: '80vw',
     position: 'relative',
     backgroundColor: 'skyblue'
   }
@@ -128,7 +129,7 @@ function showPopup(args: any): void {
 
 return (
   <div className={classes.root}>
-    <strong>{language ? '世界概况(支持缩放和拖动)' : 'World factbook (supports zooming and dragging)'}</strong>
+    <h1>{language ? '世界概况(支持缩放和拖动)' : 'World Factbook (supports zooming and dragging)'} </h1>
     <div className={classes.mapBg}>
       <MapboxScene
         map={{

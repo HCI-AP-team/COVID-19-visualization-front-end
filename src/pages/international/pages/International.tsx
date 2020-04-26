@@ -10,13 +10,15 @@ const useStyle = makeStyles({
     root: {
         height: '100vh',
         width: '100vw',
-        position: 'relative'
+        position: 'relative',
+        backgroundColor: '#748ba4'
     },
     switchV: {
         position: 'absolute',
         top: '2px',
         left: '10px',
         zIndex: 5,
+        backgroundColor: '#748ba4'
     }
 })
 function International(props: any) {
@@ -36,6 +38,7 @@ function International(props: any) {
     }, [])
     return (
         <div className={classes.root + ' international'}>
+
             <div className={classes.switchV}>
                 <SwithV display3D={display3D} setDisplay3D={setDisplay3D} />
             </div>
