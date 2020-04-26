@@ -47,7 +47,7 @@ const useStyles = makeStyles({
 
 
 function China(props: any) {
-  const { chinaData, language } = props;
+  const { chinaData, language, chinaMapData } = props;
   const [currentChoose, setCurrentChoose] = useState('');
   const labels: object[] = [
     {
@@ -92,7 +92,7 @@ function China(props: any) {
 
   return (
     <div className={classes.root + ' ChinaMap'} >
-      <CreateChinaMap language={language} chinaData={chinaData} handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
+      <CreateChinaMap  chinaMapData={chinaMapData} language={language} chinaData={chinaData} handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
       <div className={classes.labels}>
         <strong>{language ? '累计确诊人数' : 'confirmed count'}</strong>
         {labels.map((el: any, index: number) => <Label key={index} color={el.color} value={el.value} />)}

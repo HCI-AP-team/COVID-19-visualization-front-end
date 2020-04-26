@@ -112,7 +112,7 @@ function VoiceHelper(props: any) {
 
         }, {
             overlapFactor: 0.01,
-            probabilityTHreshold: 0.80
+            probabilityTHreshold: 0.75
         })
     }
     //切换语言自动关闭语音助手
@@ -180,6 +180,9 @@ function VoiceHelper(props: any) {
                     <DialogContentText style={{ display: `${!load ? 'block' : 'none'}` }} id="alert-dialog-description">
                         {language ? "可能需要较长的时间加载" : "it will cost a long time to load"}
                     </DialogContentText>
+                    <DialogContentText style={{ display: `${!load ? 'block' : 'none'}` }} id="alert-dialog-description">
+                        {language ? "此功能只能在Chrome浏览器使用" : "This function only support Chrome browser."}
+                    </DialogContentText>
                     <DialogContentText style={{ display: `${load ? 'block' : 'none'}` }} id="alert-dialog-description">
                         {language ? `操作提示:` : "Hint:"}
                     </DialogContentText>
@@ -190,10 +193,16 @@ function VoiceHelper(props: any) {
                         {language ? `说“下”跳转到下一个页面` : "say 'down' to go to lower page"}
                     </DialogContentText>
                     <DialogContentText style={{ display: `${load ? 'block' : 'none'}`, fontSize: "12px" }} id="alert-dialog-description">
+                        {language ? `首次加载可能用时 2 到 3 分钟` : "The first load may take two to three minutes."}
+                    </DialogContentText>
+                    <DialogContentText style={{ display: `${load ? 'block' : 'none'}`, fontSize: "12px" }} id="alert-dialog-description">
                         {language ? `加载完会自动关闭这个窗口` : "This window will automatically close after loading."}
                     </DialogContentText>
                     <DialogContentText style={{ display: `${load ? 'block' : 'none'}`, fontSize: "10px" }} id="alert-dialog-description">
                         {language ? `由于开发时间有限,准确度可能不是太高` : "Accuracy may not be too high due to limited developed time."}
+                    </DialogContentText>
+                    <DialogContentText style={{ display: `${load ? 'block' : 'none'}`, fontSize: "10px" }} id="alert-dialog-description">
+                        {language ? `请在噪音较小的地方使用这个功能` : "Please use this function without noise"}
                     </DialogContentText>
                     <LinearProgress style={{ display: `${load ? 'block' : 'none'}` }} variant="buffer" value={completed} valueBuffer={buffer} />
                 </DialogContent>

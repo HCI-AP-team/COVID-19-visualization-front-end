@@ -13,6 +13,9 @@ import ErrorBound from './components/ErrorBound'
 import Loading from './components/Loading'
 import requestAreaData from './api/requestAreaData'
 import requestWorld2DData from './api/requestWorld2DData'
+import requestWorld3DData from './api/requestWorld3DData'
+import requestWorld3DMapData from './api/requestWorld3DMapData'
+import requestChinaMapData from './api/requestChinaMapData'
 import VoiceHelper from './components/VoiceHelper'
 // //异步加载
 const City = React.lazy(() => import('./pages/city/pages/City'));
@@ -45,6 +48,9 @@ function App() {
   const [areaData, setAreaData] = useState()//世界疫情数据
   const [chinaData, setChinaData] = useState()//疫情数据
   const [world2D, setWorld2D] = useState()//2D世界地图数据
+  const [worldData, setWorldData] = useState()//3D世界地图
+  const [tsv2json, setTsv2json] = useState()//3D世界国家数据
+  const [chinaMapData, setChinaMapData] = useState()
   const handleClose = () => {
     setOpen(false);
   };
@@ -55,15 +61,24 @@ function App() {
     const fetchData = async () => {
       let data = await requestAreaData()//请求疫情数据
       setAreaData(data)
-      let tempChinaData = data.results.filter((el: any): {} | undefined =>
+
+      data = data.results.filter((el: any): {} | undefined =>
         el.countryName === '中国' && el.provinceShortName !== "中国"
       );
-      tempChinaData = tempChinaData.filter((el: any) => el !== undefined)
-      setChinaData(tempChinaData);
+      data = data.filter((el: any) => el !== undefined)
+      setChinaData(data);
 
-      let dataWorld2D = await requestWorld2DData();//2D世界数据
-      setWorld2D(dataWorld2D)
+      data = await requestWorld2DData();//2D世界数据
+      setWorld2D(data);
 
+      data = await requestWorld3DData();
+      setWorldData(data);
+
+      data = await requestWorld3DMapData();
+      setTsv2json(data.results);
+
+      data = await requestChinaMapData();
+      setChinaMapData(data)
       setTimeout(() => setDisplayText(true), 0)//将文字是否显示放在宏任务队列末尾
     }
 
@@ -73,7 +88,7 @@ function App() {
   return (
 
     <div className={classes.root}>
-      {/* <div className={classes.gitBut}>
+      <div className={classes.gitBut}>
         <GitHubButton
           href="https://github.com/HCI-AP-team/AP-coursework-front-end"
           data-color-scheme="no-preference: light; light: light; dark: dark;"
@@ -82,17 +97,17 @@ function App() {
           aria-label="Star HCI-AP-team/AP-coursework-front-end on GitHub">
           Star
         </GitHubButton>
-      </div> */}
+      </div>
       <DirectionButton language={language} />
       <VoiceHelper language={language} />
       <ErrorBound>
         <Homepage setLanguage={setLanguage} language={language} displayText={displayText} />
       </ErrorBound>
       <ErrorBound>
-        <International language={language} world2D={world2D} areaData={areaData} />
+        <International language={language} tsv2json={tsv2json} worldData={worldData} world2D={world2D} areaData={areaData} />
       </ErrorBound>
       <ErrorBound>
-        <China language={language} chinaData={chinaData} />
+        <China chinaMapData={chinaMapData} language={language} chinaData={chinaData} />
       </ErrorBound>
       <ErrorBound>
         <Province language={language} chinaData={chinaData} />

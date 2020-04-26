@@ -55,7 +55,7 @@ function Homepage(props: any) {
                     <CircularProgress size={90} thickness={6} />
             }
             <div className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>{language ? '下滑了解更多' : 'Slide to learn more'}⬇️</div>
-            <div className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>{language ? '右侧按钮可以快速换页' : 'The bottom right button can quickly change the page'}➡️</div>
+            <div className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>{language ? '右侧按钮可以快速换页' : 'The right button can quickly change the page'}➡️</div>
             <LanguageChoose setLanguage={setLanguage} language={language} showHint={showHint} />
         </div>
     )

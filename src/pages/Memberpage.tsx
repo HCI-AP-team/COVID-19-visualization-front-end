@@ -37,6 +37,7 @@ const Memberpage = (props: any) => {
   const classes = useStyles();
   const peopleData: object[] = [
     {
+      img:'/lkc.jpg',
       name: '李康诚',
       enName: 'Kangcheng Li',
       des: '数据库管理员',
@@ -44,20 +45,23 @@ const Memberpage = (props: any) => {
       link: 'https://github.com/lkczn'
     },
     {
+      img:'/gs.jpg',
       name: '郭帅',
       enName: 'Shuai Guo',
-      des: '打包工程师',
+      des: '运维工程师',
       enDes: 'packege engineer',
       link: 'https://github.com/loveisever'
     },
     {
+      img:'/gsw.jpg',
       name: '高士玮',
       enName: 'Shiwei Gao',
-      des: '前端工程师',
+      des: '后端工程师',
       enDes: 'back-end engineer',
       link: 'https://github.com/shituweian'
     },
     {
+      img:'/xww.jpg',
       name: '肖文伟',
       enName: 'Wenwei Xiao',
       des: '前端工程师',
@@ -65,6 +69,7 @@ const Memberpage = (props: any) => {
       link: 'https://github.com/xiao-wenwei'
     },
     {
+      img:'/pzz.jpg',
       name: '彭奏章',
       enName: 'Zouzhang Peng',
       des: '前端工程师',
@@ -77,7 +82,7 @@ const Memberpage = (props: any) => {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={process.env.PUBLIC_URL + "/gs.jpg"}
+          image={process.env.PUBLIC_URL + item.img}
           title="Contemplative Reptile"
         />
         <CardContent>

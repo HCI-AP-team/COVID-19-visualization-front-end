@@ -20,7 +20,7 @@ const useStyle = makeStyles({
     }
 })
 function International(props: any) {
-    const { language, areaData, world2D } = props;
+    const { language, areaData, world2D, tsv2json, worldData } = props;
     const [display3D, setDisplay3D] = useState(false)
     const classes = useStyle();
     useEffect(() => {
@@ -43,7 +43,7 @@ function International(props: any) {
                 <TwoD world2D={world2D} areaData={areaData} language={language} />
             </div>
             <div style={{ display: display3D ? 'block' : 'none', height: '100vh', width: '100vw' }}>
-                <ThreeD areaData={areaData} language={language} />
+                <ThreeD areaData={areaData} worldData={worldData} tsv2json={tsv2json} language={language} />
             </div>
         </div>
     )
