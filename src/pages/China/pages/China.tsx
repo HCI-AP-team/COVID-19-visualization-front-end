@@ -100,12 +100,13 @@ function China(props: any) {
 
   return (
     <div className={classes.root + ' ChinaMap'} >
-
       <CreateChinaMap language={language} chinaData={chinaData} handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
+
       <div className={classes.labels}>
         <strong>{language ? '累计确诊人数' : 'confirmed count'}</strong>
         {labels.map((el: any, index: number) => <Label key={index} color={el.color} value={el.value} />)}
       </div>
+
       <div id="detail" className={classes.detail}>
         <Slide direction="left" in={checked} mountOnEnter unmountOnExit>
           <Paper elevation={10}>

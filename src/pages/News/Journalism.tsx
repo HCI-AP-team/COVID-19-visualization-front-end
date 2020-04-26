@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     width: '100vw',
     height: '10vh',
     color: '#1d2228',//字体颜色
-    fontSize: '40px',
+    fontSize: '35px',
     textAlign: 'center',
     backgroundColor: '#748ba4'//#E8E8FF
   }

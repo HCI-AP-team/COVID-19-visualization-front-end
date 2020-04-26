@@ -2,28 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42c03ff7-2d91-4902-a176-ef8ab485fc8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/requestNews.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/News/Jumppage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/requestAreaData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/requestAreaData.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/news.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/news.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LanguageChoose.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LanguageChoose.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/China/components/Label.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/China/components/Label.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/China/components/CreateChinaMap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/China/components/CreateChinaMap.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/China/pages/China.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/China/pages/China.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Homepage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Homepage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/News/Journalism.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/News/Journalism.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/city/components/ChooseCity.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/city/components/ChooseCity.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/city/pages/City.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/city/pages/City.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/international/componens/2D.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/international/componens/2D.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/international/componens/3D.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/international/componens/3D.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/international/pages/International.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/international/pages/International.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/province/components/Histogram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/province/components/Histogram.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/province/pages/Province.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/province/pages/Province.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,22 +25,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/News/Journalism.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+            <state relative-caret-position="336">
+              <caret line="31" column="3" lean-forward="true" selection-start-line="22" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/international/componens/SwitchV.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="45" column="50" lean-forward="true" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,17 +37,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/China/pages/China.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="92" column="18" lean-forward="true" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
+            <state relative-caret-position="426">
+              <caret line="108" selection-start-line="107" selection-end-line="108" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/China/components/CreateChinaMap.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/province/pages/Province.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="42" column="52" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="52" />
+            <state relative-caret-position="504">
+              <caret line="43" column="48" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
                 <element signature="e#210#257#0" expanded="true" />
@@ -82,15 +65,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/city/pages/City.tsx">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="71" column="61" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
+            <state relative-caret-position="403">
+              <caret line="31" column="36" lean-forward="true" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
               <folding>
-                <element signature="e#0#25#0" expanded="true" />
-                <element signature="e#216#265#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/province/components/Histogram.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="61" column="37" lean-forward="true" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -120,17 +111,18 @@
         <option value="$PROJECT_DIR$/src/components/LanguageChoose.tsx" />
         <option value="$USER_HOME$/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/0bef55d501a482c9b5631fb13140feed/Message/MessageTemp/a628abdfa162b960770137b5d98378fe/File/src/App.tsx" />
         <option value="$PROJECT_DIR$/src/pages/News/Jumppage.tsx" />
-        <option value="$PROJECT_DIR$/src/App.tsx" />
         <option value="$PROJECT_DIR$/src/pages/Homepage.tsx" />
         <option value="$PROJECT_DIR$/src/pages/international/componens/3D.jsx" />
         <option value="$PROJECT_DIR$/src/pages/international/componens/2D.tsx" />
         <option value="$PROJECT_DIR$/src/pages/international/pages/International.tsx" />
         <option value="$PROJECT_DIR$/src/pages/China/components/Label.tsx" />
+        <option value="$PROJECT_DIR$/src/pages/News/Journalism.tsx" />
         <option value="$PROJECT_DIR$/src/pages/China/pages/China.tsx" />
+        <option value="$PROJECT_DIR$/src/pages/China/components/CreateChinaMap.tsx" />
+        <option value="$PROJECT_DIR$/src/App.tsx" />
+        <option value="$PROJECT_DIR$/src/pages/city/pages/City.tsx" />
         <option value="$PROJECT_DIR$/src/pages/province/components/Histogram.tsx" />
         <option value="$PROJECT_DIR$/src/pages/province/pages/Province.tsx" />
-        <option value="$PROJECT_DIR$/src/pages/News/Journalism.tsx" />
-        <option value="$PROJECT_DIR$/src/pages/city/pages/City.tsx" />
       </list>
     </option>
   </component>
@@ -149,9 +141,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="535" />
+    <option name="x" value="507" />
     <option name="y" value="27" />
-    <option name="width" value="994" />
+    <option name="width" value="983" />
     <option name="height" value="820" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -160,68 +152,68 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="COVID-19-visualization-front-end-masker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="COVID-19-visualization-front-end-masker" type="462c0819:PsiDirectoryNode" />
+              <item name="COVID-19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="COVID-19" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="COVID-19-visualization-front-end-masker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="COVID-19-visualization-front-end-masker" type="462c0819:PsiDirectoryNode" />
+              <item name="COVID-19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="COVID-19" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="COVID-19-visualization-front-end-masker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="COVID-19-visualization-front-end-masker" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="COVID-19-visualization-front-end-masker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="COVID-19-visualization-front-end-masker" type="462c0819:PsiDirectoryNode" />
+              <item name="COVID-19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="COVID-19" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="China" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="COVID-19-visualization-front-end-masker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="COVID-19-visualization-front-end-masker" type="462c0819:PsiDirectoryNode" />
+              <item name="COVID-19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="COVID-19" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="China" type="462c0819:PsiDirectoryNode" />
+              <item name="city" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="COVID-19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="COVID-19" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="city" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="COVID-19-visualization-front-end-masker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="COVID-19-visualization-front-end-masker" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="China" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="COVID-19-visualization-front-end-masker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="COVID-19-visualization-front-end-masker" type="462c0819:PsiDirectoryNode" />
+              <item name="COVID-19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="COVID-19" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="province" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="COVID-19-visualization-front-end-masker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="COVID-19-visualization-front-end-masker" type="462c0819:PsiDirectoryNode" />
+              <item name="COVID-19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="COVID-19" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="province" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="COVID-19" type="b2602c69:ProjectViewProjectNode" />
+              <item name="COVID-19" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="province" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -276,18 +268,19 @@
       <workItem from="1587547905940" duration="1945000" />
       <workItem from="1587692140508" duration="19638000" />
       <workItem from="1587896406350" duration="2863000" />
-      <workItem from="1587903384608" duration="3342000" />
+      <workItem from="1587903384608" duration="3690000" />
+      <workItem from="1587907128588" duration="1318000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37379000" />
+    <option name="totallyTimeSpent" value="39045000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="535" y="27" width="994" height="820" extended-state="0" />
+    <frame x="507" y="27" width="983" height="820" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49861878" visible="true" weight="0.18907563" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49861878" visible="true" weight="0.21679065" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -357,13 +350,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/city/components/CityCard.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="29" column="48" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/city/components/ChooseCity.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-90">
@@ -396,11 +382,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/serviceWorker.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1669">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state relative-caret-position="-1669" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/setupTests.ts">
@@ -416,13 +398,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yarn.lock">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Memberpage.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-589">
-          <caret line="19" column="10" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/News/List.tsx" />
     <entry file="file://$PROJECT_DIR$/src/pages/province/components/SelectBox.tsx">
@@ -453,9 +428,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -507,9 +479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -517,9 +486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
-          <folding>
-            <element signature="e#225#249#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -527,23 +493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Homepage.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="35" lean-forward="true" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -556,9 +505,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2048">
           <caret line="207" column="38" lean-forward="true" selection-start-line="207" selection-start-column="38" selection-end-line="207" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -566,9 +512,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="131" column="93" lean-forward="true" selection-start-line="131" selection-start-column="4" selection-end-line="131" selection-end-column="93" />
-          <folding>
-            <element signature="e#0#114#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -576,18 +519,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="451">
           <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/China/components/CreateChinaMap.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-609">
-          <caret line="74" column="9" lean-forward="true" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/App.test.tsx">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/China/components/DisplayDetail.tsx">
       <provider selected="true" editor-type-id="text-editor">
@@ -601,61 +537,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/province/components/Histogram.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="95" column="12" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/China/pages/China.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="92" column="18" lean-forward="true" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/province/pages/Province.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="42" column="52" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-            <element signature="e#210#257#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.test.tsx">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/News/Journalism.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/international/componens/SwitchV.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="45" column="50" lean-forward="true" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
+        <state relative-caret-position="615">
+          <caret line="45" column="50" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Memberpage.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Homepage.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/China/pages/China.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="108" selection-start-line="107" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/China/components/CreateChinaMap.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/city/pages/City.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="71" column="61" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
+        <state relative-caret-position="240">
+          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
             <element signature="e#216#265#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/city/components/CityCard.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/News/Journalism.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="31" column="3" lean-forward="true" selection-start-line="22" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="31" column="36" lean-forward="true" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/province/components/Histogram.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="61" column="37" lean-forward="true" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/province/pages/Province.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="43" column="48" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#210#257#0" expanded="true" />
           </folding>
         </state>
       </provider>

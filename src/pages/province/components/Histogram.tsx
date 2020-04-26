@@ -47,6 +47,7 @@ function Histogram(props: any) {
             chart.data(data);
             chart.scale({
                 value: {
+
                     max: data[data.length - 1].value * 1.2,// 设定横坐标最大值,因为已经排序了,所以选取最后一个
                     min: 0,
                     alias: language ? '单位/人' : 'people',//横坐标显示
@@ -57,8 +58,9 @@ function Histogram(props: any) {
                 title: {
                     offset: 10,
                     style: {
+                        fill: '#1d2228',
                         fontSize: 18,
-                        fontWeight: 800,
+                        fontWeight: 800
                     },
                 },
                 tickLine: null,
@@ -69,6 +71,7 @@ function Histogram(props: any) {
                 title: {
                     offset: 5,
                     style: {
+                        fill: '#1d2228',
                         fontSize: 18,
                         fontWeight: 800,
                     },
@@ -81,7 +84,7 @@ function Histogram(props: any) {
                 .size(18)
                 .label('value', {
                     style: {
-                        fill: '#8d8d8d',
+                        fill: '#1d2228',
                         fontWeight: 800
                     },
                     offset: 10,

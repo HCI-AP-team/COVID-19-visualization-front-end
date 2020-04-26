@@ -88,7 +88,7 @@ const CreateChinaMap = (props: any) => {
       //每个省份都添加事件来确认鼠标位置
       tempPath.mouseover(
         () => {
-          tempPath.attr("fill", "#ffff00")
+          tempPath.attr("fill", "#fdff92")
         }
       )
 
@@ -113,7 +113,7 @@ const CreateChinaMap = (props: any) => {
       //每个省份都添加事件来确认鼠标位置
       text.mouseover(
         () => {
-          tempPath.attr("fill", "#ffff00")
+          tempPath.attr("fill", "#fdff92")
         }
       )
 

@@ -28,7 +28,8 @@ const City = React.lazy(() => import('./pages/city/pages/City'));
 
 const useStyles = makeStyles(theme => ({
       root: {
-        transition: 'all 1s linear'
+        transition: 'all 1s linear',
+          backgroundColor: '#748ba4'
       },
       gitBut: {
         position: 'absolute',

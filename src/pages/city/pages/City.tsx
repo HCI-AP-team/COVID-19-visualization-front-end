@@ -21,9 +21,9 @@ const useStyles = makeStyles({
 
     h1: {
         width: '100vw',
-        height: '10vh',
+        height: '8vh',
         color: '#1d2228',//字体颜色
-        fontSize: '40px',
+        fontSize: '35px',
         textAlign: 'center',
         backgroundColor: '#748ba4'//#E8E8FF
     }

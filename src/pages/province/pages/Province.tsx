@@ -41,7 +41,7 @@ function Province(props: any) {
     }, [language, chinaData, displayLabel])
     return (
         <div className={classes.root + ' ProvinceMap'}>
-            <h1 >{language ? '省份概览' : 'Province Overview'}</h1>
+            <h1 >{language ? '省份概览' : 'Provinces Overview'}</h1>
             <div className={classes.chooseInput}>
                 <SelectBox displayLabel={displayLabel} language={language} setDisplayLabel={setDisplayLabel} />
             </div>
