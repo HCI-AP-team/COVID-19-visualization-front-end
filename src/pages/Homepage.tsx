@@ -19,6 +19,16 @@ const useStyles = makeStyles({
             width: '70vw'
         }
     },
+    load: {
+        height: '60vh',
+        width: '60vw',
+        margin: '20vh auto',
+        color: 'white',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+    },
     hint: {
         textAlign: 'center',
         color: 'white',
@@ -51,8 +61,13 @@ function Homepage(props: any) {
         <div className={classes.root}>
             {
                 displayText ?
-                    <p>{language ? str : 'This is a unprecedented epidemic, a challenge for all mankind, nobody can escape.'}</p> :
-                    <CircularProgress size={90} thickness={6} />
+                    <p>{language ? str : 'This is a unprecedented epidemic, a challenge for all mankind, nobody can escape.'}</p>
+                    :
+                    <div className={classes.load}>
+                        <CircularProgress size={90} thickness={6} />
+                        <div>数据请求中,请等待....</div>
+                        <div>Data loading.... Please wait....</div>
+                    </div>
             }
             <div className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>{language ? '下滑了解更多' : 'Slide to learn more'}⬇️</div>
             <div className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>{language ? '右侧按钮可以快速换页' : 'The right button can quickly change the page'}➡️</div>

@@ -15,8 +15,8 @@ const useStyle = makeStyles({
         fontSize: '16px',
         overflow: 'scroll',
         backgroundColor: 'white',
-        '& p':{
-            margin:0
+        '& p': {
+            margin: 0
         }
     }
 })
@@ -60,11 +60,11 @@ const DetailCard = (props: any) => {
                     case "deadCount":
                         return <p key={el}>{`${language ? '死亡数: ' : 'dead count: '}${countryData[el]}`}</p>
                     case "updateTime":
-                        return <p key={el}>{`${language ? '更新时间: ' : 'update time: '}${getTime(countryData[el])}`}</p>
+                        return <p key={el}>{`${language ? '更新时间: ' : 'update time: '}${getTime(countryData[el] ? countryData[el] : (new Date().getTime()))}`}</p>
                     default:
                         return ''
                 }
-            }) : <p style={{textAlign:'center'}}>{language?'数据缺失':'data loss'}</p>}
+            }) : <p style={{ textAlign: 'center' }}>{language ? '数据缺失' : 'data loss'}</p>}
         </div>
     )
 }

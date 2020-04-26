@@ -16,7 +16,7 @@ import requestWorld2DData from './api/requestWorld2DData'
 import requestWorld3DData from './api/requestWorld3DData'
 import requestWorld3DMapData from './api/requestWorld3DMapData'
 import requestChinaMapData from './api/requestChinaMapData'
-import VoiceHelper from './components/VoiceHelper'
+// import VoiceHelper from './components/VoiceHelper'
 // //异步加载
 const City = React.lazy(() => import('./pages/city/pages/City'));
 const Journalism = React.lazy(() => import('./pages/News/Journalism'));
@@ -99,7 +99,7 @@ function App() {
         </GitHubButton>
       </div>
       <DirectionButton language={language} />
-      <VoiceHelper language={language} />
+      {/* <VoiceHelper language={language} /> */}
       <ErrorBound>
         <Homepage setLanguage={setLanguage} language={language} displayText={displayText} />
       </ErrorBound>
