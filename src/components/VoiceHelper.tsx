@@ -180,9 +180,6 @@ function VoiceHelper(props: any) {
                     <DialogContentText style={{ display: `${!load ? 'block' : 'none'}` }} id="alert-dialog-description">
                         {language ? "可能需要较长的时间加载" : "it will cost a long time to load"}
                     </DialogContentText>
-                    <DialogContentText style={{ display: `${!load ? 'block' : 'none'}` }} id="alert-dialog-description">
-                        {language ? "此功能只能在Chrome浏览器使用" : "This function only support Chrome browser."}
-                    </DialogContentText>
                     <DialogContentText style={{ display: `${load ? 'block' : 'none'}` }} id="alert-dialog-description">
                         {language ? `操作提示:` : "Hint:"}
                     </DialogContentText>
