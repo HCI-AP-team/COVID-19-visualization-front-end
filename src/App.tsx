@@ -18,10 +18,17 @@ import VoiceHelper from './components/VoiceHelper'
 
 import requestAreaData from './api/requestAreaData'
 import requestWorld2DData from './api/requestWorld2DData'
+<<<<<<< HEAD
 import requestNews from './api/requestNews'
 
 
 
+=======
+import requestWorld3DData from './api/requestWorld3DData'
+import requestWorld3DMapData from './api/requestWorld3DMapData'
+import requestChinaMapData from './api/requestChinaMapData'
+// import VoiceHelper from './components/VoiceHelper'
+>>>>>>> 3423589c694f41c53a90e969028da3328ac466a1
 // //异步加载
 const City = React.lazy(() => import('./pages/city/pages/City'));
 //const Journalism = React.lazy(() => import('./pages/News/Journalism'));
@@ -57,7 +64,13 @@ function App() {
   const [areaData, setAreaData] = useState()//世界疫情数据
   const [chinaData, setChinaData] = useState()//疫情数据
   const [world2D, setWorld2D] = useState()//2D世界地图数据
+<<<<<<< HEAD
   const [newsData, setNewsData] = useState([])//新闻数据
+=======
+  const [worldData, setWorldData] = useState()//3D世界地图
+  const [tsv2json, setTsv2json] = useState()//3D世界国家数据
+  const [chinaMapData, setChinaMapData] = useState()
+>>>>>>> 3423589c694f41c53a90e969028da3328ac466a1
   const handleClose = () => {
     setOpen(false);
   };
@@ -69,13 +82,29 @@ function App() {
       let data = await requestAreaData()//请求疫情数据
       setAreaData(data)
 
+<<<<<<< HEAD
       let tempChinaData = data.results.filter((el: any): {} | undefined => el.countryName === '中国' && el.provinceShortName !== "中国");
       tempChinaData = tempChinaData.filter((el: any) => el !== undefined)
       setChinaData(tempChinaData);
+=======
+      data = data.results.filter((el: any): {} | undefined =>
+        el.countryName === '中国' && el.provinceShortName !== "中国"
+      );
+      data = data.filter((el: any) => el !== undefined)
+      setChinaData(data);
 
-      let dataWorld2D = await requestWorld2DData();//2D世界数据
-      setWorld2D(dataWorld2D)
+      data = await requestWorld2DData();//2D世界数据
+      setWorld2D(data);
+>>>>>>> 3423589c694f41c53a90e969028da3328ac466a1
 
+      data = await requestWorld3DData();
+      setWorldData(data);
+
+      data = await requestWorld3DMapData();
+      setTsv2json(data.results);
+
+      data = await requestChinaMapData();
+      setChinaMapData(data)
       setTimeout(() => setDisplayText(true), 0)//将文字是否显示放在宏任务队列末尾
 
       let news = await requestNews()//news信息
@@ -97,10 +126,11 @@ function App() {
         </GitHubButton>
       </div>
       <DirectionButton language={language} />
-      <VoiceHelper language={language} />
+      {/* <VoiceHelper language={language} /> */}
       <ErrorBound>
         <Homepage setLanguage={setLanguage} language={language} displayText={displayText} />
       </ErrorBound>
+<<<<<<< HEAD
 
       <International language={language} world2D={world2D} areaData={areaData} />
       <China language={language} chinaData={chinaData} />
@@ -113,6 +143,27 @@ function App() {
       </Suspense>
 
 
+=======
+      <ErrorBound>
+        <International language={language} tsv2json={tsv2json} worldData={worldData} world2D={world2D} areaData={areaData} />
+      </ErrorBound>
+      <ErrorBound>
+        <China chinaMapData={chinaMapData} language={language} chinaData={chinaData} />
+      </ErrorBound>
+      <ErrorBound>
+        <Province language={language} chinaData={chinaData} />
+      </ErrorBound>
+      <ErrorBound>
+        <Suspense fallback={<Loading />}>
+          <City language={language} chinaData={chinaData} />
+        </Suspense>
+      </ErrorBound>
+      <ErrorBound>
+        <Suspense fallback={<Loading />}>
+          <Journalism language={language} />
+        </Suspense>
+      </ErrorBound>
+>>>>>>> 3423589c694f41c53a90e969028da3328ac466a1
 
 
 

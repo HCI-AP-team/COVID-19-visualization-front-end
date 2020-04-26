@@ -4,10 +4,10 @@ import red from '@material-ui/core/colors/red';
 import { makeStyles } from '@material-ui/core/styles';
 import * as d3 from "d3";
 import * as topojson from 'topojson';
-import worldData from '../../../assets/worldData.json'
+// import worldData from '../../../assets/worldData.json'
 import versor from 'versor';
 // import areaData from '../../../assets/areaData'
-import tsv2json from '../../../assets/tsv2json.json'
+// import tsv2json from '../../../assets/tsv2json.json'
 import DetailCard from './DetailCard';
 const useStyles = makeStyles(theme => ({
     globe: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
 }))
 function Earth(props) {
     const [countryData, setCountryData] = useState()
-    const { areaData, language } = props;
+    const { areaData, language, tsv2json, worldData } = props;
     const classes = useStyles();
     const getColor = (value) => {
         if (value < 500) {
@@ -337,7 +337,7 @@ function Earth(props) {
 
         setAngles()
 
-        if (areaData)
+        if (areaData&&tsv2json&&worldData)
             loadData(function (world, cList) {
                 land = topojson.feature(world, world.objects.land)
                 countries = topojson.feature(world, world.objects.countries)
@@ -365,7 +365,7 @@ function Earth(props) {
         //     setCountryData(temp[0])
         // })
 
-    }, [areaData])
+    }, [areaData, tsv2json, worldData])
     return (
         <div style={{ height: '100vh', width: '100vw', position: 'relative' }}>
             <h2 id="current" className={classes.current}></h2>

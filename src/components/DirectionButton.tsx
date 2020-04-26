@@ -35,9 +35,10 @@ export default function DirectionButton(props: any) {
 
   //下面几个状态保存的是是否浏览过该页面
   const [worldF, setWorldF] = useState(false);
-  const [chinaF, setchinaF] = useState(false)
+  const [chinaF, setChinaF] = useState(false)
   const [provinceF, setProvinceF] = useState(false);
   const [cityF, setCityF] = useState(false);
+  const [newsF, setNewsF] = useState(false);
   const [position, setPosition] = useState<string | null>('home');
   const handleClick = (event: React.MouseEvent<HTMLElement>, position: string | null) => {
     setPosition(position);
@@ -50,11 +51,13 @@ export default function DirectionButton(props: any) {
       if (window.scrollY > window.innerHeight * 0.5 && window.scrollY < window.innerHeight * 1.5)
         setWorldF(true)
       if (window.scrollY > window.innerHeight * 1.5 && window.scrollY < window.innerHeight * 2.5)
-        setchinaF(true)
+        setChinaF(true)
       if (window.scrollY > window.innerHeight * 2.5 && window.scrollY < window.innerHeight * 3.5)
         setProvinceF(true)
       if (window.scrollY > window.innerHeight * 3.5 && window.scrollY < window.innerHeight * 4.5)
         setCityF(true)
+      if (window.scrollY > window.innerHeight * 4.5 && window.scrollY < window.innerHeight * 5.5)
+        setNewsF(true)
     })
   }, [])
 
@@ -102,7 +105,7 @@ export default function DirectionButton(props: any) {
         </Tooltip>
         <Tooltip enterDelay={1} title={language ? "新闻" : "News"} placement="left">
           <ToggleButton value="News" style={{ color: scrollPosition > window.innerHeight * 4.5 && scrollPosition < window.innerHeight * 5.5 ? 'black' : 'rgba(0, 0, 0, 0.38' }} onClick={() => { window.scrollTo({ top: window.innerHeight * 5, behavior: 'smooth' }) }}>
-            <Badge color="secondary" invisible={cityF} badgeContent=" " variant="dot">
+            <Badge color="secondary" invisible={newsF} badgeContent=" " variant="dot">
               <FiberNew />
             </Badge>
           </ToggleButton>
