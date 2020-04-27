@@ -1,68 +1,4 @@
 {
-<<<<<<< HEAD
-    "name": "font-end",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "@antv/g2": "^4.0.1",
-        "@antv/l7-react": "^2.1.0",
-        "@material-ui/core": "^4.9.11",
-        "@material-ui/icons": "^4.9.1",
-        "@material-ui/lab": "^4.0.0-alpha.46",
-        "@tensorflow-models/speech-commands": "^0.4.2",
-        "@tensorflow/tfjs": "^1.7.2",
-        "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.3.2",
-        "@testing-library/user-event": "^7.1.2",
-        "@types/jest": "^24.0.0",
-        "@types/node": "^12.0.0",
-        "@types/raphael": "^2.1.30",
-        "@types/react": "^16.9.34",
-        "@types/react-dom": "^16.9.0",
-        "d3": "^5.15.1",
-        "d3-geo": "^1.11.9",
-        "raphael": "^2.3.0",
-        "react": "^16.13.0",
-        "react-dom": "^16.13.0",
-        "react-github-btn": "^1.1.1",
-        "react-router-dom": "^5.1.2",
-        "react-scripts": "3.4.0",
-        "scrollreveal": "^4.0.6",
-        "topojson": "^3.0.2",
-        "typescript": "~3.7.2",
-        "versor": "^0.1.2"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
-    },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "homepage": "https://hci-ap-team.github.io/COVID-19-visualization-front-end/",
-    "proxy": "https://hci-ap-team.github.io/COVID-19-visualization-front-end/",
-    "devDependencies": {
-        "@types/d3": "^5.7.2",
-        "@types/react-router-dom": "^5.1.3",
-        "@types/scrollreveal": "^0.0.6",
-        "@types/topojson": "^3.2.2"
-    }
-}
-=======
   "name": "font-end",
   "version": "0.1.0",
   "private": true,
@@ -88,7 +24,6 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-github-btn": "^1.1.1",
-    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "scrollreveal": "^4.0.6",
     "topojson": "^3.0.2",
@@ -124,4 +59,3 @@
     "@types/topojson": "^3.2.2"
   }
 }
->>>>>>> 3423589c694f41c53a90e969028da3328ac466a1

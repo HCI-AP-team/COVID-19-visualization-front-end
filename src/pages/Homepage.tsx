@@ -56,23 +56,11 @@ function Homepage(props: any) {
         if (displayText)//如果全部加载完成,开始显示文字
             disStr();
     }, [displayText])
-<<<<<<< HEAD
-
-
-
     useEffect(() => { }, [language])
-
-=======
-    useEffect(() => { }, [language])
->>>>>>> 3423589c694f41c53a90e969028da3328ac466a1
     return (
         <div className={classes.root}>
             {
                 displayText ?
-<<<<<<< HEAD
-                    <p>{language ? str : 'This is an unprecedented epidemic, a challenge for all mankind, nobody can escape.'}</p> :
-                    <CircularProgress size={90} thickness={6} />
-=======
                     <p>{language ? str : 'This is a unprecedented epidemic, a challenge for all mankind, nobody can escape.'}</p>
                     :
                     <div className={classes.load}>
@@ -80,7 +68,6 @@ function Homepage(props: any) {
                         <div>数据请求中,请等待....</div>
                         <div>Data loading.... Please wait....</div>
                     </div>
->>>>>>> 3423589c694f41c53a90e969028da3328ac466a1
             }
             <div className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>{language ? '下滑了解更多' : 'Slide to learn more'}⬇️</div>
             <div className={classes.hint} style={{ opacity: showHint ? 1 : 0 }}>{language ? '右侧按钮可以快速换页' : 'The right button can quickly change the page'}➡️</div>

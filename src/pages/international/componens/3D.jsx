@@ -198,7 +198,7 @@ function Earth(props) {
 
         function render() {
             // 清除画布内容
-            context.fillStyle = '#748ba4';
+            context.fillStyle = '#fff9c4';
             context.fillRect(0, 0, width, height)
 
             // 填充水

@@ -11,14 +11,12 @@ const useStyle = makeStyles({
         height: '100vh',
         width: '100vw',
         position: 'relative',
-        backgroundColor: '#748ba4'
     },
     switchV: {
         position: 'absolute',
         top: '2px',
         left: '10px',
         zIndex: 5,
-        backgroundColor: '#748ba4'
     }
 })
 function International(props: any) {

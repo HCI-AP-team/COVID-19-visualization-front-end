@@ -10,13 +10,13 @@ const useStyles = makeStyles({
         width: '100vw',
         height: '100vh',
         position: 'relative',
-        backgroundColor: '#748ba4'//#fff9c4
+
     },
     cityCards: {
         position: 'absolute',
         right: '15vw',
         top: '30vh',
-        backgroundColor: '#748ba4'
+
     },
 
     h1: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles({
         color: '#1d2228',//字体颜色
         fontSize: '35px',
         textAlign: 'center',
-        backgroundColor: '#748ba4'//#E8E8FF
+        
     }
 })
 function City(props: any) {

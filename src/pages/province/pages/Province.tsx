@@ -13,7 +13,6 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#748ba4'
     },
     chooseInput: {
         display: 'flex',

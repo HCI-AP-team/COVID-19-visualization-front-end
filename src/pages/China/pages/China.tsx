@@ -15,7 +15,6 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#748ba4'
   },
   labels: {
     marginTop: '20vh',
@@ -48,7 +47,7 @@ const useStyles = makeStyles({
         color: '#1d2228',//字体颜色
         fontSize: '50px',
         textAlign: 'center',
-        backgroundColor: '#748ba4'//#E8E8FF
+        
     }
 })
 
@@ -60,27 +59,23 @@ function China(props: any) {
   const labels: object[] = [
     {
       color: red[50],
-      value: '0-49'
-    },
-    {
-      color: red[100],
-      value: '50-99'
+      value: '0-10'
     },
     {
       color: red[200],
-      value: '100-499'
+      value: '10-49'
     },
     {
       color: red[400],
-      value: '500-999'
+      value: '50-99'
     },
     {
       color: red[600],
-      value: '1000-2000'
+      value: '100-200'
     },
     {
       color: red[900],
-      value: '2000+'
+      value: '200+'
     }
   ]
   const classes = useStyles()
@@ -100,14 +95,9 @@ function China(props: any) {
 
   return (
     <div className={classes.root + ' ChinaMap'} >
-<<<<<<< HEAD
-      <CreateChinaMap language={language} chinaData={chinaData} handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
-
-=======
       <CreateChinaMap  chinaMapData={chinaMapData} language={language} chinaData={chinaData} handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
->>>>>>> 3423589c694f41c53a90e969028da3328ac466a1
       <div className={classes.labels}>
-        <strong>{language ? '累计确诊人数' : 'confirmed count'}</strong>
+        <strong>{language ? '当前确诊人数' : 'current confirmed count'}</strong>
         {labels.map((el: any, index: number) => <Label key={index} color={el.color} value={el.value} />)}
       </div>
 

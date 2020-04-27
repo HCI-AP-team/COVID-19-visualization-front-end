@@ -14,44 +14,33 @@ import JourNalism from './pages/News/Journalism'
 import DirectionButton from './components/DirectionButton'
 import ErrorBound from './components/ErrorBound'
 import Loading from './components/Loading'
-import VoiceHelper from './components/VoiceHelper'
-
 import requestAreaData from './api/requestAreaData'
 import requestWorld2DData from './api/requestWorld2DData'
-<<<<<<< HEAD
 import requestNews from './api/requestNews'
-
-
-
-=======
 import requestWorld3DData from './api/requestWorld3DData'
 import requestWorld3DMapData from './api/requestWorld3DMapData'
 import requestChinaMapData from './api/requestChinaMapData'
 // import VoiceHelper from './components/VoiceHelper'
->>>>>>> 3423589c694f41c53a90e969028da3328ac466a1
 // //异步加载
 const City = React.lazy(() => import('./pages/city/pages/City'));
-//const Journalism = React.lazy(() => import('./pages/News/Journalism'));
 
 const useStyles = makeStyles(theme => ({
-      root: {
-        transition: 'all 1s linear',
-          backgroundColor: '#748ba4'
-      },
-      gitBut: {
-        position: 'absolute',
-        top: '10px',
-        left: '10px'
-      },
-      backdrop: {
-        zIndex: theme.zIndex.drawer + 2,
-        color: '#748ba4',
-      },
-      bdButton: {
-        position: 'fixed',
-        right: '10px',
-        top: '10px'
-      }
+  root: {
+    transition: 'all 1s linear',
+  },
+  gitBut: {
+    position: 'absolute',
+    top: '10px',
+    left: '10px'
+  },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 2,
+  },
+  bdButton: {
+    position: 'fixed',
+    right: '10px',
+    top: '10px'
+  }
 }));
 
 var pls = localStorage.getItem('language') == "2" ? false : true
@@ -59,18 +48,14 @@ function App() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);//关于我们  这一部分的开关状态
   const [language, setLanguage] = useState(Boolean(pls));//设定显示的语言,true为中文,false 为英语
-  console.log(language)
   const [displayText, setDisplayText] = useState(false)//设定首页的逐个文字显示
   const [areaData, setAreaData] = useState()//世界疫情数据
   const [chinaData, setChinaData] = useState()//疫情数据
   const [world2D, setWorld2D] = useState()//2D世界地图数据
-<<<<<<< HEAD
   const [newsData, setNewsData] = useState([])//新闻数据
-=======
   const [worldData, setWorldData] = useState()//3D世界地图
   const [tsv2json, setTsv2json] = useState()//3D世界国家数据
   const [chinaMapData, setChinaMapData] = useState()
->>>>>>> 3423589c694f41c53a90e969028da3328ac466a1
   const handleClose = () => {
     setOpen(false);
   };
@@ -82,11 +67,9 @@ function App() {
       let data = await requestAreaData()//请求疫情数据
       setAreaData(data)
 
-<<<<<<< HEAD
       let tempChinaData = data.results.filter((el: any): {} | undefined => el.countryName === '中国' && el.provinceShortName !== "中国");
       tempChinaData = tempChinaData.filter((el: any) => el !== undefined)
       setChinaData(tempChinaData);
-=======
       data = data.results.filter((el: any): {} | undefined =>
         el.countryName === '中国' && el.provinceShortName !== "中国"
       );
@@ -95,7 +78,6 @@ function App() {
 
       data = await requestWorld2DData();//2D世界数据
       setWorld2D(data);
->>>>>>> 3423589c694f41c53a90e969028da3328ac466a1
 
       data = await requestWorld3DData();
       setWorldData(data);
@@ -105,14 +87,14 @@ function App() {
 
       data = await requestChinaMapData();
       setChinaMapData(data)
-      setTimeout(() => setDisplayText(true), 0)//将文字是否显示放在宏任务队列末尾
 
-      let news = await requestNews()//news信息
-      setNewsData(news.results)
+      data = await requestNews()//news信息
+      setNewsData(data.results)
+
+      setTimeout(() => setDisplayText(true), 0)//将文字是否显示放在宏任务队列末尾
     }
     fetchData();
   }, [])
-  console.log(language)
   return (
     <div className={classes.root}>
       <div className={classes.gitBut}>
@@ -130,20 +112,6 @@ function App() {
       <ErrorBound>
         <Homepage setLanguage={setLanguage} language={language} displayText={displayText} />
       </ErrorBound>
-<<<<<<< HEAD
-
-      <International language={language} world2D={world2D} areaData={areaData} />
-      <China language={language} chinaData={chinaData} />
-      <Province language={language} chinaData={chinaData} />
-      <Suspense fallback={<Loading />}>
-        <City language={language} chinaData={chinaData} />
-      </Suspense>
-      <Suspense fallback={<Loading />}>
-        <JourNalism language={language} newsData={newsData} />
-      </Suspense>
-
-
-=======
       <ErrorBound>
         <International language={language} tsv2json={tsv2json} worldData={worldData} world2D={world2D} areaData={areaData} />
       </ErrorBound>
@@ -159,14 +127,8 @@ function App() {
         </Suspense>
       </ErrorBound>
       <ErrorBound>
-        <Suspense fallback={<Loading />}>
-          <Journalism language={language} />
-        </Suspense>
+          <JourNalism newsData={newsData} language={language} />
       </ErrorBound>
->>>>>>> 3423589c694f41c53a90e969028da3328ac466a1
-
-
-
       <Button variant="outlined" color="primary" onClick={handleToggle} className={classes.bdButton}>
         {language ? '关于我们' : 'about us'}
       </Button>

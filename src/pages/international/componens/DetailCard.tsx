@@ -64,7 +64,7 @@ const DetailCard = (props: any) => {
                     default:
                         return ''
                 }
-            }) : <p style={{ textAlign: 'center' }}>{language ? '数据缺失' : 'data loss'}</p>}
+            }) : <p style={{ textAlign: 'center' }}>{language ? '未选择国家或当前国家数据缺失' : 'Please choose a country or data of country loss'}</p>}
         </div>
     )
 }

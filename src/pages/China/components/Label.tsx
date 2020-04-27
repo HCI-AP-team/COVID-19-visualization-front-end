@@ -20,10 +20,10 @@ const useLabelStyle = makeStyles({
   
   function Label(props: any) {
     const classes = useLabelStyle();
-    const { color, value ,language} = props;
+    const { color, value} = props;
     return (
       <div className={classes.root}>
-        <div className={classes.label} style={{ backgroundColor: '#748ba4' }}></div>
+        <div className={classes.label} style={{ backgroundColor: color }}></div>
         <span>{value}</span>
       </div>
     )

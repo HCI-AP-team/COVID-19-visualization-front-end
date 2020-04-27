@@ -5,31 +5,27 @@ import raphael from 'raphael';
 // import chinaMap from '../../../assets/chinamapData';
 // import areaData from '../../../assets/areaData';
 const getColor = (value: number): string => {
-  if (value < 50) {
+  if (value < 10) {
     return red[50]
   }
   else {
-    if (value < 100) {
-      return red[100]
+    if (value < 50) {
+      return red[200]
     }
     else {
-      if (value < 500) {
-        return red[200]
+      if (value < 100) {
+        return red[400]
       }
       else {
-        if (value < 1000) {
-          return red[400]
+        if (value < 200) {
+          return red[600]
         }
         else {
-          if (value < 2000) {
-            return red[600]
-          }
-          else {
-            return red[900]
-          }
+          return red[900]
         }
       }
     }
+
   }
 }
 const CreateChinaMap = (props: any) => {
@@ -52,7 +48,7 @@ const CreateChinaMap = (props: any) => {
     // data = data.sort((a: any, b: any) => - b.value + a.value)
     // //console.log(chinaData)
     let data = chinaData.map((el: any) => {
-      return { 省份: el.provinceShortName, province: el.provinceEnglishName, value: el.confirmedCount }
+      return { 省份: el.provinceShortName, province: el.provinceEnglishName, value: el.currentConfirmedCount }
     })
     chinaMapData.paths.forEach((value: any) => {
 
