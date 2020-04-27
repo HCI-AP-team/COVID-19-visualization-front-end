@@ -15,6 +15,18 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection:'column'
+  },
+  title:{
+    height:'10vh',
+    textAlign:'center'
+  },
+  mapRoot: {
+    height: '90vh',
+    width: '100vw',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   labels: {
     marginTop: '20vh',
@@ -41,14 +53,14 @@ const useStyles = makeStyles({
       alignItems: 'center'
     }
   },
-    h1: {
-        width: '100vw',
-        height: '10vh',
-        color: '#1d2228',//字体颜色
-        fontSize: '50px',
-        textAlign: 'center',
-        
-    }
+  h1: {
+    width: '100vw',
+    height: '10vh',
+    color: '#1d2228',//字体颜色
+    fontSize: '50px',
+    textAlign: 'center',
+
+  }
 })
 
 
@@ -95,18 +107,21 @@ function China(props: any) {
 
   return (
     <div className={classes.root + ' ChinaMap'} >
-      <CreateChinaMap  chinaMapData={chinaMapData} language={language} chinaData={chinaData} handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
-      <div className={classes.labels}>
-        <strong>{language ? '当前确诊人数' : 'current confirmed count'}</strong>
-        {labels.map((el: any, index: number) => <Label key={index} color={el.color} value={el.value} />)}
-      </div>
+      <h1 className={classes.title}>{language ? '国内情况' : 'China Situation'}</h1>
+      <div className={classes.mapRoot}>
+        <CreateChinaMap chinaMapData={chinaMapData} language={language} chinaData={chinaData} handleChange={() => setChecked(prev => !prev)} setCurrentChoose={setCurrentChoose} />
+        <div className={classes.labels}>
+          <strong>{language ? '当前确诊人数' : 'current confirmed count'}</strong>
+          {labels.map((el: any, index: number) => <Label key={index} color={el.color} value={el.value} />)}
+        </div>
 
-      <div id="detail" className={classes.detail}>
-        <Slide direction="left" in={checked} mountOnEnter unmountOnExit>
-          <Paper elevation={10}>
-            <DisplayDetail chinaData={chinaData} language={language} currentChoose={currentChoose} />
-          </Paper>
-        </Slide>
+        <div id="detail" className={classes.detail}>
+          <Slide direction="left" in={checked} mountOnEnter unmountOnExit>
+            <Paper elevation={10}>
+              <DisplayDetail chinaData={chinaData} language={language} currentChoose={currentChoose} />
+            </Paper>
+          </Slide>
+        </div>
       </div>
     </div>
   )
