@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     cityCards: {
         position: 'absolute',
         right: '15vw',
-        top: '30vh',
+        top: '45vh',
 
     },
 

@@ -10,7 +10,7 @@ const useStyle = makeStyles(theme => ({
         position: 'absolute',
         transition: '1s all linear',
         right: '65vw',
-        top: '30vh',
+        top: '45vh',
     },
     searchComponents: {
         display: 'flex',
@@ -45,6 +45,12 @@ function ChooseCity(props: any) {
             :
             console.log('empty cityData')
 
+        allCityArr = allCityArr.map((el: any) => {
+            if (el.cityEnglishName == '"null"')
+                el.cityEnglishName = 'External input'
+            return el;
+        })
+        // console.log(allCityArr)
         //将所有城市数据储存在状态中
         allCityArr ?
             setAllCityArray(allCityArr)
@@ -135,7 +141,7 @@ function ChooseCity(props: any) {
                                         language ?
                                             option.cityName
                                             :
-                                            (option.cityEnglishName ? option.cityEnglishName : option.provinceEnglishName)
+                                            option.cityEnglishName || option.provinceEnglishName
                                 }
                                 renderInput={params => (
                                     <TextField {...params} inputRef={inputRef} label={language ? "城市名称" : 'city name'} margin="normal" variant="outlined" />

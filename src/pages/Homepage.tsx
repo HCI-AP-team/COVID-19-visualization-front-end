@@ -61,7 +61,7 @@ function Homepage(props: any) {
         <div className={classes.root}>
             {
                 displayText ?
-                    <p>{language ? str : 'This is a unprecedented epidemic, a challenge for all mankind, nobody can escape.'}</p>
+                    <p>{language ? str : 'This is an unprecedented epidemic, a challenge for all mankind, nobody can escape.'}</p>
                     :
                     <div className={classes.load}>
                         <CircularProgress size={90} thickness={6} />
