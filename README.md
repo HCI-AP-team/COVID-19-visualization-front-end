@@ -34,7 +34,7 @@ yarn start
 - :pencil2: raphael
 - :ant: antv
 - :scroll: raphael
-- :computer: tensorflow-js (need https)
+- :computer: tensorflow-js
 
 # Tasklist
 - [x] Homepage display

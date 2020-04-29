@@ -34,7 +34,7 @@ yarn start
 - :pencil2: d3
 - :ant: antv
 - :scroll: raphael
-- :computer: tensorflow-js (need https)
+- :computer: tensorflow-js
 
 
 # 任务列表
