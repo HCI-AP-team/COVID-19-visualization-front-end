@@ -33,6 +33,8 @@ yarn start
 - :gem: material-ui
 - :pencil2: raphael
 - :ant: antv
+- :scroll: raphael
+- :computer: tensorflow-js (need https)
 
 # Tasklist
 - [x] Homepage display
@@ -40,3 +42,4 @@ yarn start
 - [x] General situation of China
 - [x] Provinces comparison
 - [x] Cities detail
+- [x] News

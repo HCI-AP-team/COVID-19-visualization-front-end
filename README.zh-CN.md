@@ -31,8 +31,11 @@ yarn start
 - :warning: typescript
 - :eyes: jss
 - :gem: material-ui
-- :pencil2: raphael
+- :pencil2: d3
 - :ant: antv
+- :scroll: raphael
+- :computer: tensorflow-js (need https)
+
 
 # 任务列表
 - [x] 主页展示
@@ -40,3 +43,4 @@ yarn start
 - [x] 中国情况概览
 - [x] 国内各省份对比
 - [x] 城市详情
+- [x] 新闻
