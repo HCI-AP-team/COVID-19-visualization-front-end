@@ -33,7 +33,7 @@ yarn start
 - :gem: material-ui
 - :pencil2: d3
 - :ant: antv
-- :scroll: raphael
+- :scroll: scrollreveal
 - :computer: tensorflow-js
 
 

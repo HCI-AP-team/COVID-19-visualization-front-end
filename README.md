@@ -31,9 +31,9 @@ yarn start
 - :warning: typescript
 - :eyes: jss
 - :gem: material-ui
-- :pencil2: raphael
+- :pencil2: d3
 - :ant: antv
-- :scroll: raphael
+- :scroll: scrollreveal
 - :computer: tensorflow-js
 
 # Tasklist
