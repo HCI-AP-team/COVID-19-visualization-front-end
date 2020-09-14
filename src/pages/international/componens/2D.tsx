@@ -70,6 +70,7 @@ function joinData(geodata: any, ncovData: any) {
     }
   });
   const geoObj: any = {};
+  console.log(geodata)
   geodata.features.forEach((feature: any) => {
     const { name } = feature.properties;
     geoObj[name] = feature.properties;

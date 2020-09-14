@@ -14,12 +14,19 @@ import JourNalism from './pages/News/Journalism'
 import DirectionButton from './components/DirectionButton'
 import ErrorBound from './components/ErrorBound'
 import Loading from './components/Loading'
-import requestAreaData from './api/requestAreaData'
-import requestWorld2DData from './api/requestWorld2DData'
-import requestNews from './api/requestNews'
-import requestWorld3DData from './api/requestWorld3DData'
-import requestWorld3DMapData from './api/requestWorld3DMapData'
-import requestChinaMapData from './api/requestChinaMapData'
+// import requestAreaData from './api/requestAreaData'
+// import requestWorld2DData from './api/requestWorld2DData'
+// import requestNews from './api/requestNews'
+// import requestWorld3DData from './api/requestWorld3DData'
+// import requestWorld3DMapData from './api/requestWorld3DMapData'
+// import requestChinaMapData from './api/requestChinaMapData'
+// 归档使用本地数据, 没钱续费前端服务器了
+import twoDearthInfo from './data/2Dearth'
+import areaDataInfo from './data/areaData'
+import chinaMapInfo from './data/chinaMapData'
+import newsInfo from './data/news'
+import tsv2jsonInfo from './data/tsv2json'
+import worldDataInfo from './data/worldData'
 // import VoiceHelper from './components/VoiceHelper'
 // //异步加载
 const City = React.lazy(() => import('./pages/city/pages/City'));
@@ -64,7 +71,8 @@ function App() {
   };
   useEffect(() => {
     const fetchData = async () => {
-      let data = await requestAreaData()//请求疫情数据
+      // let data = await requestAreaData()//请求疫情数据
+      let data = areaDataInfo as any;
       setAreaData(data)
 
       let tempChinaData = data.results.filter((el: any): {} | undefined => el.countryName === '中国' && el.provinceShortName !== "中国");
@@ -76,19 +84,24 @@ function App() {
       data = data.filter((el: any) => el !== undefined)
       setChinaData(data);
 
-      data = await requestWorld2DData();//2D世界数据
+      // data = await requestWorld2DData();//2D世界数据
+      data = twoDearthInfo;
       setWorld2D(data);
 
-      data = await requestWorld3DData();
+      // data = await requestWorld3DData();
+      data = worldDataInfo;
       setWorldData(data);
 
-      data = await requestWorld3DMapData();
+      // data = await requestWorld3DMapData();
+      data = tsv2jsonInfo;
       setTsv2json(data.results);
 
-      data = await requestChinaMapData();
+      // data = await requestChinaMapData();
+      data = chinaMapInfo;
       setChinaMapData(data)
 
-      data = await requestNews()//news信息
+      // data = await requestNews()//news信息
+      data = newsInfo
       setNewsData(data.results)
 
       setTimeout(() => setDisplayText(true), 0)//将文字是否显示放在宏任务队列末尾
