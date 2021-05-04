@@ -43,3 +43,10 @@ yarn start
 - [x] Provinces comparison
 - [x] Cities detail
 - [x] News
+
+# contributor
+<a href="https://github.com/HCI-AP-team/COVID-19-visualization-front-end/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=HCI-AP-team/COVID-19-visualization-front-end" />
+</a>
+
+Made with [contributors-img](https://contrib.rocks).
