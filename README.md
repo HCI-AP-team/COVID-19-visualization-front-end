@@ -49,4 +49,4 @@ yarn start
   <img src="https://contrib.rocks/image?repo=HCI-AP-team/COVID-19-visualization-front-end" />
 </a>
 
-Made with [contributors-img](https://contrib.rocks).
+<!-- Made with [contributors-img](https://contrib.rocks). -->
